@@ -1,4 +1,4 @@
 package com.HijasDelMonte.Ecomerce.Models;
 
-public class Cuentas {
+public class Clientes {
 }
