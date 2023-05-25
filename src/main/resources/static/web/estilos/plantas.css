@@ -10,8 +10,12 @@ header {
 }
 
 /*Nav*/
-nav {
+/* nav {
     background-color: #99A98F;
+} */
+
+nav {
+    background-color: #e1e7dd;
 }
 
 .logo {
@@ -73,6 +77,12 @@ main {
     object-fit: contain;
 }
 
+.card-img img{
+    height: 15rem;
+    width: 15rem;
+    object-fit: cover;
+}
+
 .card-info {
     padding-top: 10%;
 }
@@ -90,7 +100,6 @@ svg {
     padding-top: 10px;
     border-top: 1.5px solid #094b08ac;
     background-color: #aad0c745;
-    margin: 0.5rem;
 }
 
 /*Text*/
@@ -103,7 +112,6 @@ svg {
 
 .text-body {
     font-size: .9em;
-    padding-bottom: 10px;
     text-align: center;
 }
 
