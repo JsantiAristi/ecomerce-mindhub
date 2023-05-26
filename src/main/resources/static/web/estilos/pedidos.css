@@ -50,7 +50,13 @@ li{
     width: 18rem;
     height: 18rem;
 }
-
+/*Pedidos*/
+.contenedorPedidos{
+    margin-top: 49px;
+    background-color:#e8edec;
+    width: 18rem;
+    height: 18rem;
+}
 /*Footer*/
 footer {
     color: white;

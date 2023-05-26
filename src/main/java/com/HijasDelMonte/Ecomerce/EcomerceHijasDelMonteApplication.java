@@ -1,15 +1,24 @@
 package com.HijasDelMonte.Ecomerce;
 
+import com.HijasDelMonte.Ecomerce.Models.Clientes;
+import com.HijasDelMonte.Ecomerce.Models.Genero;
 import com.HijasDelMonte.Ecomerce.Models.Plantas;
 import com.HijasDelMonte.Ecomerce.Models.TipoPlanta;
+import com.HijasDelMonte.Ecomerce.Repositorios.ClientesRepositorio;
 import com.HijasDelMonte.Ecomerce.Repositorios.PlantasRepositorio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalDate;
+
 @SpringBootApplication
 public class EcomerceHijasDelMonteApplication {
+
+	@Autowired
+	private ClientesRepositorio clientesRepositorio;
 
 	public static void main(String[] args) {
 		SpringApplication.run(EcomerceHijasDelMonteApplication.class, args);
@@ -39,6 +48,10 @@ public class EcomerceHijasDelMonteApplication {
 					"Purifica el aire y filtra toxinas al interior de la casa.",
 					"../../assets/orquidea-blanca.jpg", 4, 3000, true );
 			plantasRepositorio.save(orquidea_blanca);
+
+			//Clientes
+			Clientes clientes= new Clientes("Juan", "Rojas", "129010101", "310101010", Genero.MASCULINO, LocalDate.now().minusYears(29), "juan@gmail.com","1234");
+			clientesRepositorio.save(clientes);
 		};
 	};
 
