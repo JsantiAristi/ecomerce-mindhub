@@ -11,6 +11,7 @@ createApp({
             cantidad_plantas: 0,
             rango_precio: 5000,
             filtros_arreglo: "",
+            isAsideInactivo: true,
         }
     },
     created(){
@@ -50,6 +51,9 @@ createApp({
                     return (planta2.precio - planta1.precio);
                 })    
             }
-        }
+        },
+        aparecerCuenta() {
+            this.isAsideInactivo = !this.isAsideInactivo;
+        },
     }
 }).mount("#app")

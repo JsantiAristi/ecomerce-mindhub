@@ -1,0 +1,105 @@
+* {
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #464d41;
+}
+
+/*Nav*/
+nav {
+    background-color: #99A98F;
+}
+
+/* nav {
+    background-color: #e1e7dd;
+} */
+
+.logo {
+    width: 8rem;
+}
+
+.navbar-nav img {
+    width: 1.5rem;
+}
+
+/* Main */
+main {
+    background-color: #f9f5eb;
+}
+
+.div_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_create{
+    width: 500px;
+}
+
+.form_create label{
+    width: 12rem;
+    font-size: 0.9rem;
+}
+
+.form_create input, .form_create textarea, .form_create select{
+    width: 326px;
+}
+
+.form_create button{
+    width: 100%;
+}
+
+.btn_add_product{
+    background-color: rgb(97, 218, 178) !important;
+    color: white !important;
+}
+
+.productImage{
+    width: 9rem;
+    height: 9rem;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
+
+/*Footer*/
+footer {
+    color: white;
+    background-color: #99A98F;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo_empresa img {
+    width: 10rem;
+}
+
+.iconos_footer img {
+    width: 4rem;
+    height: 2rem;
+    padding: 0 1rem;
+}
+
+.medios_pago img {
+    width: 4rem;
+}
+
+.footer_bajo {
+    background-color: #464d41;
+}
+
+@media only screen and (max-width: 700px) {
+    .footer_arriba {
+        display: flex;
+        justify-content: start !important;
+        align-items: center;
+    }
+}
