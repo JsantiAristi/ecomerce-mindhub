@@ -21,6 +21,11 @@ public class PlantasServiciosImplementacion implements PlantasServicios {
     }
 
     @Override
+    public Plantas obtenerPlanta(Long id) {
+        return plantasRepositorio.findById(id).orElse(null);
+    }
+
+    @Override
     public List<PlantasDTO> obtenerPlantasDTO() {
         return plantasRepositorio.findAll().stream().map(PlantasDTO::new).collect(toList());
     }

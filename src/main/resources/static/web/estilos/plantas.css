@@ -6,20 +6,20 @@
 }
 
 header {
-    background-color: #707b69;
+    background-color: #464d41;
 }
 
 /*Nav*/
-/* nav {
-    background-color: #99A98F;
-} */
-
 nav {
-    background-color: #e1e7dd;
+    background-color: #99A98F;
 }
 
+/* nav {
+    background-color: #e1e7dd;
+} */
+
 .logo {
-    width: 9rem;
+    width: 8rem;
 }
 
 .navbar-nav img {
@@ -172,7 +172,7 @@ footer a {
 }
 
 .footer_bajo {
-    background-color: #707b69;
+    background-color: #464d41;
 }
 
 @media only screen and (max-width: 700px) {
