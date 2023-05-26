@@ -573,4 +573,36 @@ footer a{
         align-items: center;
     }
 }
-
+/* Historia */
+.historia{
+  background-image: url(../assets/fondoHistoria.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contenedorHistoria{
+  background-color: rgba(0, 0, 0, 0.416);
+  color:#f5f5f5;
+  /* font-family: 'Barlow', sans-serif; */
+  font-family: 'Roboto Slab', serif;
+  padding: 2rem;
+  text-align: center;
+  margin: 1rem;
+  font-size:x-large;
+}
+.cursosImagen{
+  display: inline-block;
+  width: 50rem;
+  height: 50rem;
+  object-fit: contain;
+}
+.tituloCategorias {
+  text-align: left; 
+  font-family: Arial Black; 
+  font-weight: bold; 
+  font-size: 30px; 
+  color: #094b0898; 
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  }
