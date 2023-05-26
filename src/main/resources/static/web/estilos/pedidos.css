@@ -1,0 +1,82 @@
+*{
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #707b69;
+}
+
+/*Nav*/
+nav {
+    background-color:#e8edec;
+}
+
+.logo {
+    width: 9rem;
+}
+
+.navbar-nav img {
+    width: 1.5rem;
+}
+
+/* Main */
+main {
+    background-color: #f9f5eb;
+    min-height: 95vh;
+}
+/*Perfil*/
+.perfil{
+    height: 10rem;
+    background-color: #e8edec !important;
+}
+.iconoPerfil{
+    height: 5rem;
+    width: 5rem;
+    object-fit: cover;
+}
+a{
+    text-decoration: none;
+    color: #000;
+    font-size: large;
+}
+li{
+    list-style: none;
+}
+.nav{
+    background-color:#e8edec;
+    width: 18rem;
+    height: 18rem;
+}
+
+/*Footer*/
+footer {
+    color: white;
+    background-color: #99A98F;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo_empresa img {
+    width: 10rem;
+}
+
+.iconos_footer img {
+    width: 4rem;
+    height: 2rem;
+    padding: 0 1rem;
+}
+
+.medios_pago img {
+    width: 4rem;
+}
+
+.footer_bajo {
+    background-color: #707b69;
+}
+
