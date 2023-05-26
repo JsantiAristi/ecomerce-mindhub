@@ -20,7 +20,7 @@
 /* Colors */
 :root {
   --color-default: #212529;
-  --color-primary: #ce1212;
+  --color-primary: #094b08;
   --color-secondary: #37373f;
 }
 
@@ -43,7 +43,7 @@ a {
 }
 
 a:hover {
-  color: #ec2727;
+  color: #094b08;
   text-decoration: none;
 }
 
@@ -85,7 +85,7 @@ section {
   font-weight: 400;
   margin: 0;
   padding: 0;
-  color: #7f7f90;
+  color: #fff;
   text-transform: uppercase;
   font-family: var(--font-default);
 }
@@ -195,7 +195,7 @@ section {
     font-family: var(--font-secondary);
     font-size: 16px;
     font-weight: 600;
-    color: #7f7f90;
+    color: #fff;
     white-space: nowrap;
     transition: 0.3s;
     position: relative;
@@ -245,7 +245,7 @@ section {
     z-index: 99;
     opacity: 0;
     visibility: hidden;
-    background: #fff;
+    background: #99A98F;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
     transition: 0.3s;
     border-radius: 4px;
@@ -347,7 +347,7 @@ section {
     border-bottom: 2px solid rgba(255, 255, 255, 0.8);
     font-size: 16px;
     font-weight: 600;
-    color: #7f7f90;
+    color: #fff;
     white-space: nowrap;
     transition: 0.3s;
   }
@@ -422,6 +422,10 @@ section {
     background: rgba(255, 255, 255, 0.8);
     z-index: 9996;
   }
+}
+
+main{
+  background-color: #fff8de91 !important;
 }
 /*Mapa*/
 #secccionMapa h2 b{
@@ -575,7 +579,7 @@ footer a{
 }
 /* Historia */
 .historia{
-  background-image: url(../assets/fondoHistoria.jpg);
+  background-image: url(../../assets/fondoHistoria.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -591,12 +595,14 @@ footer a{
   text-align: center;
   margin: 1rem;
   font-size:x-large;
+  letter-spacing: 3px;   
+
 }
-.cursosImagen{
+.categoriasImagen{
   display: inline-block;
-  width: 50rem;
-  height: 50rem;
+  width: 20rem;
   object-fit: contain;
+  border-radius: 60px;
 }
 .tituloCategorias {
   text-align: left; 
@@ -606,3 +612,12 @@ footer a{
   color: #094b0898; 
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
   }
+
+  .categoriasImagen:hover {
+    /* transform: translateY(-10%); */
+    transform:scale(0.9);
+  }
+.contenedorCategorias{
+  background-color: #99a98f43;
+  margin: 1rem;
+}
