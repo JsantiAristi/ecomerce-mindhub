@@ -7,6 +7,7 @@ createApp({
             plantas: [],
             plantas_filtadras: [],
             nombre: "",
+            color: "",
             descripcion: "",
             stock: "",
             precio: "",
@@ -27,6 +28,7 @@ createApp({
         changeData(id,tipo){
             this.plantas_filtadras = this.plantas.filter( planta => planta.id==id)[0]
             this.nombre = this.plantas_filtadras.nombre;
+            this.color = this.plantas_filtadras.color;
             this.descripcion = this.plantas_filtadras.descripcion;
             this.stock = this.plantas_filtadras.stock;
             this.precio = this.plantas_filtadras.precio;
@@ -43,25 +45,28 @@ createApp({
                         this.descripcion = edit;
                     } else if( this.stock === tipo ){
                         this.stock = edit;
+                    } else if( this.color === tipo ){
+                        this.color = edit;
                     } else if ( this.precio === tipo ){
                         this.precio = edit;
                     }
-                    axios.put('/api/clients/products',
+                    axios.put('/api/plantas',
             {
                 "id": this.plantas_filtadras.id,
-                "name": this.nombre,
-                "description": this.descripcion,
-                "type": this.plantas_filtadras.tipoPlanta,
-                "quantity": this.stock,
-                "image": this.plantas_filtadras.foto,
-                "price": this.precio
+                "nombre": this.nombre,
+                "color": this.color,
+                "descripcion": this.descripcion,
+                "tipoPlanta": this.plantas_filtadras.tipoPlanta,
+                "stock": this.stock,
+                "foto": this.plantas_filtadras.foto,
+                "precio": this.precio
             })
             .then(res => { Swal.fire({
                 icon: 'success',
                 text: 'Cambiaste correctamente el producto ' + this.nombre,
                 showConfirmButton: false,
                 timer: 2000
-                }).then(() => window.location.href="/pages/change_product.html")
+                }).then(() => window.location.href="/manager/paginas/editar_plantas.html")
             })
             .catch(error => { Swal.fire({
                 icon: 'error',

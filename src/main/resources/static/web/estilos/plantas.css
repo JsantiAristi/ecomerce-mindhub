@@ -30,6 +30,7 @@ nav {
 main {
     background-color: #f9f5eb;
     min-height: 95vh;
+    position: relative;
 }
 
 .div_productos{
@@ -145,6 +146,26 @@ svg {
     background-color: #ffcaa6;
 }
 
+/*Aside Cuentas*/
+.inactive{
+    display: none;
+}
+
+aside{
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 12rem;
+    z-index: 10;
+    margin-right: 2rem;
+    background-color:  #e8edec;
+}
+
+aside a{
+    text-decoration: none;
+    color: black;
+}
+
 
 /*Footer*/
 footer {
@@ -185,5 +206,11 @@ footer a {
         display: flex;
         justify-content: start !important;
         align-items: center;
+    }
+
+    aside{
+        width: 100%;
+        margin-right: 0;
+        top: 0;
     }
 }
