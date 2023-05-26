@@ -1,0 +1,109 @@
+* {
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #464d41;
+}
+
+/*Nav*/
+nav {
+    background-color: #99A98F;
+}
+
+/* nav {
+    background-color: #e1e7dd;
+} */
+
+.logo {
+    width: 8rem;
+}
+
+.navbar-nav img {
+    width: 1.5rem;
+}
+
+/* Main */
+main {
+    background-color: #f9f5eb;
+    padding: 0 8rem !important;
+}
+
+.search{
+    width: 2rem;
+    object-fit: cover;
+}
+
+.search_bar{
+    padding: 0.5rem 0.4rem;
+    background-color: white;
+    box-shadow: 4px 6px 7px rgb(225 223 223);
+}
+
+.search_bar input{
+    width: 100%;
+    border: none;
+}
+
+/* Tabla */
+.image_product{
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+}
+
+.edit_product{
+    width: 1.5rem;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+table td{
+    height: 10rem;
+}
+
+.description_cell{
+    width: 10rem;
+}
+
+
+
+/*Footer*/
+footer {
+    color: white;
+    background-color: #99A98F;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo_empresa img {
+    width: 10rem;
+}
+
+.iconos_footer img {
+    width: 4rem;
+    height: 2rem;
+    padding: 0 1rem;
+}
+
+.medios_pago img {
+    width: 4rem;
+}
+
+.footer_bajo {
+    background-color: #464d41;
+}
+
+@media only screen and (max-width: 700px) {
+    .footer_arriba {
+        display: flex;
+        justify-content: start !important;
+        align-items: center;
+    }
+}
