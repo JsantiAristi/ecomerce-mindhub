@@ -1,10 +1,10 @@
 package com.HijasDelMonte.Ecomerce.Models;
 
 import org.hibernate.annotations.GenericGenerator;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Plantas {
@@ -21,6 +21,8 @@ public class Plantas {
     private int stock;
     private double precio;
     private boolean activo;
+    @OneToMany(mappedBy = "plantas", fetch = FetchType.EAGER)
+    private Set<ProductosSeleccionados> productosSeleccionadosSet = new HashSet<>();
 
     public Plantas() {}
 
@@ -36,6 +38,12 @@ public class Plantas {
         this.activo = activo;
     }
 
+    // Método para añadir los productos seleccionados
+    public void añadirProducto(ProductosSeleccionados productosSeleccionados){
+        productosSeleccionados.setPlantas(this);
+        productosSeleccionadosSet.add(productosSeleccionados);
+    }
+
 //    Getters
     public Long getId() {return id;}
     public String getNombre() {return nombre;}
@@ -46,8 +54,9 @@ public class Plantas {
     public int getStock() {return stock;}
     public double getPrecio() {return precio;}
     public boolean isActivo() {return activo;}
+    public Set<ProductosSeleccionados> getProductosSeleccionadosSet() {return productosSeleccionadosSet;}
 
-//    Setters
+    //    Setters
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setTipoPlanta(TipoPlanta tipoPlanta) {this.tipoPlanta = tipoPlanta;}
     public void setColor(String color) {this.color = color;}
