@@ -17,6 +17,7 @@ createApp({
             filtro_planta_carrito: [],
             cantidad: "",
             plantaId: [],
+            totalCompra: 0,
         }
     },
     created() {
@@ -30,7 +31,7 @@ createApp({
                     
 
                     for(planta of this.plantas){
-                        planta.contador = 0
+                        planta.contador = 1
                     }
 
                     this.plantas_filtradas = this.plantas;
@@ -39,6 +40,8 @@ createApp({
                     console.log(this.plantas_filtradas);
                 })
                 .catch(error => console.log(error))
+            this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
         },
         filtro_tipo(planta) {
             return planta.tipoPlanta.includes(this.tipo_planta);
@@ -79,16 +82,52 @@ createApp({
             }
         },
         añadirCarrito(id){
-            this.filtro_planta_carrito = this.plantas.filter(planta => planta.id == id)[0];           
-            this.carrito.push(this.filtro_planta_carrito);
+            this.filtro_planta_carrito = this.plantas.filter(planta => planta.id == id)[0];  
+            if (!(this.carrito.some(planta => planta.id == id))) {
+                this.carrito.push(this.filtro_planta_carrito);
+                this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+                localStorage.setItem("carrito", JSON.stringify(this.carrito));
+                localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+            }                
         },
-        añadirProductos(id){
+        sumar(id){
             this.carrito.map(planta => {
                 if(planta.id == id){
-                    planta.contador = this.cantidad
+                    if (planta.stock === planta.contador) {
+                        planta.contador += 0
+                    } else {
+                        planta.contador += 1
+                    }                    
                 }
             })
-            console.log(this.carrito);
+            this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+            localStorage.setItem("carrito", JSON.stringify(this.carrito));
+            localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+        },
+        resta(id){
+            this.carrito.map(planta => {
+                if(planta.id == id){
+                    if (planta.contador === 1) {
+                        planta.contador -= 0
+                    } else {
+                        planta.contador -= 1
+                    }                 
+                }
+            })
+            this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+            localStorage.setItem("carrito", JSON.stringify(this.carrito));
+            localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+        },
+        eliminar(id){
+            this.carrito.map(planta => {
+                if(planta.id == id){
+                    planta.contador = 1             
+                }
+            })
+            this.carrito = this.carrito.filter(planta => !(planta.id === id))
+            this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+            localStorage.setItem("carrito", JSON.stringify(this.carrito));
+            localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
         },
         crearOrden(){
             axios.post("/api/cliente/orden",`idCliente=${1}`)
@@ -98,9 +137,13 @@ createApp({
                     {
                         "id": producto.id,
                         "idCliente": 1,
-                        "unidadesSeleccionadas": this.cantidad,
+                        "unidadesSeleccionadas": producto.contador,
                     })
                     .then(respuesta => {
+                        this.carrito = [];
+                        this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+                        localStorage.setItem("carrito", JSON.stringify(this.carrito));
+                        localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
                         window.location.href="/web/paginas/pedidos.html"
                     })
                     .catch(error => console.log(error))
