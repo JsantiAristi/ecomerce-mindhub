@@ -214,7 +214,7 @@ svg {
   display: none;
 }
 
-aside{
+.asideCuentas{
   position: absolute;
   right: 0;
   top: -50px;
@@ -224,9 +224,20 @@ aside{
   background-color:  #e8edec;
 }
 
-aside a{
+.asideCuentas a{
   text-decoration: none;
   color: black;
+}
+
+/*Aside Carrito*/
+.asideCarrito{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20rem;
+  height: 100%;
+  z-index: 10;
+  background-color:  #e8edec;
 }
 
 /*Footer*/
@@ -265,7 +276,7 @@ footer a{
       align-items: center;
   }
 
-  aside{
+  .asideCuentas{
       width: 100%;
       margin-right: 0;
       top: 0;

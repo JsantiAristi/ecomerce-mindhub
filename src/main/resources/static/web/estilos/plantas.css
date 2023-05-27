@@ -26,11 +26,11 @@ nav {
     width: 1.5rem;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     background-color: #8a9981;
 }
 
-.dropdown-menu li{
+.dropdown-menu li {
     --bs-dropdown-link-hover-bg: #464d41;
 }
 
@@ -41,7 +41,7 @@ main {
     position: relative;
 }
 
-.div_productos{
+.div_productos {
     justify-content: center;
 }
 
@@ -64,7 +64,7 @@ main {
 }
 
 /*Tarjetas*/
-.lista_productos{
+.lista_productos {
     height: 100vh;
     overflow-y: scroll;
 }
@@ -86,7 +86,7 @@ main {
     object-fit: contain;
 }
 
-.card-img img{
+.card-img img {
     height: 15rem;
     width: 15rem;
     object-fit: cover;
@@ -155,23 +155,34 @@ svg {
 }
 
 /*Aside Cuentas*/
-.inactive{
+.inactive {
     display: none;
 }
 
-aside{
+.asideCuentas {
     position: absolute;
     right: 0;
     top: -50px;
     width: 12rem;
     z-index: 10;
     margin-right: 2rem;
-    background-color:  #e8edec;
+    background-color: #e8edec;
 }
 
-aside a{
+.asideCuentas a {
     text-decoration: none;
     color: black;
+}
+
+/*Aside Carrito*/
+.asideCarrito {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20rem;
+    height: 100%;
+    z-index: 10;
+    background-color: #e8edec;
 }
 
 /*Footer*/
@@ -204,7 +215,7 @@ footer a {
 }
 
 @media only screen and (max-width: 700px) {
-    .div_productos{
+    .div_productos {
         flex-direction: column;
         align-items: center;
     }
@@ -215,7 +226,7 @@ footer a {
         align-items: center;
     }
 
-    aside{
+    aside {
         width: 100%;
         margin-right: 0;
         top: 0;
