@@ -1,13 +1,8 @@
 package com.HijasDelMonte.Ecomerce.DTO;
 
 import com.HijasDelMonte.Ecomerce.Models.Plantas;
-import com.HijasDelMonte.Ecomerce.Models.ProductosSeleccionados;
 import com.HijasDelMonte.Ecomerce.Models.TipoPlanta;
-
 import java.util.Set;
-import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 public class PlantasDTO {
@@ -21,6 +16,7 @@ public class PlantasDTO {
     private double precio;
     private boolean activo;
     private Set<ProductosSeleccionadosDTO> productosSeleccionadosSet;
+
 
     public PlantasDTO(Plantas plantas) {
         this.id = plantas.getId();

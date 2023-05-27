@@ -23,7 +23,7 @@ public class EcomerceHijasDelMonteApplication {
 	public CommandLineRunner IniciarDatos(ClientesRepositorio clientesRepositorio, PlantasRepositorio plantasRepositorio, ProductosSeleccionadosRepositorio productosSeleccionadosRepositorio, OrdenRepositorio ordenRepositorio){
 		return (args) -> {
 			//Clientes
-			Clientes clientes= new Clientes("Juan", "Rojas", "129010101", "310101010", Genero.MASCULINO, LocalDate.now().minusYears(29), "juan@gmail.com","1234");
+			Clientes clientes= new Clientes("Juan", "Rojas", "129010101", "310101010", Genero.MASCULINO, LocalDate.now().minusYears(29), "juan@gmail.com","1234", true);
 			clientesRepositorio.save(clientes);
 
 			//Productos PLantas
@@ -47,24 +47,6 @@ public class EcomerceHijasDelMonteApplication {
 					"Purifica el aire y filtra toxinas al interior de la casa.",
 					"../../assets/orquidea-blanca.jpg", 4, 3000, true );
 			plantasRepositorio.save(orquidea_blanca);
-
-			//Orden
-			Orden orden1 = new Orden(3, 6000, true);
-			ordenRepositorio.save(orden1);
-
-			//ProductosSeleccionado
-			ProductosSeleccionados productosSeleccionado1 = new ProductosSeleccionados(2, orquidea_rosa.getPrecio() * 2, true);
-			orquidea_rosa.añadirProducto(productosSeleccionado1);
-			orden1.añadirProducto(productosSeleccionado1);
-			productosSeleccionadosRepositorio.save(productosSeleccionado1);
-
-			ProductosSeleccionados productosSeleccionado2 = new ProductosSeleccionados(1, orquidea_rosa.getPrecio(), true);
-			orquidea_rosa.añadirProducto(productosSeleccionado2);
-			orden1.añadirProducto(productosSeleccionado2);
-			productosSeleccionadosRepositorio.save(productosSeleccionado2);
-
-
-
 		};
 	};
 

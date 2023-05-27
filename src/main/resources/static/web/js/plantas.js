@@ -14,6 +14,7 @@ createApp({
             isCuentaInactivo: true,
             isCarritoInactivo: true,
             carrito: [],
+            filtro_planta_carrito: [],
         }
     },
     created() {
@@ -27,9 +28,7 @@ createApp({
                     this.plantas = respuesta.data.filter(planta => planta.activo);
                     this.plantas_filtradas = this.plantas;
                     this.cantidad_plantas = this.plantas.length;
-                    console.log(this.plantas);
                     this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoPlanta)));
-                    console.log(this.tipo_plantas);
                 })
                 .catch(error => console.log(error))
         },
@@ -59,7 +58,6 @@ createApp({
             axios.get("/api/carrito")
                 .then(response => {
                     this.carrito = response.data;
-                    console.log(this.carrito);
                 })
                 .catch(error => console.log(error))
         },
@@ -70,7 +68,6 @@ createApp({
                 this.isCarritoInactivo = !this.isCarritoInactivo;
                 this.isCuentaInactivo = !this.isCuentaInactivo;
             }
-
         },
         aparecerCarrito() {
             if (this.isCuentaInactivo) {
@@ -81,10 +78,25 @@ createApp({
             }
         },
         añadirCarrito(id){
-            axios.post("/api/cliente/carrito",`idProducto=${id}`)
+            this.filtro_planta_carrito = this.plantas.filter(planta => planta.id == id)[0];           
+            this.carrito.push(this.filtro_planta_carrito);
+            console.log(this.carrito);
+        },
+        crearOrden(){
+            console.log(this.carrito[0].id);
+            console.log(this.carrito[0].stock);
+            axios.post("/api/cliente/orden",`idCliente=${1}`)
             .then(response => {
-                window.location.href="../paginas/plantas.html"
+                axios.post("/api/cliente/carrito",
+                {
+                    "id": this.carrito[0].id,
+                    "idCliente": 1,
+                    "unidadesSeleccionadas": this.carrito[0].stock,
+                })
+                .then(respuesta => console.log(respuesta))
+                .catch(error => console.log(error))
             })
-        }
+            .catch(error => console.log(error))
+        },
     }
 }).mount("#app")
