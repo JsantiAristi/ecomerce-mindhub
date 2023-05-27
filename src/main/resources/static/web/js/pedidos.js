@@ -5,6 +5,7 @@ createApp({
         return {
             // Inicializamos las variables
             ordenes:[],
+            productosSeleccionadosSet:[],
         }
     },
     created(){
@@ -16,6 +17,9 @@ createApp({
             .then(respuesta => {
                 this.ordenes=respuesta.data
                 console.log(this.ordenes);
+                this.productosSeleccionadosSet=this.ordenes.productosSeleccionadosSet;
+                console.log(this.productosSeleccionadosSet);
+
             })
             .catch(error => console.log(error))
         },
