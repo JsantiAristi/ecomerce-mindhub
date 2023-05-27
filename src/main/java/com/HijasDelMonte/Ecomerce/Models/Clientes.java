@@ -1,6 +1,7 @@
 package com.HijasDelMonte.Ecomerce.Models;
 
 
+import org.aspectj.weaver.ast.Or;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -14,28 +15,22 @@ public class Clientes {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
-
     private String nombre;
-
     private String apellido;
-
     private String cedulaCiudadania;
-
     private String telefono;
-
     private Genero genero;
-
     private LocalDate fechaNacimiento;
     private String email;
-
     private String contraseña;
-
     private boolean valido;
+    @OneToMany(mappedBy = "clientes", fetch = FetchType.EAGER)
+    private Set<Orden> ordenes = new HashSet<>();
 
     public Clientes() {
     }
 
-    public Clientes(String nombre, String apellido, String cedulaCiudadania, String telefono, Genero genero, LocalDate fechaNacimiento, String email, String contraseña){
+    public Clientes(String nombre, String apellido, String cedulaCiudadania, String telefono, Genero genero, LocalDate fechaNacimiento, String email, String contraseña, boolean valido){
         this.nombre=nombre;
         this.apellido=apellido;
         this.cedulaCiudadania=cedulaCiudadania;
@@ -44,85 +39,35 @@ public class Clientes {
         this.fechaNacimiento=fechaNacimiento;
         this.email=email;
         this.contraseña=contraseña;
-        this.valido=true;
-    }
-    public long getId() {
-        return id;
+        this.valido=valido;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    // Método para añadir los productos seleccionados
+    public void añadirOrden(Orden orden){
+        orden.setClientes(this);
+        ordenes.add(orden);
     }
 
-    public String getNombre() {
-        return nombre;
-    }
+    public long getId() {return id;}
+    public String getNombre() {return nombre;}
+    public String getApellido() {return apellido;}
+    public String getCedulaCiudadania() {return cedulaCiudadania;}
+    public String getTelefono() {return telefono;}
+    public Genero getGenero() {return genero;}
+    public LocalDate getFechaNacimiento() {return fechaNacimiento;}
+    public String getEmail() {return email;}
+    public String getContraseña() {return contraseña;}
+    public boolean isValido() {return valido;}
+    public Set<Orden> getOrdenes() {return ordenes;}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getCedulaCiudadania() {
-        return cedulaCiudadania;
-    }
-
-    public void setCedulaCiudadania(String cedulaCiudadania) {
-        this.cedulaCiudadania = cedulaCiudadania;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public Genero getGenero() {
-        return genero;
-    }
-
-    public void setGenero(Genero genero) {
-        this.genero = genero;
-    }
-
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
-
-    public boolean getValido() {
-        return valido;
-    }
-
-    public void setValido(boolean valido) {
-        this.valido = valido;
-    }
+    public void setNombre(String nombre) {this.nombre = nombre;}
+    public void setApellido(String apellido) {this.apellido = apellido;}
+    public void setCedulaCiudadania(String cedulaCiudadania) {this.cedulaCiudadania = cedulaCiudadania;}
+    public void setTelefono(String telefono) {this.telefono = telefono;}
+    public void setGenero(Genero genero) {this.genero = genero;}
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {this.fechaNacimiento = fechaNacimiento;}
+    public void setEmail(String email) {this.email = email;}
+    public void setContraseña(String contraseña) {this.contraseña = contraseña;}
+    public void setValido(boolean valido) {this.valido = valido;}
+    public void setOrdenes(Set<Orden> ordenes) {this.ordenes = ordenes;}
 }
