@@ -14,6 +14,7 @@ public class ProductosSeleccionados {
     private long id;
     private int cantidad;
     private double precio;
+    private boolean activoCarrito;
     private boolean activo;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -36,14 +37,16 @@ public class ProductosSeleccionados {
 
     public ProductosSeleccionados() {}
 
-    public ProductosSeleccionados(int cantidad, double precio, boolean activo) {
+    public ProductosSeleccionados(int cantidad, double precio, boolean activoCarrito, boolean activo) {
         this.cantidad = cantidad;
         this.precio = precio;
+        this.activoCarrito = activoCarrito;
         this.activo = activo;
     }
 
     //GETTER
     public long getId() {return id;}
+    public boolean isActivoCarrito() {return activoCarrito;}
     public int getCantidad() {return cantidad;}
     public double getPrecio() {return precio;}
     public boolean isActivo() {return activo;}
@@ -52,6 +55,7 @@ public class ProductosSeleccionados {
 
 //    SETTERS
     public void setCantidad(int cantidad) {this.cantidad = cantidad;}
+    public void setActivoCarrito(boolean activoCarrito) {this.activoCarrito = activoCarrito;}
     public void setPrecio(double precio) {this.precio = precio;}
     public void setActivo(boolean activo) {this.activo = activo;}
     public void setOrden(Orden orden) {this.orden = orden;}

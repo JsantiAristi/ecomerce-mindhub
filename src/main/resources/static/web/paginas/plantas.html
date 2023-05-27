@@ -166,6 +166,12 @@
                         <div class="bg-dark mb-2">
                             <p class="text-white">{{producto.nombre}}</p>
                             <p class="text-white">{{producto.precio}}</p>
+                            <select id="producto.id" class="form-select" aria-label="Default select example" v-model="cantidad" @click="añadirProductos(producto.id)">
+                                <option value="">Cantidad</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
                         </div>
                     </template>
                     <button class="btn btn-success" @click="crearOrden">Comprar</button>

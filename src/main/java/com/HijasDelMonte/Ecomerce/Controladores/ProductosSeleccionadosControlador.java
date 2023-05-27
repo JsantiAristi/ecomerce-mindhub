@@ -37,17 +37,6 @@ public class ProductosSeleccionadosControlador {
         return productosSeleccionadosServicio.obtenerProductosSeleccionadosDTO();
     }
 
-    @PostMapping("/api/cliente/orden")
-    public ResponseEntity<Object> crearOrden(@RequestParam long idCliente){
-
-        Clientes clientes = clientesServicios.findById(idCliente);
-
-        Orden nuevaOrden = new Orden(1, 0,true, false);
-        clientes.añadirOrden(nuevaOrden);
-        ordenServicios.guardarOrden(nuevaOrden);
-        return new ResponseEntity<>("Orden creada", HttpStatus.CREATED);
-    }
-
     @PostMapping("/api/cliente/carrito")
     public ResponseEntity<Object> añadirProductoSeleccionado(@RequestBody PlantaSeleccionadaDTO plantaSeleccionadaDTO){
 
@@ -60,11 +49,15 @@ public class ProductosSeleccionadosControlador {
             return new ResponseEntity<>("Ya tienes una orden" , HttpStatus.FORBIDDEN);
         }
 
-        ProductosSeleccionados nuevoProductosSeleccionado = new ProductosSeleccionados(plantaSeleccionadaDTO.getUnidadesSeleccionadas(), planta.getPrecio()*plantaSeleccionadaDTO.getUnidadesSeleccionadas(), true);
+        ProductosSeleccionados nuevoProductosSeleccionado = new ProductosSeleccionados(plantaSeleccionadaDTO.getUnidadesSeleccionadas(), planta.getPrecio()*plantaSeleccionadaDTO.getUnidadesSeleccionadas(), false, true);
         planta.añadirProducto(nuevoProductosSeleccionado);
         orden.añadirProducto(nuevoProductosSeleccionado);
         productosSeleccionadosServicio.guardarProductoSeleccionado(nuevoProductosSeleccionado);
-        return new ResponseEntity<>("Producto añadido", HttpStatus.CREATED);
 
+        orden.setUnidadesTotales(orden.getUnidadesTotales() + plantaSeleccionadaDTO.getUnidadesSeleccionadas());
+        orden.setPrecioTotal(orden.getPrecioTotal() + planta.getPrecio()*plantaSeleccionadaDTO.getUnidadesSeleccionadas());
+        ordenServicios.guardarOrden(orden);
+
+        return new ResponseEntity<>("Producto añadido", HttpStatus.CREATED);
     }
 }
