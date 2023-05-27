@@ -15,20 +15,28 @@ createApp({
             isCarritoInactivo: true,
             carrito: [],
             filtro_planta_carrito: [],
+            cantidad: "",
+            plantaId: [],
         }
     },
     created() {
         this.cargarDatos()
-        this.cargarDatosCarrito()
     },
     methods: {
         cargarDatos() {
             axios.get('/api/plantas')
                 .then(respuesta => {
                     this.plantas = respuesta.data.filter(planta => planta.activo);
+                    
+
+                    for(planta of this.plantas){
+                        planta.contador = 0
+                    }
+
                     this.plantas_filtradas = this.plantas;
                     this.cantidad_plantas = this.plantas.length;
                     this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoPlanta)));
+                    console.log(this.plantas_filtradas);
                 })
                 .catch(error => console.log(error))
         },
@@ -54,13 +62,6 @@ createApp({
                 })
             }
         },
-        cargarDatosCarrito() {
-            axios.get("/api/carrito")
-                .then(response => {
-                    this.carrito = response.data;
-                })
-                .catch(error => console.log(error))
-        },
         aparecerCuenta() {
             if (this.isCarritoInactivo) {
                 this.isCuentaInactivo = !this.isCuentaInactivo;
@@ -80,21 +81,30 @@ createApp({
         añadirCarrito(id){
             this.filtro_planta_carrito = this.plantas.filter(planta => planta.id == id)[0];           
             this.carrito.push(this.filtro_planta_carrito);
+        },
+        añadirProductos(id){
+            this.carrito.map(planta => {
+                if(planta.id == id){
+                    planta.contador = this.cantidad
+                }
+            })
             console.log(this.carrito);
         },
         crearOrden(){
-            console.log(this.carrito[0].id);
-            console.log(this.carrito[0].stock);
             axios.post("/api/cliente/orden",`idCliente=${1}`)
             .then(response => {
-                axios.post("/api/cliente/carrito",
-                {
-                    "id": this.carrito[0].id,
-                    "idCliente": 1,
-                    "unidadesSeleccionadas": this.carrito[0].stock,
-                })
-                .then(respuesta => console.log(respuesta))
-                .catch(error => console.log(error))
+                for( producto of this.carrito ){
+                    axios.post("/api/cliente/carrito",
+                    {
+                        "id": producto.id,
+                        "idCliente": 1,
+                        "unidadesSeleccionadas": this.cantidad,
+                    })
+                    .then(respuesta => {
+                        window.location.href="/web/paginas/pedidos.html"
+                    })
+                    .catch(error => console.log(error))
+                }               
             })
             .catch(error => console.log(error))
         },
