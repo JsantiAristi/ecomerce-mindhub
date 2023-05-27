@@ -17,13 +17,10 @@ createApp({
             .then(respuesta => {
                 this.ordenes=respuesta.data
                 console.log(this.ordenes);
-                this.productosSeleccionadosSet=this.ordenes.productosSeleccionadosSet;
+                this.productosSeleccionadosSet = this.ordenes[0].productosSeleccionadosSet;
                 console.log(this.productosSeleccionadosSet);
-
             })
             .catch(error => console.log(error))
-        },
-        
-       
+        },       
     }
 }).mount("#app")
