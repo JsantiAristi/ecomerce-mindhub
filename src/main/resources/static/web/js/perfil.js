@@ -4,7 +4,10 @@ createApp({
     data() {
         return {
             // Inicializamos las variables
-           cliente:''
+            cliente:'',
+            isCuentaInactivo: true,
+            isCarritoInactivo: true,
+            carrito: [],
         }
     },
     created(){
@@ -18,6 +21,22 @@ createApp({
                 console.log(this.cliente);
             })
             .catch(error => console.log(error))
+        },
+        aparecerCuenta() {
+            if (this.isCarritoInactivo) {
+                this.isCuentaInactivo = !this.isCuentaInactivo;
+            } else {
+                this.isCarritoInactivo = !this.isCarritoInactivo;
+                this.isCuentaInactivo = !this.isCuentaInactivo;
+            }
+        },
+        aparecerCarrito() {
+            if (this.isCuentaInactivo) {
+                this.isCarritoInactivo = !this.isCarritoInactivo;
+            } else {
+                this.isCuentaInactivo = !this.isCuentaInactivo;
+                this.isCarritoInactivo = !this.isCarritoInactivo;
+            }
         },
         
        

@@ -5,13 +5,6 @@
 }
 
 /*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
-a:hover {
-  color: #094b08;
-  text-decoration: none;
-}
-/*--------------------------------------------------------------
 # Sections & Section Header
 --------------------------------------------------------------*/
 header {
@@ -29,6 +22,10 @@ nav {
 
 .navbar-nav img {
   width: 1.5rem;
+}
+
+.nav-link:hover{
+  color: #094b08 !important;
 }
 
 .dropdown-menu{
@@ -210,34 +207,73 @@ svg {
 }
 
 /*Aside Cuentas*/
-.inactive{
+.inactive {
   display: none;
 }
 
-.asideCuentas{
+.asideCuentas {
   position: absolute;
   right: 0;
   top: -50px;
   width: 12rem;
   z-index: 10;
   margin-right: 2rem;
-  background-color:  #e8edec;
+  background-color: #e8edec;
 }
 
-.asideCuentas a{
+.asideCuentas a {
   text-decoration: none;
   color: black;
 }
 
+.asideCuentas a:hover {
+  color: #094b08;
+  text-decoration: none;
+}
+
+.asideCuentas p{
+  cursor: pointer;
+}
+
+.asideCuentas img{
+  width: 2rem;
+}
+
 /*Aside Carrito*/
-.asideCarrito{
+.asideCarrito {
   position: absolute;
   right: 0;
   top: 0;
-  width: 20rem;
-  height: 100%;
+  width: 30rem;
+  height: 57%;
   z-index: 10;
-  background-color:  #e8edec;
+  background-color: #e8edec;
+}
+
+.infoTotalDiv{
+  height: 100%;
+}
+
+.asideCarritoFoto{
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+}
+
+.sumaBoton, .menosBoton {
+  width: 2rem;
+  cursor: pointer;
+}
+
+.botonBasura{
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.infoCarrito{
+  width: 80%;
 }
 
 /*Footer*/
@@ -249,6 +285,10 @@ footer{
 footer a{
   text-decoration: none;
   color: white;
+}
+
+footer a:hover {
+  color: #094b08;
 }
 
 .logo_empresa img{

@@ -33,12 +33,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white fs-5" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Dropdown
+                                Categorias
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item fs-5" href="#">🌱 Plantas</a></li>
-                                <li><a class="dropdown-item fs-5" href="#">🔧 Accesorios</a></li>
-                                <li><a class="dropdown-item fs-5" href="#">👨‍🏫 Cursos</a></li>
+                                <li><a class="dropdown-item fs-5 text-white" href="./plantas.html"><img src="../../assets/planta.png" alt="plantas"> Plantas</a></li>
+                                <li><a class="dropdown-item fs-5 text-white" href="#"><img src="../../assets/accesorios.png" alt="accesorios"> Accesorios</a></li>
+                                <li><a class="dropdown-item fs-5 text-white" href="#"><img src="../../assets/aprender-en-linea.png" alt="cursos"> Cursos</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -54,26 +54,23 @@
                         <li class="nav-item">
                             <a class="nav-link active text-white fs-5" aria-current="page" href="#">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-white fs-5" aria-current="page" href="#">Productos</a>
-                        </li>
                         <li class="nav-item dropdown d-md-none">
                             <a class="nav-link dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Dropdown
+                                Categorias
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item fs-5" href="#">🌱 Plantas</a></li>
-                                <li><a class="dropdown-item fs-5" href="#">🔧 Accesorios</a></li>
-                                <li><a class="dropdown-item fs-5" href="#">👨‍🏫 Cursos</a></li>
+                                <li><a class="dropdown-item fs-5 text-white" href="./plantas.html"><img src="../../assets/planta.png" alt="plantas"> Plantas</a></li>
+                                <li><a class="dropdown-item fs-5 text-white" href="#"><img src="../../assets/accesorios.png" alt="accesorios"> Accesorios</a></li>
+                                <li><a class="dropdown-item fs-5 text-white" href="#"><img src="../../assets/aprender-en-linea.png" alt="cursos"> Cursos</a></li>
                             </ul>
                         </li>
                         <div class="d-flex gap-2">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><span class="pe-3">|</span><img src="../../assets/usuario.png" alt=""></a>
+                                <a class="nav-link active" aria-current="page" href="#"><span class="pe-3">|</span><img src="../../assets/usuario.png" alt="" @click="aparecerCuenta"></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><img src="../../assets/carrito-de-compras.png" alt=""></a>
+                                <a class="nav-link active" aria-current="page" href="#"><img src="../../assets/carrito-de-compras.png" alt="" @click="aparecerCarrito"></a>
                             </li>
                         </div>                       
                     </ul>
@@ -94,9 +91,9 @@
                 <section class="pt-5">
                     <div class=" nav">
                         <ul>
-                            <li class="pt-5"><a href="#">Perfil</a></li>
-                            <li class="pt-5"><a href="./pedidos.html">Pedidos</a></li>
-                            <li class="pt-5"><a href="">Cerrar sesión</a></li>
+                            <li class="pt-5 fs-5"><a href="#">Perfil</a></li>
+                            <li class="pt-5 fs-5"><a href="./pedidos.html">Pedidos</a></li>
+                            <li class="pt-5 text-danger fs-5"><p href="">Cerrar sesión</p></li>
                         </ul>
                     </div>
                 </section>  <!-- End Opciones -->                                              
@@ -150,7 +147,46 @@
                     </div>
                     
                 </section><!-- ======= End Informacion Personal ======= -->
-            </div>    
+            </div>  
+                <!-- Aside cuentas -->
+                <aside :class="{ inactive: isCuentaInactivo }" class="border rounded p-2 asideCuentas" id="aside">
+                    <div class="d-flex flex-column">
+                        <a href="./perfil.html" class="fs-5 p-1"><img src="../../assets/usuario.png" alt="miCuenta" class="pe-1"> Mi cuenta</a>
+                        <a href="./pedidos.html" class="fs-5 p-1"><img src="../../assets/pedidos.png" alt="pedidos" class="pe-1">Mis pedidos</a>
+                        <a href="../../manager/paginas/editar_plantas.html" class="fs-5 p-1">💻 Administrador</a>
+                        <p class="text-center fs-5 text-danger mb-0">Cerrar cesión</p>
+                    </div>
+                </aside>  
+                <!-- Aside carrito de compras -->
+            <aside :class="{ inactive: isCarritoInactivo }" class="border rounded p-2 asideCarrito" id="aside">
+                <div class="d-flex flex-column justify-content-between align-items-between infoTotalDiv">
+                    <div>
+                        <template v-if="carrito.length>0" v-for="producto of carrito">
+                            <div class="d-flex align-items-center mb-2 p-2">
+                                <img :src="producto.foto" alt="" class="asideCarritoFoto">
+                                <div class="ps-2 infoCarrito">
+                                    <p class="mb-0">{{producto.nombre}}</p>
+                                    <p>C/U {{producto.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}</p>
+                                    <div>
+                                        <img src="../../assets/boton-de-resta.png" alt="" class="menosBoton pe-2" @click="resta(producto.id)">                               
+                                        <span>{{producto.contador}}</span>
+                                        <img src="../../assets/mas.png" alt="" class="sumaBoton ps-2" @click="sumar(producto.id)"> 
+                                        <span v-if="producto.contador == producto.stock" class="text-danger ps-2">No puedes sumar más</span>                        
+                                    </div>                              
+                                </div>  
+                                <img src="../../assets/eliminar.png" alt=""class="botonBasura" @click="eliminar(producto.id)">                          
+                            </div>
+                        </template>
+                        <template v-else>
+                            <p class="fs-5 text-center mt-5 mb-5">No has añadido nada al carrito 😥</p>
+                        </template>
+                        <div>
+                            <p class="mb-0 fs-5 fw-bold">Total = {{totalCompra}}</p>
+                        </div>
+                    </div>                   
+                    <button class="btn btnFondo" @click="crearOrden">Añadir a la orden</button>
+                </div>
+            </aside>
         </main>
         <footer>
             <div class="p-3">

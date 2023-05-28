@@ -6,6 +6,9 @@ createApp({
             // Inicializamos las variables
             ordenes:[],
             productosSeleccionadosSet:[],
+            carrito: [],
+            isCuentaInactivo: true,
+            isCarritoInactivo: true,
         }
     },
     created(){
@@ -21,6 +24,22 @@ createApp({
                 console.log(this.productosSeleccionadosSet);
             })
             .catch(error => console.log(error))
-        },       
+        },  
+        aparecerCuenta() {
+            if (this.isCarritoInactivo) {
+                this.isCuentaInactivo = !this.isCuentaInactivo;
+            } else {
+                this.isCarritoInactivo = !this.isCarritoInactivo;
+                this.isCuentaInactivo = !this.isCuentaInactivo;
+            }
+        },
+        aparecerCarrito() {
+            if (this.isCuentaInactivo) {
+                this.isCarritoInactivo = !this.isCarritoInactivo;
+            } else {
+                this.isCuentaInactivo = !this.isCuentaInactivo;
+                this.isCarritoInactivo = !this.isCarritoInactivo;
+            }
+        },     
     }
 }).mount("#app")
