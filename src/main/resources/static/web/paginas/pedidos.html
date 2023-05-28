@@ -68,9 +68,10 @@
                 <a class="nav-link active" aria-current="page" href="#"><span class="pe-3">|</span><img
                     src="../../assets/usuario.png" alt="" @click="aparecerCuenta"/></a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item d-flex">
                 <a class="nav-link active" aria-current="page" href="#"><img src="../../assets/carrito-de-compras.png"
                     alt="" @click="aparecerCarrito" /></a>
+                <span class="pe-1 ps-1 bg-success rounded text-white">{{carrito.length}}</span>
               </li>
             </div>
           </ul>

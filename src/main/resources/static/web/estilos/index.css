@@ -24,6 +24,10 @@ nav {
   width: 1.5rem;
 }
 
+.nav-item span{
+  height: 50%;
+}
+
 .nav-link:hover{
   color: #094b08 !important;
 }
@@ -37,14 +41,53 @@ nav {
 }
 
 /*Main*/
-main{
+body, swiper-slide{
   background-color: #fff8de91 !important;
+}
+
+main{
   position: relative;
 }
 
+/*Botones*/
+.btnFondo{
+  background-color: #324545;
+  color: aliceblue;
+}
+
+.btnFondo:hover{
+  background-color: #324545;
+  color: aliceblue;
+}
+
 /*Carrousel*/
-.carousel-control-prev-icon, .carousel-control-next-icon{
+/* .carousel-control-prev-icon, .carousel-control-next-icon{
   background-color: #094b08 !important;
+} */
+#carrouselproductos{
+  position: relative;
+  height: 95vh;
+}
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /*Mapa*/
@@ -245,7 +288,7 @@ svg {
   right: 0;
   top: 0;
   width: 30rem;
-  height: 57%;
+  height: 34rem;
   z-index: 10;
   background-color: #e8edec;
 }

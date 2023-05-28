@@ -14,6 +14,7 @@ createApp({
             isCuentaInactivo: true,
             isCarritoInactivo: true,
             carrito: [],
+            contadorCarrito: 0,
             filtro_planta_carrito: [],
             cantidad: "",
             plantaId: [],
@@ -37,7 +38,6 @@ createApp({
                     this.plantas_filtradas = this.plantas;
                     this.cantidad_plantas = this.plantas.length;
                     this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoPlanta)));
-                    console.log(this.plantas_filtradas);
                 })
                 .catch(error => console.log(error))
             this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
