@@ -21,6 +21,10 @@ nav {
     width: 1.5rem;
 }
 
+.nav-item span{
+    height: 50%;
+}
+
 .nav-link:hover{
     color: #094b08 !important;
 }

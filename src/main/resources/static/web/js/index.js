@@ -6,12 +6,24 @@ createApp({
       isCuentaInactivo: true,
       isCarritoInactivo: true,
       carrito: [],
+      totalCompra: "",
+      plantas: [],
     }
   },
   created() {
-    console.log(Array.from(localStorage.getItem("carrito", JSON.stringify(this.carrito)))); 
+    this.cargarDatos();
+    this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
   },
   methods: {
+    cargarDatos() {
+      axios.get('/api/plantas')
+          .then(respuesta => {
+              this.plantas = respuesta.data.filter(planta => planta.activo);
+              console.log(this.plantas);
+          })
+          .catch(error => console.log(error))
+    },
     aparecerCuenta() {
       if (this.isCarritoInactivo) {
         this.isCuentaInactivo = !this.isCuentaInactivo;
