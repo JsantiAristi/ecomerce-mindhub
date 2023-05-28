@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-a:hover {
-    color: #094b08;
-    text-decoration: none;
-}
-
 header {
     background-color: #464d41;
 }
@@ -26,8 +21,16 @@ nav {
     width: 1.5rem;
 }
 
+.nav-link:hover{
+    color: #094b08 !important;
+}
+
 .dropdown-menu {
     background-color: #8a9981;
+}
+
+.dropdown-menu img{
+    width: 1.5rem;
 }
 
 .dropdown-menu li {
@@ -39,6 +42,12 @@ main {
     background-color: #f9f5eb;
     min-height: 95vh;
     position: relative;
+}
+
+/*Botones*/
+.btnFondo{
+    background-color: #324545;
+    color: aliceblue;
 }
 
 .div_productos {
@@ -174,6 +183,19 @@ svg {
     color: black;
 }
 
+.asideCuentas a:hover {
+    color: #094b08;
+    text-decoration: none;
+}
+
+.asideCuentas p{
+    cursor: pointer;
+}
+
+.asideCuentas img{
+    width: 2rem;
+}
+
 /*Aside Carrito*/
 .asideCarrito {
     position: absolute;
@@ -220,6 +242,10 @@ footer {
 footer a {
     text-decoration: none;
     color: white;
+}
+
+footer a:hover {
+    color: #094b08;
 }
 
 .logo_empresa img {

@@ -39,8 +39,7 @@ public class OrdenControlador {
         if (clientes.getOrdenes().stream().filter( ordenPagada -> !ordenPagada.isComprado()).collect(toList()).size() > 1){
             return new ResponseEntity<>("Ya tienes una orden en proceso", HttpStatus.FORBIDDEN);
         } else if (clientes.getOrdenes().stream().filter( ordenPagada -> !ordenPagada.isComprado()).collect(toList()).size() == 1){
-            return new ResponseEntity<>("Orden en proceso", HttpStatus.OK);
-        }
+            return new ResponseEntity<>("Orden en proceso", HttpStatus.OK);}
 
         Orden nuevaOrden = new Orden(0, 0,true, false);
         clientes.añadirOrden(nuevaOrden);

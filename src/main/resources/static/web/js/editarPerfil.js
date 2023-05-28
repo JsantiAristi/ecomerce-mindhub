@@ -10,7 +10,10 @@ createApp({
             cedulaCiudadania: '',
             telefono: '',
             genero: '',
-            fechaNacimiento: ''
+            fechaNacimiento: '',
+            carrito: [],
+            isCuentaInactivo: true,
+            isCarritoInactivo: true,
         }
     },
     created() {
@@ -77,6 +80,22 @@ createApp({
 
                 }
             })
+        },
+        aparecerCuenta() {
+            if (this.isCarritoInactivo) {
+                this.isCuentaInactivo = !this.isCuentaInactivo;
+            } else {
+                this.isCarritoInactivo = !this.isCarritoInactivo;
+                this.isCuentaInactivo = !this.isCuentaInactivo;
+            }
+        },
+        aparecerCarrito() {
+            if (this.isCuentaInactivo) {
+                this.isCarritoInactivo = !this.isCarritoInactivo;
+            } else {
+                this.isCuentaInactivo = !this.isCuentaInactivo;
+                this.isCarritoInactivo = !this.isCarritoInactivo;
+            }
         },
 
     }
