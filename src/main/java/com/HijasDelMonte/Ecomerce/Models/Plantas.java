@@ -21,13 +21,14 @@ public class Plantas {
     private int stock;
     private double precio;
     private boolean activo;
+    private Categorias categorias;
     @OneToMany(mappedBy = "plantas", fetch = FetchType.EAGER)
     private Set<ProductosSeleccionados> productosSeleccionadosSet = new HashSet<>();
 
     public Plantas() {}
 
 //    Constructor
-    public Plantas(String nombre, TipoPlanta tipoPlanta, String color, String descripcion, String foto, int stock, double precio, boolean activo) {
+    public Plantas(String nombre, TipoPlanta tipoPlanta, String color, String descripcion, String foto, int stock, double precio, boolean activo, Categorias categorias) {
         this.nombre = nombre;
         this.tipoPlanta = tipoPlanta;
         this.color = color;
@@ -36,6 +37,7 @@ public class Plantas {
         this.stock = stock;
         this.precio = precio;
         this.activo = activo;
+        this.categorias = categorias;
     }
 
     // Método para añadir los productos seleccionados
@@ -56,6 +58,10 @@ public class Plantas {
     public boolean isActivo() {return activo;}
     public Set<ProductosSeleccionados> getProductosSeleccionadosSet() {return productosSeleccionadosSet;}
 
+    public Categorias getCategorias() {
+        return categorias;
+    }
+
     //    Setters
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setTipoPlanta(TipoPlanta tipoPlanta) {this.tipoPlanta = tipoPlanta;}
@@ -65,4 +71,8 @@ public class Plantas {
     public void setStock(int stock) {this.stock = stock;}
     public void setPrecio(double precio) {this.precio = precio;}
     public void setActivo(boolean activo) {this.activo = activo;}
+
+    public void setCategorias(Categorias categorias) {
+        this.categorias = categorias;
+    }
 }

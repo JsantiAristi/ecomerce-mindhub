@@ -1,5 +1,6 @@
 package com.HijasDelMonte.Ecomerce.DTO;
 
+import com.HijasDelMonte.Ecomerce.Models.Categorias;
 import com.HijasDelMonte.Ecomerce.Models.Plantas;
 import com.HijasDelMonte.Ecomerce.Models.TipoPlanta;
 import java.util.Set;
@@ -15,6 +16,7 @@ public class PlantasDTO {
     private int stock;
     private double precio;
     private boolean activo;
+    private Categorias categorias;
     private Set<ProductosSeleccionadosDTO> productosSeleccionadosSet;
 
 
@@ -29,6 +31,7 @@ public class PlantasDTO {
         this.precio = plantas.getPrecio();
         this.activo = plantas.isActivo();
         this.productosSeleccionadosSet = plantas.getProductosSeleccionadosSet().stream().map(ProductosSeleccionadosDTO::new).collect(toSet());
+        this.categorias = plantas.getCategorias();
     }
 
     public Long getId() {return id;}
@@ -41,4 +44,8 @@ public class PlantasDTO {
     public double getPrecio() {return precio;}
     public boolean isActivo() {return activo;}
     public Set<ProductosSeleccionadosDTO> getProductosSeleccionadosSet() {return productosSeleccionadosSet;}
+
+    public PlantasDTO(Categorias categorias) {
+        this.categorias = categorias;
+    }
 }

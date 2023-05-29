@@ -29,22 +29,22 @@ public class EcomerceHijasDelMonteApplication {
 			Plantas orquidea_rosa = new Plantas(
 					"Orquidea Mini Premium Salitre en Cultivo", TipoPlanta.INTERIOR, "Rosa",
 					"Purifica el aire y filtra toxinas al interior de la casa.",
-					"../../assets/orquidea-rosa.jpg", 12, 2000, true );
+					"../../assets/orquidea-rosa.jpg", 12, 2000, true, Categorias.PLANTAS );
 			plantasRepositorio.save(orquidea_rosa);
 			Plantas bromelia_blanca = new Plantas(
 					"Bromelia Premium en Cultivo", TipoPlanta.EXTERIOR, "Blanco",
 					"Se adapta perfectamente en espacios interiores y exteriores.",
-					"../../assets/bromelia-blanca.jpg", 20, 1000, true );
+					"../../assets/bromelia-blanca.jpg", 20, 1000, true, Categorias.PLANTAS );
 			plantasRepositorio.save(bromelia_blanca);
 			Plantas anturio_rojo = new Plantas(
 					"Anturio Premium en Cultivo", TipoPlanta.EXTERIOR, "Rojo",
 					"Requiere cuidados mínimos siendo una planta perfecta para las personas con poco tiempo disponible.",
-					"../../assets/anturio-rojo.jpg", 0, 5000, true );
+					"../../assets/anturio-rojo.jpg", 0, 5000, true , Categorias.PLANTAS);
 			plantasRepositorio.save(anturio_rojo);
 			Plantas orquidea_blanca = new Plantas(
 					"Orquidea Supreme Kasy en Cultivo", TipoPlanta.INTERIOR, "Blanco",
 					"Purifica el aire y filtra toxinas al interior de la casa.",
-					"../../assets/orquidea-blanca.jpg", 4, 3000, true );
+					"../../assets/orquidea-blanca.jpg", 4, 3000, true, Categorias.PLANTAS );
 			plantasRepositorio.save(orquidea_blanca);
 
 			Accesorios maceta_aluminio = new Accesorios("Maceta Aluminio",
@@ -52,14 +52,14 @@ public class EcomerceHijasDelMonteApplication {
 					"Negro",
 					"Maceta con plato y pie de metal.",
 					"../../assets/maceta1.jpeg",
-					5, 20000, true);
+					5, 20000, true, Categorias.ACCESORIOS);
 			accesoriosRepositorio.save(maceta_aluminio);
 			Accesorios maceta_ceramica = new Accesorios("Maceta ceramica",
 					TipoAccesorio.MACETAS,
 					"Amarillo",
 					"Maceta amarilla de ceramica, pequeña",
 					"../../assets/maceta2.jpeg",
-					10, 5000, true);
+					10, 5000, true, Categorias.ACCESORIOS);
 			accesoriosRepositorio.save(maceta_ceramica);
 		};
 	};

@@ -3,14 +3,8 @@ package com.HijasDelMonte.Ecomerce.Controladores;
 import ch.qos.logback.core.net.server.Client;
 import com.HijasDelMonte.Ecomerce.DTO.PlantaSeleccionadaDTO;
 import com.HijasDelMonte.Ecomerce.DTO.ProductosSeleccionadosDTO;
-import com.HijasDelMonte.Ecomerce.Models.Clientes;
-import com.HijasDelMonte.Ecomerce.Models.Orden;
-import com.HijasDelMonte.Ecomerce.Models.Plantas;
-import com.HijasDelMonte.Ecomerce.Models.ProductosSeleccionados;
-import com.HijasDelMonte.Ecomerce.Servicios.ClientesServicios;
-import com.HijasDelMonte.Ecomerce.Servicios.OrdenServicios;
-import com.HijasDelMonte.Ecomerce.Servicios.PlantasServicios;
-import com.HijasDelMonte.Ecomerce.Servicios.ProductosSeleccionadosServicio;
+import com.HijasDelMonte.Ecomerce.Models.*;
+import com.HijasDelMonte.Ecomerce.Servicios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +25,8 @@ public class ProductosSeleccionadosControlador {
     OrdenServicios ordenServicios;
     @Autowired
     ClientesServicios clientesServicios;
+    @Autowired
+    AccesoriosServicios accesoriosServicios;
 
     @GetMapping("/api/carrito")
     public List<ProductosSeleccionadosDTO> obtenerProductos() {
@@ -44,19 +40,34 @@ public class ProductosSeleccionadosControlador {
         List<Orden> ordenes = clientes.getOrdenes().stream().filter( ordenPagada -> !ordenPagada.isComprado()).collect(toList());
         Orden orden = ordenes.get(0);
         Plantas planta = plantasServicios.obtenerPlanta(plantaSeleccionadaDTO.getId());
+        Accesorios accesorio = accesoriosServicios.obtenerAccesorio(plantaSeleccionadaDTO.getId());
 
         if( orden == null ){
             return new ResponseEntity<>("Ya tienes una orden" , HttpStatus.FORBIDDEN);
         }
 
-        ProductosSeleccionados nuevoProductosSeleccionado = new ProductosSeleccionados(plantaSeleccionadaDTO.getUnidadesSeleccionadas(), planta.getPrecio()*plantaSeleccionadaDTO.getUnidadesSeleccionadas(), false, true);
-        planta.añadirProducto(nuevoProductosSeleccionado);
-        orden.añadirProducto(nuevoProductosSeleccionado);
-        productosSeleccionadosServicio.guardarProductoSeleccionado(nuevoProductosSeleccionado);
+        if (plantaSeleccionadaDTO.getCategorias().equals(Categorias.PLANTAS)) {
+            ProductosSeleccionados nuevoProductosSeleccionado = new ProductosSeleccionados(plantaSeleccionadaDTO.getUnidadesSeleccionadas(), planta.getPrecio()*plantaSeleccionadaDTO.getUnidadesSeleccionadas(), false, true);
+            planta.añadirProducto(nuevoProductosSeleccionado);
+            orden.añadirProducto(nuevoProductosSeleccionado);
+            productosSeleccionadosServicio.guardarProductoSeleccionado(nuevoProductosSeleccionado);
 
-        orden.setUnidadesTotales(orden.getUnidadesTotales() + plantaSeleccionadaDTO.getUnidadesSeleccionadas());
-        orden.setPrecioTotal(orden.getPrecioTotal() + planta.getPrecio()*plantaSeleccionadaDTO.getUnidadesSeleccionadas());
-        ordenServicios.guardarOrden(orden);
+            orden.setUnidadesTotales(orden.getUnidadesTotales() + plantaSeleccionadaDTO.getUnidadesSeleccionadas());
+            orden.setPrecioTotal(orden.getPrecioTotal() + planta.getPrecio()*plantaSeleccionadaDTO.getUnidadesSeleccionadas());
+            ordenServicios.guardarOrden(orden);
+
+        } else if (plantaSeleccionadaDTO.getCategorias().equals(Categorias.ACCESORIOS)) {
+            ProductosSeleccionados nuevoProductosSeleccionado = new ProductosSeleccionados(plantaSeleccionadaDTO.getUnidadesSeleccionadas(), accesorio.getPrecio()*plantaSeleccionadaDTO.getUnidadesSeleccionadas(), false, true);
+            accesorio.añadirProducto(nuevoProductosSeleccionado);
+            orden.añadirProducto(nuevoProductosSeleccionado);
+            productosSeleccionadosServicio.guardarProductoSeleccionado(nuevoProductosSeleccionado);
+
+            orden.setUnidadesTotales(orden.getUnidadesTotales() + plantaSeleccionadaDTO.getUnidadesSeleccionadas());
+            orden.setPrecioTotal(orden.getPrecioTotal() + accesorio.getPrecio()*plantaSeleccionadaDTO.getUnidadesSeleccionadas());
+            ordenServicios.guardarOrden(orden);
+
+        }
+
 
         return new ResponseEntity<>("Producto añadido", HttpStatus.CREATED);
     }
