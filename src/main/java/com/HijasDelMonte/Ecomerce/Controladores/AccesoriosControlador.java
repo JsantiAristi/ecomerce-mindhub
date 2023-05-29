@@ -2,6 +2,7 @@ package com.HijasDelMonte.Ecomerce.Controladores;
 
 import com.HijasDelMonte.Ecomerce.DTO.AccesoriosDTO;
 import com.HijasDelMonte.Ecomerce.Models.Accesorios;
+import com.HijasDelMonte.Ecomerce.Models.Categorias;
 import com.HijasDelMonte.Ecomerce.Servicios.AccesoriosServicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,7 +46,7 @@ public class AccesoriosControlador {
         }
 
         Accesorios nuevoAccesorio = new Accesorios( accesorios.getNombre(), accesorios.getTipoAccesorio(), accesorios.getColor(),
-                description, accesorios.getFoto(), accesorios.getStock(), accesorios.getPrecio(), true);
+                description, accesorios.getFoto(), accesorios.getStock(), accesorios.getPrecio(), true, Categorias.ACCESORIOS);
         accesoriosServicios.guardarAccesorio(nuevoAccesorio);
 
         return new ResponseEntity<>(HttpStatus.CREATED);}

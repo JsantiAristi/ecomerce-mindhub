@@ -1,6 +1,7 @@
 package com.HijasDelMonte.Ecomerce.Controladores;
 
 import com.HijasDelMonte.Ecomerce.DTO.PlantasDTO;
+import com.HijasDelMonte.Ecomerce.Models.Categorias;
 import com.HijasDelMonte.Ecomerce.Models.Plantas;
 import com.HijasDelMonte.Ecomerce.Models.TipoPlanta;
 import com.HijasDelMonte.Ecomerce.Servicios.PlantasServicios;
@@ -55,7 +56,7 @@ public class PlantasControlador {
             image = plantas.getFoto();}
 
         Plantas nuevaPlanta = new Plantas( plantas.getNombre(), plantas.getTipoPlanta(), plantas.getColor(),
-                description, plantas.getFoto(), plantas.getStock(), plantas.getPrecio(), true);
+                description, plantas.getFoto(), plantas.getStock(), plantas.getPrecio(), true, Categorias.PLANTAS);
         plantasServicios.guardarPlanta(nuevaPlanta);
 
         return new ResponseEntity<>(HttpStatus.CREATED);}
