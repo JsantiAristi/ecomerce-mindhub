@@ -25,9 +25,9 @@ public class ProductosSeleccionados {
 //    @JoinColumn(name="cursos")
 //    private Cursos cursos;
 //
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name="accesorios")
-//    private Accesorios accesorios;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="accesorios")
+    private Accesorios accesorios;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="plantas")
@@ -52,12 +52,14 @@ public class ProductosSeleccionados {
     public boolean isActivo() {return activo;}
     public Orden getOrden() {return orden;}
     public Plantas getPlantas() {return plantas;}
+    public Accesorios getAccesorios() { return accesorios;}
 
-//    SETTERS
+    //    SETTERS
     public void setCantidad(int cantidad) {this.cantidad = cantidad;}
     public void setActivoCarrito(boolean activoCarrito) {this.activoCarrito = activoCarrito;}
     public void setPrecio(double precio) {this.precio = precio;}
     public void setActivo(boolean activo) {this.activo = activo;}
     public void setOrden(Orden orden) {this.orden = orden;}
     public void setPlantas(Plantas plantas) {this.plantas = plantas;}
+    public void setAccesorios(Accesorios accesorios) { this.accesorios = accesorios;}
 }

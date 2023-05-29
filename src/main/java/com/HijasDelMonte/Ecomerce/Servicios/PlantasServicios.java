@@ -11,6 +11,5 @@ public interface PlantasServicios {
 
     void guardarPlanta(Plantas plantas);
     List<PlantasDTO> obtenerPlantasDTO();
-
     Plantas obtenerPlanta(Long id);
 }
