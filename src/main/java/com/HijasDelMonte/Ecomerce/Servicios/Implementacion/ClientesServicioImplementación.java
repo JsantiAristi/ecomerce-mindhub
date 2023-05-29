@@ -7,6 +7,8 @@ import com.HijasDelMonte.Ecomerce.Servicios.ClientesServicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -28,6 +30,11 @@ public class ClientesServicioImplementación implements ClientesServicios {
     @Override
     public ClientesDTO getClienteDTO(long id) {
         return new ClientesDTO(findById(id));
+    }
+
+    @Override
+    public List<ClientesDTO> obtenerClientesDTO() {
+        return clientesRepositorio.findAll().stream().map(clientes -> new ClientesDTO(clientes)).collect(Collectors.toList());
     }
 
 

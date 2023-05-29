@@ -13,4 +13,6 @@ public interface ClientesServicios {
 
     ClientesDTO getClienteDTO(long id);
 
+    List<ClientesDTO> obtenerClientesDTO();
+
 }
