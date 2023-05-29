@@ -203,6 +203,20 @@ svg {
   background-color: #ffcaa6;
 }
 
+/*categorias*/
+.divContenedorProductos{
+  padding: 0rem 8rem;
+}
+
+#productos a img{
+  width: 1.8rem;
+}
+
+.imagenProductos{
+  height: 25rem;
+  object-fit: cover;
+}
+
 /* INICIO */
 .img-inicio{
   object-fit: cover;
@@ -228,12 +242,16 @@ svg {
   padding: 2rem;
   text-align: center;
   margin: 1rem;
-  font-size:large;
+  font-size:x-large;
   letter-spacing: 2.5px;   
 
 }
 
 /* SECCION CATEGORIAS */
+.row{
+  width: 100%;
+}
+
 .categoriasImagen{
   object-fit: cover;
   width: 30rem;
@@ -243,7 +261,6 @@ svg {
 .cajaImagen{
   width: 30rem;
   height: 30rem;
- 
 }
 .tituloCategorias {
   display: flex;
@@ -386,5 +403,9 @@ footer a:hover {
   .historia{
     display: none;
     visibility: hidden;
+  }
+
+  .divContenedorProductos{
+    padding: 0rem 0rem;
   }
 }
