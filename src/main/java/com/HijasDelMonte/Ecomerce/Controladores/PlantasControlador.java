@@ -2,6 +2,7 @@ package com.HijasDelMonte.Ecomerce.Controladores;
 
 import com.HijasDelMonte.Ecomerce.DTO.PlantasDTO;
 import com.HijasDelMonte.Ecomerce.Models.Plantas;
+import com.HijasDelMonte.Ecomerce.Models.TipoPlanta;
 import com.HijasDelMonte.Ecomerce.Servicios.PlantasServicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,9 @@ public class PlantasControlador {
     @GetMapping("/api/plantas")
     public List<PlantasDTO> obtenerPlantas(){return plantasServicios.obtenerPlantasDTO();}
 
+    @GetMapping("/api/plantas/{id}")
+    public PlantasDTO obtenerPlantas( @PathVariable long id ){return plantasServicios.obtenerPlantaDTO(id);}
+
     @PostMapping("/api/plantas")
     public ResponseEntity<Object> addProduct(@RequestBody Plantas plantas){
 
@@ -27,21 +31,28 @@ public class PlantasControlador {
         String image = null;
         List<PlantasDTO> productsDTO = plantasServicios.obtenerPlantasDTO();
 
+        if ( plantas.getNombre().isBlank() ){
+            return new ResponseEntity<>("El nombre del producto no puede estar vacío", HttpStatus.FORBIDDEN);
+        } else if ( !plantasServicios.obtenerPlantasDTO().stream().filter( plantaDB -> plantaDB.getNombre().equalsIgnoreCase(plantas.getNombre()) && plantaDB.isActivo()).collect(toList()).isEmpty() ){
+            return new ResponseEntity<>("El nombre " + plantas.getNombre() + " ya está en uso", HttpStatus.FORBIDDEN);
+        } else if ( plantas.getTipoPlanta().equals(TipoPlanta.EXTERIOR) && plantas.getTipoPlanta().equals(TipoPlanta.INTERIOR)){
+            return new ResponseEntity<>("Ingresa una opción valida", HttpStatus.FORBIDDEN);
+        } else if ( plantas.getColor().isBlank() || plantas.getColor().matches("^[a-z A-Z]*$") ){
+            return new ResponseEntity<>("El color no puede estar vacío o contener números", HttpStatus.FORBIDDEN);
+        } else if (plantas.getStock() < 0 ) {
+            return new ResponseEntity<>("No puedes tener un stock negativo", HttpStatus.FORBIDDEN);
+        } else if ( plantas.getPrecio() < 0 ) {
+            return new ResponseEntity<>("No puedes tener un precio negativo", HttpStatus.FORBIDDEN);}
+
         if ( plantas.getDescripcion().isBlank() ){
             description = "Sin descripción";
         } else if ( !plantas.getDescripcion().isBlank()) {
-            description = plantas.getDescripcion();
-        }
+            description = plantas.getDescripcion();}
 
         if ( plantas.getFoto().isBlank() ){
             image = "../../assets/agregar-producto.png";
         } else if ( !plantas.getFoto().isBlank()) {
-            image = plantas.getFoto();
-        }
-
-        if( !(productsDTO.stream().filter( productsDB -> productsDB.getNombre().equalsIgnoreCase(plantas.getNombre())).collect(toList()).size() == 0) ){
-            return new ResponseEntity<>("Este nombre ya existe en otro producto" , HttpStatus.BAD_REQUEST);
-        }
+            image = plantas.getFoto();}
 
         Plantas nuevaPlanta = new Plantas( plantas.getNombre(), plantas.getTipoPlanta(), plantas.getColor(),
                 description, plantas.getFoto(), plantas.getStock(), plantas.getPrecio(), true);
