@@ -47,8 +47,7 @@ public class PlantasControlador {
                 description, plantas.getFoto(), plantas.getStock(), plantas.getPrecio(), true);
         plantasServicios.guardarPlanta(nuevaPlanta);
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
+        return new ResponseEntity<>(HttpStatus.CREATED);}
 
     @PutMapping("/api/plantas")
     public ResponseEntity<Object> changeInfo(@RequestBody Plantas plantas){
