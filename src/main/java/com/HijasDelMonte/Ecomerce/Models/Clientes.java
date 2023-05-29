@@ -1,9 +1,6 @@
 package com.HijasDelMonte.Ecomerce.Models;
 
-
-import org.aspectj.weaver.ast.Or;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -18,7 +15,7 @@ public class Clientes {
     private String nombre;
     private String apellido;
     private String cedulaCiudadania;
-    private String telefono;
+    private long telefono;
     private Genero genero;
     private LocalDate fechaNacimiento;
     private String email;
@@ -30,7 +27,7 @@ public class Clientes {
     public Clientes() {
     }
 
-    public Clientes(String nombre, String apellido, String cedulaCiudadania, String telefono, Genero genero, LocalDate fechaNacimiento, String email, String contraseña, boolean valido){
+    public Clientes(String nombre, String apellido, String cedulaCiudadania, long telefono, Genero genero, LocalDate fechaNacimiento, String email, String contraseña, boolean valido){
         this.nombre=nombre;
         this.apellido=apellido;
         this.cedulaCiudadania=cedulaCiudadania;
@@ -52,7 +49,7 @@ public class Clientes {
     public String getNombre() {return nombre;}
     public String getApellido() {return apellido;}
     public String getCedulaCiudadania() {return cedulaCiudadania;}
-    public String getTelefono() {return telefono;}
+    public long getTelefono() {return telefono;}
     public Genero getGenero() {return genero;}
     public LocalDate getFechaNacimiento() {return fechaNacimiento;}
     public String getEmail() {return email;}
@@ -63,7 +60,7 @@ public class Clientes {
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setApellido(String apellido) {this.apellido = apellido;}
     public void setCedulaCiudadania(String cedulaCiudadania) {this.cedulaCiudadania = cedulaCiudadania;}
-    public void setTelefono(String telefono) {this.telefono = telefono;}
+    public void setTelefono(long telefono) {this.telefono = telefono;}
     public void setGenero(Genero genero) {this.genero = genero;}
     public void setFechaNacimiento(LocalDate fechaNacimiento) {this.fechaNacimiento = fechaNacimiento;}
     public void setEmail(String email) {this.email = email;}

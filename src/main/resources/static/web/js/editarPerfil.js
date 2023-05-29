@@ -19,7 +19,6 @@ createApp({
     },
     created() {
         this.cargarDatos()
-        this.nombre = this.cliente.nombre
         this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
     },
@@ -27,8 +26,13 @@ createApp({
         cargarDatos() {
             axios.get('/api/clientes/actual/1')
                 .then(respuesta => {
-                    this.cliente = respuesta.data
-                    console.log(this.cliente);
+                    this.cliente = respuesta.data;
+                    this.nombre = this.cliente.nombre;
+                    this.apellido = this.cliente.apellido;
+                    this.cedulaCiudadania = this.cliente.cedulaCiudadania;
+                    this.telefono = this.cliente.telefono;
+                    this.genero = this.cliente.genero;
+                    this.fechaNacimiento = this.cliente.fechaNacimiento;
                 })
                 .catch(error => console.log(error))
         },
@@ -40,25 +44,19 @@ createApp({
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, create it!'
+                confirmButtonText: 'Si',
+                cancelButtonText: 'No',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // console.log(this.cliente.id)
-                    // console.log(this.cliente.nombre)
-                    // console.log(this.cliente.apellido)
-                    // console.log(this.cliente.cedulaCiudadania)
-                    // console.log(this.cliente.telefono)
-                    // console.log(this.cliente.genero)
-                    // console.log(this.cliente.fechaNacimiento)
                     axios.put('/api/clientes/actual',
                         {
                             "id": this.cliente.id,
-                            "nombre": this.cliente.nombre,
-                            "apellido": this.cliente.apellido,
-                            "cedulaCiudadania": this.cliente.cedulaCiudadania,
-                            "telefono": this.cliente.telefono,
-                            "genero": this.cliente.genero,
-                            "fechaNacimiento": this.cliente.fechaNacimiento
+                            "nombre": this.nombre,
+                            "apellido": this.apellido,
+                            "cedulaCiudadania": this.cedulaCiudadania,
+                            "telefono": this.telefono,
+                            "genero": this.genero,
+                            "fechaNacimiento": this.fechaNacimiento
                         }
                     )
                         .then(response => {
@@ -76,11 +74,8 @@ createApp({
                                 icon: 'error',
                                 title: 'Oops...',
                                 text: error.response.data,
-
                             })
-
                         })
-
                 }
             })
         },
