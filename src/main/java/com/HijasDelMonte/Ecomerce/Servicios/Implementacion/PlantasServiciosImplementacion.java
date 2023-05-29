@@ -7,7 +7,6 @@ import com.HijasDelMonte.Ecomerce.Servicios.PlantasServicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-
 import static java.util.stream.Collectors.toList;
 
 @Service
@@ -23,6 +22,11 @@ public class PlantasServiciosImplementacion implements PlantasServicios {
     @Override
     public Plantas obtenerPlanta(Long id) {
         return plantasRepositorio.findById(id).orElse(null);
+    }
+
+    @Override
+    public PlantasDTO obtenerPlantaDTO(Long id) {
+        return new PlantasDTO(plantasRepositorio.findById(id).orElse(null));
     }
 
     @Override
