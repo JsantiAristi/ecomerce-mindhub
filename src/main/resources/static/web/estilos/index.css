@@ -203,6 +203,13 @@ svg {
   background-color: #ffcaa6;
 }
 
+/* INICIO */
+.img-inicio{
+  object-fit: cover;
+}
+.img{
+  width: 100%;
+}
 
 /* Historia */
 .historia{
@@ -221,17 +228,27 @@ svg {
   padding: 2rem;
   text-align: center;
   margin: 1rem;
-  font-size:x-large;
-  letter-spacing: 3px;   
+  font-size:large;
+  letter-spacing: 2.5px;   
 
 }
+
+/* SECCION CATEGORIAS */
 .categoriasImagen{
-  display: inline-block;
-  width: 20rem;
-  object-fit: contain;
-  border-radius: 60px;
+  object-fit: cover;
+  width: 30rem;
+  height: 30rem;
+}
+
+.cajaImagen{
+  width: 30rem;
+  height: 30rem;
+ 
 }
 .tituloCategorias {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: left; 
   font-family: Arial Black; 
   font-weight: bold; 
@@ -247,6 +264,8 @@ svg {
 .contenedorCategorias{
   background-color: #99a98f43;
   margin: 1rem;
+  flex-wrap: wrap;
+
 }
 
 /*Aside Cuentas*/
@@ -363,5 +382,9 @@ footer a:hover {
       width: 100%;
       margin-right: 0;
       top: 0;
+  }
+  .historia{
+    display: none;
+    visibility: hidden;
   }
 }
