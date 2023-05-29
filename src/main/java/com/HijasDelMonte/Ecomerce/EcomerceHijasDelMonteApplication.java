@@ -1,10 +1,7 @@
 package com.HijasDelMonte.Ecomerce;
 
 import com.HijasDelMonte.Ecomerce.Models.*;
-import com.HijasDelMonte.Ecomerce.Repositorios.ClientesRepositorio;
-import com.HijasDelMonte.Ecomerce.Repositorios.OrdenRepositorio;
-import com.HijasDelMonte.Ecomerce.Repositorios.PlantasRepositorio;
-import com.HijasDelMonte.Ecomerce.Repositorios.ProductosSeleccionadosRepositorio;
+import com.HijasDelMonte.Ecomerce.Repositorios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,7 +17,7 @@ public class EcomerceHijasDelMonteApplication {
 	}
 
 	@Bean
-	public CommandLineRunner IniciarDatos(ClientesRepositorio clientesRepositorio, PlantasRepositorio plantasRepositorio, ProductosSeleccionadosRepositorio productosSeleccionadosRepositorio, OrdenRepositorio ordenRepositorio){
+	public CommandLineRunner IniciarDatos(ClientesRepositorio clientesRepositorio, PlantasRepositorio plantasRepositorio, ProductosSeleccionadosRepositorio productosSeleccionadosRepositorio, OrdenRepositorio ordenRepositorio, AccesoriosRepositorio accesoriosRepositorio){
 		return (args) -> {
 			//Clientes
 			Clientes clientes= new Clientes("Juan", "Rojas", "129010101", 310101010, Genero.MASCULINO, LocalDate.now().minusYears(29), "juan@gmail.com","1234", true);
@@ -49,6 +46,21 @@ public class EcomerceHijasDelMonteApplication {
 					"Purifica el aire y filtra toxinas al interior de la casa.",
 					"../../assets/orquidea-blanca.jpg", 4, 3000, true );
 			plantasRepositorio.save(orquidea_blanca);
+
+			Accesorios maceta_aluminio = new Accesorios("Maceta Aluminio",
+					TipoAccesorio.MACETAS,
+					"Negro",
+					"Maceta con plato y pie de metal.",
+					"../../assets/maceta1.jpeg",
+					5, 20000, true);
+			accesoriosRepositorio.save(maceta_aluminio);
+			Accesorios maceta_ceramica = new Accesorios("Maceta ceramica",
+					TipoAccesorio.MACETAS,
+					"Amarillo",
+					"Maceta amarilla de ceramica, pequeña",
+					"../../assets/maceta2.jpeg",
+					10, 5000, true);
+			accesoriosRepositorio.save(maceta_ceramica);
 		};
 	};
 
