@@ -37,15 +37,13 @@
                         </li>
                     </ul>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0 pe-5">
                         <li class="nav-item">
-                            <a class="nav-link active text-white fs-5" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active text-white fs-5" aria-current="page" href="#">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active text-white fs-5" aria-current="page" href="#productos">Productos</a>
@@ -69,69 +67,70 @@
                                 <a class="nav-link active" aria-current="page" href="#"><span class="pe-3">|</span><img
                                         src="../../assets/usuario.png" alt="" @click="aparecerCuenta"></a>
                             </li>
-                            <li class="nav-item d-flex">
+                            <!-- <li class="nav-item d-flex">
                                 <a class="nav-link active" aria-current="page" href="#"><img
                                         src="../../assets/carrito-de-compras.png" alt="" @click="aparecerCarrito"></a>
                                 <span class="pe-1 ps-1 bg-success rounded text-white">{{carrito.length}}</span>
-                            </li>
+                            </li> -->
                         </div>
                     </ul>
                 </div>
+                <li class="nav-item d-flex">
+                    <a class="nav-link active" aria-current="page" href="#"><img src="../../assets/carrito-de-compras.png" width="30" alt="" @click="aparecerCarrito"></a>
+                    <span class="pe-1 ps-1 bg-success rounded text-white">{{carrito.length}}</span>
+                </li>
             </div>
         </nav>
         <main>
-            <!-- SECCION HISTORIA -->
-            <section class="historia">
-                <div class="contenedorHistoria">
-                    <img src="./assets/sin_fondo.png" alt="logo" width="300">
-                    <div><strong>Hijas son las plantas</strong> y el <strong>Monte</strong> donde nos <strong>inspiramos y aprendemos</strong> de ellas: 
-                        sus formas, sus colores, sus ciclos, sus necesidades. Es donde sucede la magia y todo cobra relevancia en este gran ecosistema del que somos parte.
-                    </div>
-                    <div><i>El monte es conexion y observacion</i>
-                        que posibilita ser y crecer junto a ellas.</div>
-                        <div>Hijas sigue creciendo gracias a esa semillita que fue sembrada hace ya 8 años y que nunca dejé de regar, con la conviccion de que encontre mi camino... con al satisfaccion de poder sumar, una y otra vez, mas y mas naturaleza a la ciudad.
-                        Hoy somos un gran equipo de personas que proyectamos, diseñamos y ejecutamos los diversos proyectos. Pero tambien, todas sesas personas que aportan de si para que lo que ofrecemos perdure y siga creciendo...</div>
-                    <div>Nos motivan las ganas de sumar vida a los espacios cotidianos y de ayudar a las personas a encontrar aquellos ejemplares que tiñan de verde su día a día, de manera consciente y a partir de un vinculo que les permita aprender y crecer junto a ellas.</div>
-                    <div><i>Creamos y componemos espacios en perfecta armonía</i> 
-                    entre el hombre y la naturaleza, 
-                    conviertiendo los 
-                    espacios cotidianos en pequeños paraísos.
-                    </div>
-                </div>
+                <!-- seccion inicio -->
+            <section class="img-inicio">
+                <img class="img-fluid img" src="./assets/00000..png" alt="imagen inicio">
             </section>
                 <!-- CATEGORIAS -->
             <section id="productos">
-                <a href="./web/paginas/plantas.html">
-                <div class="d-flex flex wrap justify-content-around align-items-center p-5 contenedorCategorias">
-                    <div class="">
-                        <img class="img-fluid categoriasImagen" src="./assets/plantas.jpg" alt="plantas">
+                <div class="d-flex flex-wrap align-items-center contenedorCategorias">
+                    <div class="cajaImagen">
+                        <a href="./web/paginas/plantas.html">
+                            <img class="img-fluid categoriasImagen" src="./assets/plantas.jpg" alt="plantas">
+                        </a>
                     </div>
                     <div class="animate__animated animate__fadeInRight tituloCategorias">
                         PLANTAS
                     </div>
+                    <div>
+                        <!-- <p>Contamos con plantas tanto de interior como de exterior para llevar naturaleza a todos los espacios de tu hogar</p> -->
+                    </div>
                 </div>
-                </a>
-                <a href="#">
-                <div class="d-flex flex wrap justify-content-around align-items-center p-5 contenedorCategorias">
+                
+                <div class="d-flex flex-wrap align-items-center contenedorCategorias">
                     <div class="animate__animated animate__fadeInLeft tituloCategorias">
                         WORKSHOPS
                     </div>
-                    <div class="">
-                        <img class="img-fluid categoriasImagen" src="./assets/cursos.JPG" alt="cursos">
+                    <div>
+                        <!-- <p>Realizamos talleres de kokedamas, cuadros vivos, entre otros.</p> -->
+                    </div>
+                    <div class="cajaImagen">
+                        <a href="#">
+                            <img class="img-fluid categoriasImagen" src="./assets/cursos.jpeg" alt="cursos">
+                            <!-- <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/CWUIBV4FRGC/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/CWUIBV4FRGC/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Ver esta publicación en Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/CWUIBV4FRGC/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Una publicación compartida por Hijas del Monte (@hijasdelmonte)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script> -->
+                        </a>
                     </div>
                 </div>
-                </a>
-                <a href="#">
-                <div class="d-flex flex wrap justify-content-around align-items-center p-5 contenedorCategorias">
-                    <div class="">
-                        <img class="img-fluid categoriasImagen" src="./assets/accesorios.jpg" alt="accesorios">
+                <div class="d-flex flex-wrap align-items-center contenedorCategorias">
+                    <div class="cajaImagen">
+                        <a href="#">
+                            <img class="img-fluid categoriasImagen" src="./assets/accesorios.jpg" alt="accesorios">
+                        </a>
                     </div>
                     <div class="animate__animated animate__fadeInRight tituloCategorias">
                         ACCESORIOS
                     </div>
+                    <div>
+                        <!-- <p>Contamos con una amplia variedad de accesorios para emebellecer tus espacios y cuidar de tus plantitas. Macetas, regaderas, tutores, etc. </p> -->
+                    </div>
                 </div>
-                </a>
             </section>
+
             <!-- CARROUSEL DE PRODUCTOS -->
             
 
@@ -208,8 +207,7 @@
             </aside>
         </main>
         <section id="carrouselproductos">
-            <swiper-container class="mySwiper d-none d-md-block" pagination="true" space-between="30"
-            slides-per-view="3">
+            <swiper-container class="mySwiper d-none d-md-block" pagination="true" space-between="30" slides-per-view="3">
             <template v-for="producto of plantas">
                 <swiper-slide>
                     <div class="card">
@@ -274,6 +272,7 @@
             </template>            
             </swiper-container>
         </section>
+
         <!-- SECCION HISTORIA -->
         <section class="historia">
             <div class="contenedorHistoria">
@@ -301,11 +300,7 @@
             </h2>
             <div id="mapa">
                 <div>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15861.66835097513!2d-75.5160121!3d6.339989549999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1684952477643!5m2!1ses!2sco"
-                        height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <div class="direccion">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3552.959221668441!2d-58.98546274624335!3d-27.448489082063745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450d1e90d30821%3A0xa2cc94b739f578d8!2sChal%C3%A9%20-%20Monte%20y%20Bar!5e0!3m2!1ses!2sar!4v1685372712812!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                    <div class="direccion">
                         <div class="container">
                             <div class="row align-items-end justify-content-center">
                                 <div class="col-md-4 offset-md-8 text-center mb-5">
@@ -353,7 +348,7 @@
                             <p class="fw-bold fs-5">Desarrolladores</p>
                             <div class="d-flex flex-column">
                                 <a href="" class="pb-1">Santiago Aristizabal</a>
-                                <a href="" class="pb-1">Eugenia</a>
+                                <a href="" class="pb-1">Eugenia Gonzalez</a>
                                 <a href="" class="pb-1">Laura</a>
                                 <a href="">Alexander Rey</a>
                             </div>
@@ -362,10 +357,9 @@
                     <div>
                         <p class="fw-bold fs-5">Ventas</p>
                         <div>
-                            <p>Medellín</p>
-                            <p>Calle 26 b # 70 - 93 Sector Belen Rosales</p>
-                            <p>Poblado</p>
-                            <p>Línea de ventas 3186064877</p>
+                            <p>Resistencia - Chaco</p>
+                            <p>Av. Sarmiendo 350</p>
+                            <p>Chalé - Monte y Bar</p>
                         </div>
                     </div>
                 </div>
