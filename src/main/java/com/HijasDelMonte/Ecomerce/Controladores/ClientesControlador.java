@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.Authenticator;
+import java.util.List;
 
 @RestController
 public class ClientesControlador {
@@ -64,5 +65,10 @@ public class ClientesControlador {
             return new ResponseEntity<>("No se encontro el cliente" , HttpStatus.ACCEPTED);
         }
 
+    }
+
+    @GetMapping("api/clientes")
+    public List<ClientesDTO> obtenerClientes(){
+        return clientesServicios.obtenerClientesDTO();
     }
 }
