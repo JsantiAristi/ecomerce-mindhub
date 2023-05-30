@@ -21,7 +21,7 @@ createApp({
     },
     methods: {
         loadData(){
-            axios.get('/api/plantas')
+            axios.get('/api/productos')
             .then(res => {
                 this.plantas = res.data
                 this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoPlanta)));
