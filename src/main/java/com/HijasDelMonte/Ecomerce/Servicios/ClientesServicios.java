@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ClientesServicios {
     Clientes findById(long id);
+    Clientes findByEmail(String email);
 
     void saveCliente(Clientes clientes);
 

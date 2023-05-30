@@ -2,15 +2,21 @@ package com.HijasDelMonte.Ecomerce;
 
 import com.HijasDelMonte.Ecomerce.Models.*;
 import com.HijasDelMonte.Ecomerce.Repositorios.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 import java.time.LocalDate;
 
 @SpringBootApplication
 public class EcomerceHijasDelMonteApplication {
+
+	@Autowired
+	private PasswordEncoder passwordEnconder;
 	public static void main(String[] args) {
 		SpringApplication.run(EcomerceHijasDelMonteApplication.class, args);
 	}
@@ -19,9 +25,9 @@ public class EcomerceHijasDelMonteApplication {
 	public CommandLineRunner IniciarDatos(ClientesRepositorio clientesRepositorio, ProductosRepositorio productosRepositorio, ProductosSeleccionadosRepositorio productosSeleccionadosRepositorio, OrdenRepositorio ordenRepositorio){
 		return (args) -> {
 			//Clientes
-			Clientes clientes= new Clientes("Juan", "Rojas", "129010101", 310101010, Genero.MASCULINO, LocalDate.now().minusYears(29), "juan@gmail.com","1234", true);
+			Clientes clientes= new Clientes("Juan", "Rojas", "129010101", 310101010, Genero.MASCULINO, LocalDate.now().minusYears(29), "juan@gmail.com",passwordEnconder.encode("1234"), true);
 			clientesRepositorio.save(clientes);
-			Clientes cliente2= new Clientes("Carla", "Palacios", "1000000", 323242010, Genero.FEMENINO, LocalDate.now().minusYears(20), "carla@gmail.com","12345", true);
+			Clientes cliente2= new Clientes("Carla", "Palacios", "1000000", 323242010, Genero.FEMENINO, LocalDate.now().minusYears(20), "carla@gmail.com",passwordEnconder.encode("12345"), true);
 			clientesRepositorio.save(cliente2);
 
 			//Productos PLantas
