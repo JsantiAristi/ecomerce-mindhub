@@ -43,7 +43,10 @@ nav {
 
 /* Main */
 main {
-    background-color: #f9f5eb;
+    background-image: url(../../assets/fondoHistoria.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     min-height: 95vh;
     position: relative;
 }
@@ -62,7 +65,7 @@ main {
 /*Perfil*/
 .perfil{
     height: 10rem;
-    background-color: #e8edec !important;
+    background-color: #e8edecc2 !important;
 }
 .iconoPerfil{
     height: 5rem;
@@ -78,7 +81,7 @@ li{
     list-style: none;
 }
 .nav{
-    background-color:  #e8edec;
+    background-color: #e8edecc2; 
     width: 18rem;
     height: 18rem;
 }
@@ -94,13 +97,12 @@ h6{
   }
 
 form{
-    background-color:  #e8edec;
     width: 25rem;
     
 }
 
 .card-body{
-    background-color: #e8edec;
+    background-color: #e8edecc2 ;
     margin: 49px;
 }
 .ubicacionTel{
@@ -188,7 +190,12 @@ form{
 .infoCarrito{
     width: 80%;
 }
-
+.nav ul, .nav a{
+    width: 100% !important;
+}
+.nav a{
+    display: inline-block;
+}
 /*Footer*/
 footer {
     color: white;
@@ -246,7 +253,7 @@ footer a:hover {
     padding-top: 20px;
    } 
    .card-body{
-    background-color: #e8edec;
+   
     margin: 0px;
     width: 18rem;
     }
@@ -257,7 +264,7 @@ footer a:hover {
 }
 @media only screen and (min-width:650px) and (max-width:1023px){
     .card-body{
-     background-color: #e8edec;
+     
      margin-top: 49px;
      width: 18rem;
      }

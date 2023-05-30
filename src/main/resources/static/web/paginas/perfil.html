@@ -88,53 +88,54 @@
             </section><!-- End perfil -->
                    
             <!-- ======= Opciciones ======= -->
-            <div class="container d-flex justify-content-around responsivePerfil">
-                <section class="pt-5">
-                    <div class=" nav">
-                        <ul>
-                            <li class="pt-5 fs-5"><a href="#">Perfil</a></li>
-                            <li class="pt-5 fs-5"><a href="./pedidos.html">Pedidos</a></li>
-                            <li class="pt-5 text-danger fs-5"><p href="">Cerrar sesión</p></li>
+            <div class="container d-flex justify-content-around responsivePerfil ">
+                <section class="pt-5 ">
+                    <div class=" nav  ">
+                        <ul class="d-flex flex-column justify-content-evenly mb-0 ps-0 classUl">
+                            <li ><a href="#" class="fs-4 text-center">Perfil</a></li>
+                            <li><a href="./pedidos.html" class="fs-4 text-center">Pedidos</a></li>
+                            <li class="text-danger " ><p href="" class="fs-4 mb-0 text-center">Cerrar sesión</p></li>
                         </ul>
                     </div>
                 </section>  <!-- End Opciones -->                                              
                     
                 <!-- ======= Informacion Personal ======= -->
                 <section class=" infoPersonal" >
+                    <div class="login-box">
                     <div class="d-flex justify-content-around responsiveInfoPerfil">
-                        <div class=" d-flex flex-column pt-3 ">
-                            <div class="pt-3">
-                                <h6>Nombre:</h6>
-                                <p>{{cliente.nombre}}</p>
+                        <div class=" d-flex flex-column pt-3 columnasInfo">
+                            <div class="pt-4">
+                                <h6 class="fs-5">Nombre:</h6>
+                                <p class="fs-5 mb-0">{{cliente.nombre}}</p>
                             </div>
-                            <div class="pt-3">
-                                <h6>Email</h6>
-                                <p>{{cliente.email}}</p>
+                            <div class="pt-4">
+                                <h6 class="fs-5">Email</h6>
+                                <p class="fs-5 mb-0">{{cliente.email}}</p>
                             </div>
-                            <div class="pt-3">
-                                <h6>Cédula de Ciudadanía</h6>
-                                <p>{{cliente.cedulaCiudadania}} </p>
+                            <div class="pt-4">
+                                <h6 class="fs-5">Cédula de Ciudadanía</h6>
+                                <p class="fs-5 mb-0">{{cliente.cedulaCiudadania}} </p>
                             </div>
                             
-                            <div class="pt-3">
-                                <h6>Fecha de nacimiento</h6>
-                                <p>{{cliente.fechaNacimiento}}</p>
+                            <div class="pt-4">
+                                <h6 class="fs-5">Fecha de nacimiento</h6>
+                                <p class="fs-5 mb-0">{{cliente.fechaNacimiento}}</p>
                             </div>
                             
                         </div>
-                        <div class="d-flex  flex-column pt-3 ">
-                            <div class="pt-3 ">
-                                <h6>Apellido:</h6>
-                                <p>{{cliente.apellido}}</p>
+                        <div class="d-flex  flex-column pt-3 columnasInfo">
+                            <div class="pt-4 ">
+                                <h6 class="fs-5">Apellido:</h6>
+                                <p class="fs-5 mb-0">{{cliente.apellido}}</p>
                             </div>
-                            <div class="pt-3 ">
-                                <h6> Género</h6>
-                                <p>{{cliente.genero}}</p>
+                            <div class="pt-4 ">
+                                <h6 class="fs-5"> Género</h6>
+                                <p class="fs-5 mb-0">{{cliente.genero}}</p>
                             </div>
                             
-                            <div class="pt-3 ubicacionTel">
-                                <h6>Teléfono persona </h6>
-                                <p>{{cliente.telefono}}</p>
+                            <div class="pt-4 ubicacionTel">
+                                <h6 class="fs-5">Teléfono persona </h6>
+                                <p class="fs-5 mb-0">{{cliente.telefono}}</p>
                             </div>
                         </div>
                     </div>    
@@ -146,7 +147,7 @@
                         </a>
                         
                     </div>
-                    
+                </div>
                 </section><!-- ======= End Informacion Personal ======= -->
             </div>  
                 <!-- Aside cuentas -->

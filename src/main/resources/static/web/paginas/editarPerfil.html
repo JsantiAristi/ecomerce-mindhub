@@ -94,17 +94,49 @@
             </section><!-- End perfil -->
 
             <div class="container d-flex justify-content-around responsivePerfil">
-                <section class="pt-5">
-                    <div class=" nav">
-                        <ul>
-                            <li class="pt-5 fs-5"><a href="./perfil.html">Perfil</a></li>
-                            <li class="pt-5 fs-5"><a href="./pedidos.html">Pedidos</a></li>
-                            <li class="pt-5 fs-5 text-danger">
-                                <p>Cerrar sesión</p>
-                            </li>
+                <section class="pt-5 ">
+                    <div class=" nav  ">
+                        <ul class="d-flex flex-column justify-content-evenly mb-0 ps-0 classUl">
+                            <li ><a href="./perfil.html" class="fs-4 text-center">Perfil</a></li>
+                            <li><a href="./pedidos.html" class="fs-4 text-center">Pedidos</a></li>
+                            <li class="text-danger " ><p href="" class="fs-4 mb-0 text-center">Cerrar sesión</p></li>
                         </ul>
                     </div>
-                </section> <!-- End Opciones -->
+                  </section>  <!-- End Opciones -->   
+                <section class="h-100 formEspaciado" >
+                            <div class="card-body p-4 p-md-4">
+                              <form class="px-md-2">
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1q">Nombre</label>
+                                    <input type="text" id="form3Example1q" class="form-control"  v-model="nombre"/>
+                                </div>
+                  
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example2q">Apellido</label>
+                                    <input type="text" id="form3Example2q" class="form-control" :value="cliente.apellido" :v-model="apellido"/>
+                                </div>
+            
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example3q">Cedula de Ciudadanía</label>
+                                    <input type="text" id="form3Example3q" class="form-control" :value="cliente.cedulaCiudadania" :v-model="cedulaCiudadania"/>
+                                </div>
+            
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example4q">Telefono personal</label>
+                                    <input type="text" id="form3Example4q" class="form-control" :value="cliente.telefono" :v-model="telefono"/>
+                                </div>
+                                
+                              
+            
+                                <label for="">Género </label>
+                                <div class="mb-4">
+                                    <select class="select" :value="cliente.genero" :v-model="genero">
+                                        <option value="MASCULINO">Masculino</option>
+                                        <option value="FEMENINO">Femenino</option>
+                                        
+                                    </select>
+                    
+                                </div>
 
                 <section class="h-100 formEspaciado">
                     <div class="card-body p-4 p-md-4">

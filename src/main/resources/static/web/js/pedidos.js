@@ -10,6 +10,7 @@ createApp({
             totalCompra: "",
             isCuentaInactivo: true,
             isCarritoInactivo: true,
+            plantas : [],
         }
     },
     created(){
@@ -27,6 +28,16 @@ createApp({
                 console.log(this.productosSeleccionadosSet);
             })
             .catch(error => console.log(error))
+        },
+        cargarDatosPlantas(){
+            axios.get('/api/plantas')
+                .then(respuesta => {
+                    this.plantas = respuesta.data.filter(planta => planta.activo);
+                    console.log(this.plantas)
+                })
+                .catch(error => console.log(error))
+           // this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            //this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
         },  
         aparecerCuenta() {
             if (this.isCarritoInactivo) {
@@ -44,10 +55,10 @@ createApp({
                 this.isCarritoInactivo = !this.isCarritoInactivo;
             }
         },  
-        sumar(id){
+        sumar(nombre){
             this.carrito.map(planta => {
-                if(planta.id == id){
-                    if (planta.stock === planta.contador) {
+                if(planta.nombre == nombre){
+                    if (planta.stock >0) {
                         planta.contador += 0
                     } else {
                         planta.contador += 1
@@ -58,9 +69,9 @@ createApp({
             localStorage.setItem("carrito", JSON.stringify(this.carrito));
             localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
         },
-        resta(id){
+        resta(nombre){
             this.carrito.map(planta => {
-                if(planta.id == id){
+                if(planta.nombre ==nombre){
                     if (planta.contador === 1) {
                         planta.contador -= 0
                     } else {
@@ -104,6 +115,50 @@ createApp({
                 }               
             })
             .catch(error => console.log(error))
-        },        
+        },
+        sumarProducto(id){
+            console.log(id);
+            axios.put("/api/cliente/carrito/suma",`idProducto=${id}`)
+            .then(response=>{
+                Swal.fire({
+                    title:'Message Confirmation',
+                    text: 'one unit has been added',
+                    icon:'success',
+                    didOpen:() => {
+                        document.querySelector('.swal2-confirm').addEventListener('click', () =>{location.reload(true)})
+                    },
+                })
+            }).catch(err =>{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error adding a product unit',
+                    text: err.response.data,
+                  })
+            })
+            /*.then(response => window.location.href="/web/paginas/pedidos.html")
+            .catch(error => console.log(error))*/
+        },
+        restarProducto(id){
+            console.log(id);
+            axios.put("/api/cliente/carrito/resta",`idProducto=${id}`)
+            .then(response=>{
+                Swal.fire({
+                    title:'Mensaje de confirmación',
+                    text: 'Se ha eliminado una unidad',
+                    icon:'success',
+                    didOpen:() => {
+                        document.querySelector('.swal2-confirm').addEventListener('click', () =>{location.reload(true)})
+                    },
+                })
+            }).catch(err =>{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error eliminadndo una unidad',
+                    text: err.response.data,
+                  })
+            })
+            /*.then(response => window.location.href="/web/paginas/pedidos.html")
+            .catch(error => console.log(error))*/
+        },
     }
 }).mount("#app")

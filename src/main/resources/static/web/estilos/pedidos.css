@@ -43,7 +43,10 @@ nav {
 
 /* Main */
 main {
-    background-color: #f9f5eb;
+    background-image: url(../../assets/fondoHistoria.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     min-height: 95vh;
     position: relative;
 }
@@ -73,7 +76,7 @@ main {
 /*Perfil*/
 .perfil{
     height: 10rem;
-    background-color: #e8edec !important;
+    background-color: #e8edecc2 !important;
 }
 .iconoPerfil{
     height: 5rem;
@@ -89,7 +92,7 @@ li{
     list-style: none;
 }
 .nav{
-    background-color:#e8edec;
+    background-color: #e8edecc2; 
     width: 18rem;
     height: 18rem;
 }
@@ -103,7 +106,7 @@ li{
 /*Pedidos*/
 .contenedorPedidos{
     margin-top: 49px;
-    background-color:#e8edec;
+    background-color: #e8edecc2 ;
     width: 18rem;
     height: 18rem;
 }
@@ -172,6 +175,11 @@ li{
     cursor: pointer;
 }
 
+.sumaBoton2, .menosBoton2 {
+    width: 1.4rem;
+    cursor: pointer;
+}
+
 .botonBasura{
     width: 2rem;
     height: 2rem;
@@ -181,6 +189,12 @@ li{
 
 .infoCarrito{
     width: 80%;
+}
+.nav ul, .nav a{
+    width: 100% !important;
+}
+.nav a{
+    display: inline-block;
 }
 
 /*Footer*/
@@ -238,8 +252,15 @@ footer a:hover {
         width: 100%;
     }
 
-    .accordion-button{
-        width: 9rem;
+   .accordion-button{
+        width: 100%;
+    }
+    
+   
+     
+}
+@media only screen and(min-width:320px) and(max-width:768px){
+    .responsivePerfil{
+        flex-direction: column !important;
     }
 }
-

@@ -52,4 +52,30 @@ public class ProductosSeleccionadosControlador {
 
         return new ResponseEntity<>("Producto añadido", HttpStatus.CREATED);
     }
+
+
+    @PutMapping("/api/cliente/carrito/suma")
+    public ResponseEntity<Object> sumarProducto(@RequestParam long idProducto){
+        ProductosSeleccionados productosSeleccionado= productosSeleccionadosServicio.obtenerProducto(idProducto);
+        Orden orden= productosSeleccionado.getOrden();
+        productosSeleccionado.setCantidad(productosSeleccionado.getCantidad()+1);
+        productosSeleccionadosServicio.guardarProductoSeleccionado(productosSeleccionado);
+        orden.setUnidadesTotales(orden.getUnidadesTotales()+1);
+        ordenServicios.guardarOrden(orden);
+        return new ResponseEntity<>("Producto añadido", HttpStatus.OK);
+    }
+
+    @PutMapping("/api/cliente/carrito/resta")
+    public ResponseEntity<Object> restarProducto(@RequestParam long idProducto){
+        ProductosSeleccionados productosSeleccionado= productosSeleccionadosServicio.obtenerProducto(idProducto);
+        Orden orden= productosSeleccionado.getOrden();
+        if(productosSeleccionado.getCantidad()==0){
+            return new ResponseEntity<>("Las unidades seleccionadas actualmente son cero no puede seguir restando" , HttpStatus.FORBIDDEN);
+        }
+        productosSeleccionado.setCantidad(productosSeleccionado.getCantidad()-1);
+        productosSeleccionadosServicio.guardarProductoSeleccionado(productosSeleccionado);
+        orden.setUnidadesTotales(orden.getUnidadesTotales()-1);
+        ordenServicios.guardarOrden(orden);
+        return new ResponseEntity<>("Unidad eliminada", HttpStatus.OK);
+    }
 }
