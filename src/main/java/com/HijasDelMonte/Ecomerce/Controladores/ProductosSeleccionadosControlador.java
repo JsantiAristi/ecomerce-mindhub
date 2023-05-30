@@ -33,8 +33,8 @@ public class ProductosSeleccionadosControlador {
     @PostMapping("/api/cliente/carrito")
     public ResponseEntity<Object> añadirProductoSeleccionado(Authentication authentication, @RequestBody ProductoSeleccionadoDTO productoSeleccionadoDTO){
 
-        Clientes clientes = clientesServicios.obtenerClienteAutenticado(authentication);
-        List<Orden> ordenes = clientes.getOrdenes().stream().filter( ordenPagada -> !ordenPagada.isComprado()).collect(toList());
+        Clientes cliente = clientesServicios.obtenerClienteAutenticado(authentication);
+        List<Orden> ordenes = cliente.getOrdenes().stream().filter( ordenPagada -> !ordenPagada.isComprado()).collect(toList());
         Orden orden = ordenes.get(0);
         Productos producto = productosServicios.obtenerPlanta(productoSeleccionadoDTO.getId());
 
@@ -70,8 +70,8 @@ public class ProductosSeleccionadosControlador {
     public ResponseEntity<Object> restarProducto(@RequestParam long idProducto){
         ProductosSeleccionados productosSeleccionado= productosSeleccionadosServicio.obtenerProducto(idProducto);
         Orden orden= productosSeleccionado.getOrden();
-        if(productosSeleccionado.getCantidad()==0){
-            return new ResponseEntity<>("Las unidades seleccionadas actualmente son cero no puede seguir restando" , HttpStatus.FORBIDDEN);
+        if(productosSeleccionado.getCantidad()==1){
+            return new ResponseEntity<>("La unidade seleccionada actualmente es uno no puede seguir restando, si deseas puedes eliminarlo" , HttpStatus.FORBIDDEN);
         }
         productosSeleccionado.setCantidad(productosSeleccionado.getCantidad()-1);
         productosSeleccionadosServicio.guardarProductoSeleccionado(productosSeleccionado);
