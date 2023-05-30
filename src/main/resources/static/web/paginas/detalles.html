@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hijas del monte</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap" rel="stylesheet">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../estilos/detalles.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <p class="text-center text-white mb-0">Orquideas y plantas para regalar y decorar. Directo del cultivo a tu
+                hogar.</p>
+        </header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center ps-5">
+                    <a href="../../index.html"><img src="../../assets/sin_fondo.png" alt="logo" class="logo"></a>
+                    <ul class="navbar-nav mb-2 mb-lg-0 d-none d-md-block">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white fs-5" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item fs-5 text-white" href="./plantas.html"><img
+                                            src="../../assets/planta.png" alt="plantas"> Plantas</a></li>
+                                <li><a class="dropdown-item fs-5 text-white" href="#"><img
+                                            src="../../assets/accesorios.png" alt="accesorios"> Accesorios</a></li>
+                                <li><a class="dropdown-item fs-5 text-white" href="#"><img
+                                            src="../../assets/aprender-en-linea.png" alt="cursos"> Cursos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 pe-5">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white fs-5" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown d-md-none">
+                            <a class="nav-link dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Categorias
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item fs-5 text-white" href="./plantas.html"><img
+                                            src="../../assets/planta.png" alt="plantas"> Plantas</a></li>
+                                <li><a class="dropdown-item fs-5 text-white" href="#"><img
+                                            src="../../assets/accesorios.png" alt="accesorios"> Accesorios</a></li>
+                                <li><a class="dropdown-item fs-5 text-white" href="#"><img
+                                            src="../../assets/aprender-en-linea.png" alt="cursos"> Cursos</a></li>
+                            </ul>
+                        </li>
+                        <div class="d-flex gap-2">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#"><span class="pe-3">|</span><img
+                                        src="../../assets/usuario.png" alt="" @click="aparecerCuenta"></a>
+                            </li>
+                            <li class="nav-item d-flex">
+                                <a class="nav-link active" aria-current="page" href="#"><img
+                                        src="../../assets/carrito-de-compras.png" alt="" @click="aparecerCarrito"></a>
+                                <span class="pe-1 ps-1 bg-success rounded text-white">{{carrito.length}}</span>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main >
+          <!--  <div class = "card-wrapper">-->
+                <div class = " container card d-flex flex-row justify-content-around align-items-center pt-5">
+                  <!-- card left -->
+                  <div class = "product-imgs">
+                    <img  v-bind:src="producto.foto" alt = "shoe image" class="imgProduct">
+                    
+                  </div>
+                  <!-- card right -->
+                  <div class="infoProducto">
+                    <h2 class = "product-title">{{ producto.nombre}}</h2>
+                    <a href = "#" class = "product-link ">visite Hijas del monte</a>
+                    <div class = "product-rating pb-2">
+                      <i class = "fas fa-star"></i>
+                      <i class = "fas fa-star"></i>
+                      <i class = "fas fa-star"></i>
+                      <i class = "fas fa-star"></i>
+                      <i class = "fas fa-star-half-alt"></i>
+                     <!-- <span>4.7(21)</span>-->
+                    </div>
+          
+                    <div class = "product-price">
+                      
+                      <p class = "new-price">Precio: <span>{{producto.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD'})}}</span></p>
+                      <p class = "new-price">Categoria: <span>{{producto.categorias}}</span></p>
+                    </div>
+          
+                    <div class = "product-detail">
+                      <h3>Sobre este producto: </h3>
+                      <p class="fs-5 descripcion">{{producto.descripcion}}</p>
+                      
+                    </div>
+          
+                    <div class = "purchase-info">
+                     <!--<input type = "number" min = "0" value = "1">-->
+                      <button :disabled="producto.stock==0?true:false" class="agregarBoton" @click="añadirCarrito">Agregar al carrito
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-shopping-cart ms-2" width="30" height="30" 
+                            viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M17 17h-11v-14h-2" />
+                            <path d="M6 5l14 1l-1 7h-13" />
+                        </svg>
+                    </button>
+                
+                    </div>
+          
+                    
+                  </div>
+                </div>
+           <!--   </div>-->
+        <!-- Aside cuentas -->
+        <aside :class="{ inactive: isCuentaInactivo }" class="border rounded p-2 asideCuentas" id="aside">
+            <div class="d-flex flex-column">
+                <a href="./web/paginas/perfil.html" class="fs-5 p-1"><i class="bi bi-person me-1"></i>Mi cuenta</a>
+                <a href="./web/paginas/pedidos.html" class="fs-5 p-1"><i class="bi bi-bag me-1"></i>Mis pedidos</a>
+                <template v-if="cliente.email == 'juan@gmail.com'">
+                    <a href="./manager/paginas/editar_plantas.html" class="fs-5 p-1">💻 Administrador</a>
+                </template>                    
+                <p class="text-center fs-5 text-danger mb-0" @click="logout"><i class="bi bi-x-lg"></i>Cerrar sesión</p>
+            </div>
+        </aside>
+        <!-- Aside carrito de compras -->
+        <aside :class="{ inactive: isCarritoInactivo }" class="border rounded p-2 asideCarrito" id="aside">
+            <div class="d-flex flex-column justify-content-between align-items-between infoTotalDiv">
+                <div>
+                    <template v-if="carrito.length>0" v-for="producto of carrito">
+                        <div class="d-flex align-items-center mb-2 p-2">
+                            <img :src="producto.foto" alt="" class="asideCarritoFoto">
+                            <div class="ps-2 infoCarrito">
+                                <p class="mb-0">{{producto.nombre}}</p>
+                                <p>C/U {{producto.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}</p>
+                                <div>
+                                    <img src="../../assets/boton-de-resta.png" alt="" class="menosBoton pe-2" @click="resta(producto.id)">                               
+                                    <span>{{producto.contador}}</span>
+                                    <img src="../../assets/mas.png" alt="" class="sumaBoton ps-2" @click="sumar(producto.id)"> 
+                                    <span v-if="producto.contador == producto.stock" class="text-danger ps-2">No puedes sumar más</span>                        
+                                </div>                              
+                            </div>  
+                            <img src="../../assets/eliminar.png" alt=""class="botonBasura" @click="eliminar(producto.id)">                          
+                        </div>
+                    </template>
+                    <template v-else>
+                        <p class="fs-5 text-center mt-5 mb-5">No has añadido nada al carrito 😥</p>
+                    </template>
+                    <div>
+                        <p class="mb-0 fs-5 fw-bold">Total = {{totalCompra}}</p>
+                    </div>
+                </div>                   
+                <button class="btn btnFondo rounded" @click="crearOrden">Añadir a la orden</button>
+            </div>
+        </aside>
+           
+          
+        </main>
+        <footer>
+            <div class="p-3">
+                <div class="d-flex justify-content-between align-items-center p-4 me-5">
+                    <div class="logo_empresa ms-5">
+                        <img src="../../assets/sin_fondo.png" alt="">
+                    </div>
+                    <div class="iconos_footer">
+                        <img src="../../assets/facebook.png" alt="">
+                        <img src="../../assets/instagram.png" alt="">
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-evenly flex-wrap footer_arriba">
+                    <div class="mb-4 mb-md-0">
+                        <p class="fw-bold fs-5">Nosotros</p>
+                        <a href="">¿Quienes somos?</a>
+                    </div>
+                    <div class="mb-4 mb-md-0">
+                        <p class="fw-bold fs-5">Nuestras politicas</p>
+                        <div class="d-flex flex-column">
+                            <a href="" class="pb-1">Política de privacidad</a>
+                            <a href="" class="pb-1">Política de reembolsos</a>
+                            <a href="" class="pb-1">Terminos y condiciones</a>
+                            <a href="" class="pb-1">Envío y entrega</a>
+                            <a href="">Superintendencia de industria y comercio</a>
+                        </div>
+                    </div>
+                    <div class="mb-4 mb-md-0">
+                        <div class="medios_pago mb-4 mb-md-0">
+                            <p class="fw-bold mb-0 fs-5">Medios de pago</p>
+                            <img src="../../assets/mercado-pago.png" alt="">
+                            <img src="../../assets/dni.png" alt="">
+                        </div>
+                        <div class="integrantes">
+                            <p class="fw-bold fs-5">Desarrolladores</p>
+                            <div class="d-flex flex-column">
+                                <a href="" class="pb-1">Santiago Aristizabal</a>
+                                <a href="" class="pb-1">Eugenia</a>
+                                <a href="" class="pb-1">Laura</a>
+                                <a href="">Alexander Rey</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="fw-bold fs-5">Ventas</p>
+                        <div>
+                            <p>Medellín</p>
+                            <p>Calle 26 b # 70 - 93 Sector Belen Rosales</p>
+                            <p>Poblado</p>
+                            <p>Línea de ventas 3186064877</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-white text-center mb-0 footer_bajo">©Hijas del Monte | Comparte lo que sientes</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/detalles.js"></script>
+</body>
+
+</html>

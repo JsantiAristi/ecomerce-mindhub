@@ -13,21 +13,47 @@ createApp({
             cantidad: "",
             plantaId: [],
             totalCompra: 0,
+            plantas:[],
+            cliente:''
         }
     },
     created() {
         this.cargarDatos()
+        this.cargarDatosPlantas()
     },
     methods: {
         cargarDatos() {
             axios.get('/api/plantas/1')
                 .then(respuesta => {
-                    this.producto = respuesta.data.filter(planta => planta.activo);
+                    this.producto = respuesta.data;
+                    console.log(this.producto)
+                    this.producto.contador = 1;
+                    console.log(this.producto);
                 })
                 .catch(error => console.log(error))
             this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
             this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
         },
+        cargarDatosPlantas() {
+            axios.get('/api/productos')
+              .then(respuesta => {
+                this.plantas = respuesta.data.filter(producto => producto.activo && producto.stock > 0);
+                console.log(this.plantas);
+              })
+              .catch(error => console.log(error))
+          },
+          cargarCliente() {
+            axios.get('/api/clientes/actual')
+              .then(respuesta => {
+                this.cliente = respuesta.data;
+                console.log(this.cliente);
+              })
+              .catch(error => {
+                this.cliente = []
+                console.log(this.cliente);
+                console.log(error)
+              })
+          }, 
         aparecerCuenta() {
             if (this.isCarritoInactivo) {
                 this.isCuentaInactivo = !this.isCuentaInactivo;
@@ -44,14 +70,11 @@ createApp({
                 this.isCarritoInactivo = !this.isCarritoInactivo;
             }
         },
-        añadirCarrito(id){
-            this.filtro_planta_carrito = this.plantas.filter(planta => planta.id == id)[0];  
-            if (!(this.carrito.some(planta => planta.id == id))) {
-                this.carrito.push(this.filtro_planta_carrito);
+        añadirCarrito(){
+                this.carrito.push(this.producto);
                 this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
                 localStorage.setItem("carrito", JSON.stringify(this.carrito));
-                localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
-            }                
+                localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))                          
         },
         sumar(id){
             this.carrito.map(planta => {
