@@ -23,6 +23,9 @@ public class ClientesServicioImplementación implements ClientesServicios {
     }
 
     @Override
+    public Clientes findByEmail(String email) {return clientesRepositorio.findByEmail(email);}
+
+    @Override
     public void saveCliente(Clientes clientes) {
         clientesRepositorio.save(clientes);
     }

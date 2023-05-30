@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -17,6 +18,9 @@ public class ClientesControlador {
 
     @Autowired
     private ClientesServicios clientesServicios;
+
+    @Autowired
+    private PasswordEncoder passwordEnconder;
 
     @GetMapping("/api/clientes/actual/{id}")
     public ClientesDTO getClient (@PathVariable  long id) {
@@ -66,6 +70,24 @@ public class ClientesControlador {
                         <>("No se ha modificado la informacion", HttpStatus.ACCEPTED);}
         } else {
             return new ResponseEntity<>("No se encontro el cliente" , HttpStatus.ACCEPTED);}
+    }
+
+    @PostMapping ("api/clientes")
+    public ResponseEntity<Object> registro(
+            @RequestParam String nombre,
+            @RequestParam String apellido,
+            @RequestParam String email,
+            @RequestBody String contraseña){
+        if (nombre.isBlank() || apellido.isBlank() || email.isBlank() || contraseña.isBlank()){
+            return new ResponseEntity<>("Campos vacios", HttpStatus.FORBIDDEN);
+        }
+        if (clientesServicios.findByEmail(email) != null){
+            return new ResponseEntity<>("Ese email ya está en uso", HttpStatus.FORBIDDEN);
+        }
+
+        Clientes nuevoCliente = new Clientes(nombre, apellido, " ", 0, Genero.OTRO, LocalDate.now(), email, passwordEnconder.encode(contraseña), true);
+        return new ResponseEntity<>("Bienvenido!", HttpStatus.CREATED);
+
     }
 
 }
