@@ -5,6 +5,7 @@ import com.HijasDelMonte.Ecomerce.Models.Clientes;
 import com.HijasDelMonte.Ecomerce.Repositorios.ClientesRepositorio;
 import com.HijasDelMonte.Ecomerce.Servicios.ClientesServicios;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +34,16 @@ public class ClientesServicioImplementación implements ClientesServicios {
     @Override
     public ClientesDTO getClienteDTO(long id) {
         return new ClientesDTO(findById(id));
+    }
+
+    @Override
+    public ClientesDTO obtenerClienteAutenticadoDTO(Authentication authentication) {
+        return new ClientesDTO(clientesRepositorio.findByEmail(authentication.getName()));
+    }
+
+    @Override
+    public Clientes obtenerClienteAutenticado(Authentication authentication) {
+        return clientesRepositorio.findByEmail(authentication.getName());
     }
 
     @Override

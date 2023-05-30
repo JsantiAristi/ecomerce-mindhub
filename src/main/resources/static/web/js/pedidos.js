@@ -20,8 +20,9 @@ createApp({
     },
     methods: {
         cargarDatos(){
-            axios.get('/api/cliente/orden/1')
+            axios.get('/api/cliente/orden')
             .then(respuesta => {
+                console.log(respuesta.data);
                 this.ordenes=respuesta.data
                 console.log(this.ordenes);
                 this.productosSeleccionadosSet = this.ordenes[0].productosSeleccionadosSet;

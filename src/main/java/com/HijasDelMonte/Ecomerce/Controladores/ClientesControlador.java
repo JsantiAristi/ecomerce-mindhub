@@ -7,6 +7,7 @@ import com.HijasDelMonte.Ecomerce.Servicios.ClientesServicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import java.time.LocalDate;
@@ -17,17 +18,14 @@ public class ClientesControlador {
 
     @Autowired
     private ClientesServicios clientesServicios;
-
     @Autowired
     private PasswordEncoder passwordEnconder;
 
-    @GetMapping("/api/clientes/actual/{id}")
-    public ClientesDTO getClient (@PathVariable  long id) {
-        //id=1;
-        Clientes cliente = clientesServicios.findById(id);
-        return new ClientesDTO(cliente);}
+    @GetMapping("/api/clientes/actual")
+    public ClientesDTO getClient (Authentication authentication) {
+        return clientesServicios.obtenerClienteAutenticadoDTO(authentication);}
 
-    @GetMapping("api/clientes")
+    @GetMapping("/api/clientes")
     public List<ClientesDTO> obtenerClientes(){
         return clientesServicios.obtenerClientesDTO();}
 

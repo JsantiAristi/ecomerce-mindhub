@@ -18,7 +18,7 @@ createApp({
     },
     methods: {
         cargarDatos(){
-            axios.get('/api/clientes/actual/1')
+            axios.get('/api/clientes/actual')
             .then(respuesta => {
                 this.cliente=respuesta.data
                 console.log(this.cliente);

@@ -7,6 +7,7 @@ import com.HijasDelMonte.Ecomerce.Servicios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,9 +31,9 @@ public class ProductosSeleccionadosControlador {
     }
 
     @PostMapping("/api/cliente/carrito")
-    public ResponseEntity<Object> añadirProductoSeleccionado(@RequestBody ProductoSeleccionadoDTO productoSeleccionadoDTO){
+    public ResponseEntity<Object> añadirProductoSeleccionado(Authentication authentication, @RequestBody ProductoSeleccionadoDTO productoSeleccionadoDTO){
 
-        Clientes clientes = clientesServicios.findById(productoSeleccionadoDTO.getIdCliente());
+        Clientes clientes = clientesServicios.obtenerClienteAutenticado(authentication);
         List<Orden> ordenes = clientes.getOrdenes().stream().filter( ordenPagada -> !ordenPagada.isComprado()).collect(toList());
         Orden orden = ordenes.get(0);
         Productos producto = productosServicios.obtenerPlanta(productoSeleccionadoDTO.getId());

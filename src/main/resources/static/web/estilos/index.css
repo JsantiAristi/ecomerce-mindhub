@@ -60,13 +60,23 @@ main{
   color: aliceblue;
 }
 
+.btnProductos{
+  background-color: #324545a8;
+  color: aliceblue;
+}
+
+.btnProductos:hover{
+  background-color: #324545;
+  color: aliceblue;
+}
+
 /*Carrousel*/
 /* .carousel-control-prev-icon, .carousel-control-next-icon{
   background-color: #094b08 !important;
 } */
 #carrouselproductos{
   position: relative;
-  height: 98vh;
+  height: 34rem;
 }
 
 swiper-container {
@@ -91,14 +101,14 @@ swiper-slide img {
 }
 
 /*Mapa*/
-#secccionMapa h2 b{
+.titulosIndex b{
     display: block;
     height: 2px;
     background-color: gray;
     width: 40%;
     opacity: 0.1;
 }
-#secccionMapa h2 span{
+.titulosIndex span{
     width: 35rem;
     color: #99A98F;
 }
@@ -185,12 +195,20 @@ svg {
     transition: .3s ease-in-out;
 }
 .agregarBoton{
-    background-color: #324545;
-    border-color: #324545;
-    border-radius: 30px;
-    transition: .3s;
-    color: aliceblue;
-    width: 100%;
+  background-color: #324545a8;
+  border:1px solid #324545a8;
+  border-radius: 5px;
+  transition: .3s;
+  color: aliceblue;
+  padding: 0.4rem 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agregarBoton:hover{
+  background-color: #324545;
 }
 /*Hover*/
 .card-img:hover {
@@ -209,6 +227,10 @@ svg {
 
 #productos a img{
   width: 1.8rem;
+}
+
+#productos h2{
+  color: #99A98F;
 }
 
 .imagenProductos{
@@ -385,6 +407,18 @@ footer a:hover {
 
 .footer_bajo{
   background-color: #464d41;
+}
+
+/*Scroll bar*/
+/* Scroll */
+body::-webkit-scrollbar {
+  width: 10px;
+  background: rgb(78, 73, 73);
+}
+body::-webkit-scrollbar-thumb {
+  background: #e8edec;
+  border-radius: 10px;
+  border-right: 2px solid #161a1e;
 }
 
 @media only screen and (max-width: 700px) {

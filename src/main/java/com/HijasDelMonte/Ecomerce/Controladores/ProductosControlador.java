@@ -22,7 +22,7 @@ public class ProductosControlador {
     @GetMapping("/api/productos")
     public List<ProductosDTO> obtenerProductos(){return productosServicios.obtenerProductosDTO();}
 
-    @GetMapping("/api/plantas/{id}")
+    @GetMapping("/api/productos/{id}")
     public ProductosDTO obtenerPlantas(@PathVariable long id ){return productosServicios.obtenerProductoDTO(id);}
 
     @PostMapping("/api/plantas")

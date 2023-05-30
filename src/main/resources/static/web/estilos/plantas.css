@@ -78,7 +78,7 @@ main {
 
 /*Tarjetas*/
 .lista_productos {
-    height: 100vh;
+    height: 140vh;
     overflow-y: scroll;
 }
 
@@ -147,13 +147,21 @@ svg {
     transition: .3s ease-in-out;
 }
 
-.agregarBoton {
-    background-color: #324545;
-    border-color: #324545;
-    border-radius: 30px;
+.agregarBoton{
+    background-color: #324545a8;
+    border:1px solid #324545a8;
+    border-radius: 5px;
     transition: .3s;
     color: aliceblue;
+    padding: 0.4rem 0;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agregarBoton:hover{
+background-color: #324545;
 }
 
 /*Hover*/

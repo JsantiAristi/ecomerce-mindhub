@@ -2,6 +2,7 @@ package com.HijasDelMonte.Ecomerce.Configuraciones;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -22,6 +23,10 @@ public class WebAutorizacion {
                 .antMatchers("/web/paginas/editarPerfil.html", "/web/estilos/editarPerfil.css", "/web/js/editarPerfil.js").hasAuthority("CLIENTE")
                 .antMatchers("/web/paginas/pedidos.html", "/web/estilos/pedidos.css", "/web/js/pedidos.js").hasAuthority("CLIENTE")
                 .antMatchers("/index.html","/web/**","/assets/**").permitAll()
+                .antMatchers("/api/clientes").hasAuthority("ADMIN")
+                .antMatchers("/api/clientes/actual","/api/cliente/orden").hasAuthority("CLIENTE")
+                .antMatchers("/api/productos","/api/productos/{id}").permitAll()
+                .antMatchers(HttpMethod.POST,"/api/cliente/orden","/api/cliente/carrito").hasAuthority("CLIENTE")
                 .anyRequest().denyAll();
         http.formLogin()
                 .usernameParameter("email")
