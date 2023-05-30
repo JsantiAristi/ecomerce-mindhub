@@ -66,7 +66,7 @@ main{
 } */
 #carrouselproductos{
   position: relative;
-  height: 95vh;
+  height: 98vh;
 }
 
 swiper-container {
@@ -148,7 +148,7 @@ swiper-slide img {
     object-fit: contain;
 }
 .card-info {
-    padding-top: 10%;
+    padding-top: 4%;
 }
 svg {
     width: 20px;
@@ -159,7 +159,6 @@ svg {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 10px;
     border-top: 1.5px solid #094b08ac;
     background-color: #aad0c745;
     margin: 0.5rem;
@@ -167,14 +166,14 @@ svg {
 /*Text*/
 .text-title {
     font-weight: 900;
-    font-size: 1.2em;
     line-height: 1.5;
     text-align: center;
+  
 }
 .text-body {
     font-size: .9em;
-    padding-bottom: 10px;
     text-align: center;
+    margin-bottom: 0 !important;
 }
 /*Button*/
 .card-button {

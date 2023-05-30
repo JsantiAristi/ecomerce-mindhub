@@ -30,12 +30,20 @@ nav {
 .accordion{
     width: 25%;
 }
+.padre-inf{
+    display: flex;
+    justify-content: space-evenly;
+}
 .contenedor-texto, .accordion-button, .accordion-collapse{
    background-color: #e6e4e44f !important;
 }
 #app .temple1:not(:first-of-type) {
     display: none;
   }
+.contenedor-texto{
+    width: 50%;
+    height: 45rem;
+}
 
 
   /*-----------------------------------------------------Footer--------------------------------------------*/
@@ -63,4 +71,19 @@ footer a {
 
 .medios_pago img {
     width: 4rem;
+}
+
+@media only screen and (max-width: 767px) {
+    .padre-inf{
+        flex-direction: column;
+    }
+    .accordion{
+        width: 70%;
+        margin-left: 14.5%;
+    }
+    .contenedor-texto{
+        width: 96%;
+        margin-top: .5rem;
+        margin-left: .6rem;
+    }
 }
