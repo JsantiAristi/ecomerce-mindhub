@@ -59,12 +59,11 @@ body {
   opacity: 0;
 }
 
-li {
+.frame li {
   padding-left: 10px;
   font-size: 18px;
   display: inline;
   text-align: left;
-  text-transform: uppercase;
   padding-right: 10px;
   color: #ffffff;
 }
@@ -566,3 +565,44 @@ header {
     background-color: #324545;
     color: aliceblue;
   }
+
+  /*Footer*/
+footer{
+  color: white;
+  background-color: #99A98F;
+}
+
+footer a{
+  text-decoration: none;
+  color: white;
+}
+
+footer a:hover {
+  color: #094b08;
+}
+
+.logo_empresa img{
+  width: 10rem;
+}
+
+.iconos_footer img{
+  width: 4rem;
+  height: 2rem;
+  padding: 0 1rem;
+}
+
+.medios_pago img{
+  width: 4rem;
+}
+
+.footer_bajo{
+  background-color: #464d41;
+}
+
+@media only screen and (max-width: 700px) {
+  .footer_arriba {
+      display: flex;
+      justify-content: start !important;
+      align-items: center;
+  }
+}
