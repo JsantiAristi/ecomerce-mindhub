@@ -1,6 +1,8 @@
 package com.HijasDelMonte.Ecomerce.Models;
 
-public enum TipoPlanta {
+public enum TipoProducto {
     INTERIOR,
     EXTERIOR,
+    MACETAS,
+    REGADORES
 }

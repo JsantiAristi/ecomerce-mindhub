@@ -14,52 +14,37 @@ public class ProductosSeleccionados {
     private long id;
     private int cantidad;
     private double precio;
-    private boolean activoCarrito;
     private boolean activo;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="orden")
     private Orden orden;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name="cursos")
-//    private Cursos cursos;
-//
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="accesorios")
-    private Accesorios accesorios;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="plantas")
-    private Plantas plantas;
+    private Productos productos;
 
     //CONSTRUCTOR
 
     public ProductosSeleccionados() {}
 
-    public ProductosSeleccionados(int cantidad, double precio, boolean activoCarrito, boolean activo) {
+    public ProductosSeleccionados(int cantidad, double precio, boolean activo) {
         this.cantidad = cantidad;
         this.precio = precio;
-        this.activoCarrito = activoCarrito;
         this.activo = activo;
     }
 
     //GETTER
     public long getId() {return id;}
-    public boolean isActivoCarrito() {return activoCarrito;}
     public int getCantidad() {return cantidad;}
     public double getPrecio() {return precio;}
     public boolean isActivo() {return activo;}
     public Orden getOrden() {return orden;}
-    public Plantas getPlantas() {return plantas;}
-    public Accesorios getAccesorios() { return accesorios;}
+    public Productos getProductos() {return productos;}
 
     //    SETTERS
     public void setCantidad(int cantidad) {this.cantidad = cantidad;}
-    public void setActivoCarrito(boolean activoCarrito) {this.activoCarrito = activoCarrito;}
     public void setPrecio(double precio) {this.precio = precio;}
     public void setActivo(boolean activo) {this.activo = activo;}
     public void setOrden(Orden orden) {this.orden = orden;}
-    public void setPlantas(Plantas plantas) {this.plantas = plantas;}
-    public void setAccesorios(Accesorios accesorios) { this.accesorios = accesorios;}
+    public void setProductos(Productos productos) {this.productos = productos;}
 }

@@ -1,6 +1,5 @@
 package com.HijasDelMonte.Ecomerce.Servicios.Implementacion;
 
-import com.HijasDelMonte.Ecomerce.DTO.PlantasDTO;
 import com.HijasDelMonte.Ecomerce.DTO.ProductosSeleccionadosDTO;
 import com.HijasDelMonte.Ecomerce.Models.ProductosSeleccionados;
 import com.HijasDelMonte.Ecomerce.Repositorios.ProductosSeleccionadosRepositorio;

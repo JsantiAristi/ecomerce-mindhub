@@ -26,7 +26,7 @@ createApp({
     },
     methods: {
         cargarDatos() {
-            axios.get('/api/plantas')
+            axios.get('/api/productos')
                 .then(respuesta => {
                     this.plantas = respuesta.data.filter(planta => planta.activo);
                     
@@ -37,7 +37,7 @@ createApp({
 
                     this.plantas_filtradas = this.plantas;
                     this.cantidad_plantas = this.plantas.length;
-                    this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoPlanta)));
+                    this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoProducto)));
                 })
                 .catch(error => console.log(error))
             this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
