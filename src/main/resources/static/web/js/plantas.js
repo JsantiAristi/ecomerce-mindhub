@@ -30,7 +30,6 @@ createApp({
                 .then(respuesta => {
                     this.plantas = respuesta.data.filter(planta => planta.activo);
                     
-
                     for(planta of this.plantas){
                         planta.contador = 1
                     }

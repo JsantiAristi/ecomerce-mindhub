@@ -17,7 +17,7 @@ createApp({
   },
   methods: {
     cargarDatos() {
-      axios.get('/api/plantas')
+      axios.get('/api/productos')
           .then(respuesta => {
               this.plantas = respuesta.data.filter(planta => planta.activo);
               console.log(this.plantas);
