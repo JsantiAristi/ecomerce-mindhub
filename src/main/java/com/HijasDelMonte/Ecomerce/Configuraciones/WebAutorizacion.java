@@ -17,7 +17,12 @@ public class WebAutorizacion {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().authorizeRequests()
-                .anyRequest().permitAll();
+                .antMatchers("/manager/**").hasAuthority("ADMIN")
+                .antMatchers("/web/paginas/perfil.html", "/web/estilos/perfil.css", "/web/js/perfil.js").hasAuthority("CLIENTE")
+                .antMatchers("/web/paginas/editarPerfil.html", "/web/estilos/editarPerfil.css", "/web/js/editarPerfil.js").hasAuthority("CLIENTE")
+                .antMatchers("/web/paginas/pedidos.html", "/web/estilos/pedidos.css", "/web/js/pedidos.js").hasAuthority("CLIENTE")
+                .antMatchers("/index.html","/web/**","/assets/**").permitAll()
+                .anyRequest().denyAll();
         http.formLogin()
                 .usernameParameter("email")
                 .passwordParameter("contraseña")

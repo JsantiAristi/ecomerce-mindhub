@@ -150,5 +150,10 @@ createApp({
             })
             .catch(error => console.log(error))
         },
+        logout(){
+            axios.post('/api/logout')
+            .then(response=> console.log('signed out!!!'), (window.location.href = '/index.html'))
+            .catch(error => console.log(error))
+        },
     }
 }).mount("#app")

@@ -10,6 +10,10 @@ createApp({
       plantas: [],
       correo: "",
       contraseña: "",
+      nombre: "",
+      apellido: "",
+      correoNuevo: "",
+      contraseñaNuevo:"",
     }
   },
   created() {
@@ -18,8 +22,6 @@ createApp({
   },
   methods: {
     signIn() {
-      console.log(this.correo);
-      console.log(this.contraseña);
       axios.post('/api/login',`email=${this.correo}&contraseña=${this.contraseña}`)
         .then(response => {
           Swal.fire({
@@ -27,7 +29,7 @@ createApp({
             text: 'Accediste correctamente a tu cuenta',
             showConfirmButton: false,
             timer: 2000,
-          }).then(() => window.location.href = "/web/pages/accounts.html")
+          }).then(() => window.location.href = "/index.html")
         })
         .catch(error => {
           Swal.fire({
@@ -37,6 +39,25 @@ createApp({
           })
           console.log(error);
         })
+    },
+    crearCuenta(){
+      axios.post('/api/clientes',`nombre=${this.nombre}&apellido=${this.apellido}&email=${this.correoNuevo}&contraseña=${this.contraseñaNuevo}`)
+      .then(response => {
+        Swal.fire({
+          icon: 'success',
+          text: 'Accediste correctamente a tu cuenta',
+          showConfirmButton: false,
+          timer: 2000,
+        }).then(() => window.location.href = "/index.html")
+      })
+      .catch(error => {
+        Swal.fire({
+          icon: 'error',
+          text: 'Wrong password',
+          confirmButtonColor: "#7c601893",
+        })
+        console.log(error);
+      })
     },
     aparecerCuenta() {
       if (this.isCarritoInactivo) {
@@ -94,7 +115,6 @@ createApp({
       localStorage.setItem("carrito", JSON.stringify(this.carrito));
       localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
     },
-
   }
 }).mount("#app")
 
@@ -109,24 +129,3 @@ $(function () {
     $(this).removeClass("idle").addClass("active");
   });
 });
-
-// $(function () {
-//   $(".btn-signup").click(function () {
-//     $(".nav").toggleClass("nav-up");
-//     $(".form-signup-left").toggleClass("form-signup-down");
-//     $(".success").toggleClass("success-left");
-//     $(".frame").toggleClass("frame-short");
-//   });
-// });
-
-// $(function () {
-//   $(".btn-signin").click(function () {
-//     $(".btn-animate").toggleClass("btn-animate-grow");
-//     $(".welcome").toggleClass("welcome-left");
-//     $(".cover-photo").toggleClass("cover-photo-down");
-//     $(".frame").toggleClass("frame-short");
-//     $(".profile-photo").toggleClass("profile-photo-down");
-//     $(".btn-goback").toggleClass("btn-goback-up");
-//     $(".forgot").toggleClass("forgot-fade");
-//   });
-// });
