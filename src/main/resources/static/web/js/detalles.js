@@ -4,13 +4,7 @@ createApp({
     data() {
         return {
             // Inicializamos las variables
-            plantas: [],
-            plantas_filtradas: [],
-            tipo_plantas: [],
-            tipo_planta: "",
-            cantidad_plantas: 0,
-            rango_precio: 5000,
-            filtros_arreglo: "",
+            producto: [],
             isCuentaInactivo: true,
             isCarritoInactivo: true,
             carrito: [],
@@ -26,44 +20,13 @@ createApp({
     },
     methods: {
         cargarDatos() {
-            axios.get('/api/productos')
+            axios.get('/api/plantas/1')
                 .then(respuesta => {
-                    this.plantas = respuesta.data.filter(planta => planta.activo);
-                    
-
-                    for(planta of this.plantas){
-                        planta.contador = 1
-                    }
-
-                    this.plantas_filtradas = this.plantas;
-                    this.cantidad_plantas = this.plantas.length;
-                    this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoProducto)));
+                    this.producto = respuesta.data.filter(planta => planta.activo);
                 })
                 .catch(error => console.log(error))
             this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
             this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
-        },
-        filtro_tipo(planta) {
-            return planta.tipoPlanta.includes(this.tipo_planta);
-        },
-        filtro_precio(planta) {
-            return planta.precio <= this.rango_precio;
-        },
-        filtros() {
-            this.plantas_filtradas = this.plantas.filter(planta => {
-                return (this.filtro_tipo(planta) && this.filtro_precio(planta));
-            })
-        },
-        filtro_plantas() {
-            if (this.filtros_arreglo == 2) {
-                this.plantas_filtradas.sort((planta1, planta2) => {
-                    return (planta1.precio - planta2.precio);
-                })
-            } else if (this.filtros_arreglo == 1) {
-                this.plantas_filtradas.sort((planta1, planta2) => {
-                    return (planta2.precio - planta1.precio);
-                })
-            }
         },
         aparecerCuenta() {
             if (this.isCarritoInactivo) {

@@ -4,20 +4,20 @@ createApp({
     data() {
         return {
             // Inicializamos las variables
-            plantas: [],
-            plantas_filtradas: [],
-            tipo_plantas: [],
-            tipo_planta: "",
-            cantidad_plantas: 0,
+            accesorios: [],
+            accesorios_filtradas: [],
+            tipo_accesorios: [],
+            tipo_accesorio: "",
+            cantidad_accesorios: 0,
             rango_precio: 5000,
             filtros_arreglo: "",
             isCuentaInactivo: true,
             isCarritoInactivo: true,
             carrito: [],
             contadorCarrito: 0,
-            filtro_planta_carrito: [],
+            filtro_accesorio_carrito: [],
             cantidad: "",
-            plantaId: [],
+            accesorioId: [],
             totalCompra: 0,
         }
     },
@@ -26,42 +26,42 @@ createApp({
     },
     methods: {
         cargarDatos() {
-            axios.get('/api/productos')
+            axios.get('/api/accesorios')
                 .then(respuesta => {
-                    this.plantas = respuesta.data.filter(planta => planta.activo);
+                    this.accesorios = respuesta.data.filter(accesorio => accesorio.activo);
                     
 
-                    for(planta of this.plantas){
-                        planta.contador = 1
+                    for(accesorio of this.accesorios){
+                        accesorio.contador = 1
                     }
 
-                    this.plantas_filtradas = this.plantas;
-                    this.cantidad_plantas = this.plantas.length;
-                    this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoProducto)));
+                    this.accesorios_filtradas = this.accesorios;
+                    this.cantidad_accesorios = this.accesorios.length;
+                    this.tipo_accesorios = Array.from(new Set(this.accesorios.map(accesorio => accesorio.tipoAccesorio)));
                 })
                 .catch(error => console.log(error))
             this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
             this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
         },
-        filtro_tipo(planta) {
-            return planta.tipoPlanta.includes(this.tipo_planta);
+        filtro_tipo(accesorio) {
+            return accesorio.tipoAccesorio.includes(this.tipo_accesorio);
         },
-        filtro_precio(planta) {
-            return planta.precio <= this.rango_precio;
+        filtro_precio(accesorio) {
+            return accesorio.precio <= this.rango_precio;
         },
         filtros() {
-            this.plantas_filtradas = this.plantas.filter(planta => {
-                return (this.filtro_tipo(planta) && this.filtro_precio(planta));
+            this.accesorios_filtradas = this.accesorios.filter(accesorio => {
+                return (this.filtro_tipo(accesorio) && this.filtro_precio(accesorio));
             })
         },
-        filtro_plantas() {
+        filtro_accesorios() {
             if (this.filtros_arreglo == 2) {
-                this.plantas_filtradas.sort((planta1, planta2) => {
-                    return (planta1.precio - planta2.precio);
+                this.accesorios_filtradas.sort((accesorio1, accesorio2) => {
+                    return (accesorio1.precio - accesorio2.precio);
                 })
             } else if (this.filtros_arreglo == 1) {
-                this.plantas_filtradas.sort((planta1, planta2) => {
-                    return (planta2.precio - planta1.precio);
+                this.accesorios_filtradas.sort((accesorio1, accesorio2) => {
+                    return (accesorio2.precio - accesorio1.precio);
                 })
             }
         },
@@ -82,21 +82,21 @@ createApp({
             }
         },
         añadirCarrito(id){
-            this.filtro_planta_carrito = this.plantas.filter(planta => planta.id == id)[0];  
-            if (!(this.carrito.some(planta => planta.id == id))) {
-                this.carrito.push(this.filtro_planta_carrito);
+            this.filtro_accesorio_carrito = this.accesorios.filter(accesorio => accesorio.id == id)[0];  
+            if (!(this.carrito.some(accesorio => accesorio.id == id))) {
+                this.carrito.push(this.filtro_accesorio_carrito);
                 this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
                 localStorage.setItem("carrito", JSON.stringify(this.carrito));
                 localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
             }                
         },
         sumar(id){
-            this.carrito.map(planta => {
-                if(planta.id == id){
-                    if (planta.stock === planta.contador) {
-                        planta.contador += 0
+            this.carrito.map(accesorio => {
+                if(accesorio.id == id){
+                    if (accesorio.stock === accesorio.contador) {
+                        accesorio.contador += 0
                     } else {
-                        planta.contador += 1
+                        accesorio.contador += 1
                     }                    
                 }
             })
@@ -105,12 +105,12 @@ createApp({
             localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
         },
         resta(id){
-            this.carrito.map(planta => {
-                if(planta.id == id){
-                    if (planta.contador === 1) {
-                        planta.contador -= 0
+            this.carrito.map(accesorio => {
+                if(accesorio.id == id){
+                    if (accesorio.contador === 1) {
+                        accesorio.contador -= 0
                     } else {
-                        planta.contador -= 1
+                        accesorio.contador -= 1
                     }                 
                 }
             })
@@ -119,12 +119,12 @@ createApp({
             localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
         },
         eliminar(id){
-            this.carrito.map(planta => {
-                if(planta.id == id){
-                    planta.contador = 1             
+            this.carrito.map(accesorio => {
+                if(accesorio.id == id){
+                    accesorio.contador = 1             
                 }
             })
-            this.carrito = this.carrito.filter(planta => !(planta.id === id))
+            this.carrito = this.carrito.filter(accesorio => !(accesorio.id === id))
             this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
             localStorage.setItem("carrito", JSON.stringify(this.carrito));
             localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))

@@ -203,6 +203,27 @@ svg {
   background-color: #ffcaa6;
 }
 
+/*categorias*/
+.divContenedorProductos{
+  padding: 0rem 8rem;
+}
+
+#productos a img{
+  width: 1.8rem;
+}
+
+.imagenProductos{
+  height: 25rem;
+  object-fit: cover;
+}
+
+/* INICIO */
+.img-inicio{
+  object-fit: cover;
+}
+.img{
+  width: 100%;
+}
 
 /* Historia */
 .historia{
@@ -222,16 +243,29 @@ svg {
   text-align: center;
   margin: 1rem;
   font-size:x-large;
-  letter-spacing: 3px;   
+  letter-spacing: 2.5px;   
 
 }
+
+/* SECCION CATEGORIAS */
+.row{
+  width: 100%;
+}
+
 .categoriasImagen{
-  display: inline-block;
-  width: 20rem;
-  object-fit: contain;
-  border-radius: 60px;
+  object-fit: cover;
+  width: 30rem;
+  height: 30rem;
+}
+
+.cajaImagen{
+  width: 30rem;
+  height: 30rem;
 }
 .tituloCategorias {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: left; 
   font-family: Arial Black; 
   font-weight: bold; 
@@ -247,6 +281,8 @@ svg {
 .contenedorCategorias{
   background-color: #99a98f43;
   margin: 1rem;
+  flex-wrap: wrap;
+
 }
 
 /*Aside Cuentas*/
@@ -363,5 +399,13 @@ footer a:hover {
       width: 100%;
       margin-right: 0;
       top: 0;
+  }
+  .historia{
+    display: none;
+    visibility: hidden;
+  }
+
+  .divContenedorProductos{
+    padding: 0rem 0rem;
   }
 }

@@ -15,7 +15,7 @@ public class ClientesDTO {
     private String nombre;
     private String apellido;
     private String cedulaCiudadania;
-    private String telefono;
+    private long telefono;
     private Genero genero;
     private LocalDate fechaNacimiento;
     private String email;
@@ -47,7 +47,7 @@ public class ClientesDTO {
     public String getCedulaCiudadania() {
         return cedulaCiudadania;
     }
-    public String getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
     public Genero getGenero() {

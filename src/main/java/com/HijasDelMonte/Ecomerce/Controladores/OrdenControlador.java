@@ -26,7 +26,9 @@ public class OrdenControlador {
 
     @GetMapping("/api/cliente/orden/{id}")
     public List<OrdenDTO> obtenerOrdenesDTO( @PathVariable Long id ){
+
         Clientes clientes = clientesServicios.findById(id);
+
         List<OrdenDTO> ordenes = clientes.getOrdenes().stream().map(OrdenDTO::new).collect(toList());
         return ordenes;
     }
@@ -35,6 +37,9 @@ public class OrdenControlador {
     public ResponseEntity<Object> crearOrden(@RequestParam long idCliente){
 
         Clientes clientes = clientesServicios.findById(idCliente);
+
+        if ( clientes == null ){
+            return new ResponseEntity<>("El cliente no existe", HttpStatus.FORBIDDEN);}
 
         if (clientes.getOrdenes().stream().filter( ordenPagada -> !ordenPagada.isComprado()).collect(toList()).size() > 1){
             return new ResponseEntity<>("Ya tienes una orden en proceso", HttpStatus.FORBIDDEN);
