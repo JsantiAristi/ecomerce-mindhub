@@ -26,4 +26,9 @@ public class ProductosSeleccionadoServicioImplementacion implements ProductosSel
     public List<ProductosSeleccionadosDTO> obtenerProductosSeleccionadosDTO() {
         return productosSeleccionadosRepositorio.findAll().stream().map(ProductosSeleccionadosDTO::new).collect(toList());
     }
+
+    @Override
+    public ProductosSeleccionados obtenerProducto(long id) {
+        return productosSeleccionadosRepositorio.findById(id).orElse(null);
+    }
 }

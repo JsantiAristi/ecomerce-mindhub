@@ -88,22 +88,22 @@
       </section>
       <!-- End perfil -->
       <!-- ======= Opciciones ======= -->
-      <div class="container d-flex justify-content-around responsivePerfil">
-        <section class="pt-5">
-          <div class="nav">
-            <ul>
-              <li class="pt-5 fs-5"><a href="./perfil.html">Perfil</a></li>
-              <li class="pt-5 fs-5"><a href="#">Pedidos</a></li>
-              <li class="pt-5 fs-5 text-danger"><p>Cerrar sesión</p></li>
-            </ul>
+      <div class="container d-flex justify-content-around flex-wrap responsivePerfil pb-5">
+        <section class="pt-5 ">
+          <div class=" nav  ">
+              <ul class="d-flex flex-column justify-content-evenly mb-0 ps-0 classUl">
+                  <li ><a href="./perfil.html" class="fs-4 text-center">Perfil</a></li>
+                  <li><a href="#" class="fs-4 text-center">Pedidos</a></li>
+                  <li class="text-danger " ><p href="" class="fs-4 mb-0 text-center">Cerrar sesión</p></li>
+              </ul>
           </div>
         </section>
         <!-- End Opciones -->
         <template v-if="ordenes.length > 0">
           <div class="accordion mt-5" id="accordionExample">
             <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              <h2 class="accordion-header " id="headingOne">
+                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                   aria-expanded="true" aria-controls="collapseOne">
                   Productos seleccionados: <br>
                   Cantidad: {{ordenes[0].unidadesTotales}} <br>
@@ -113,19 +113,19 @@
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <div class="table.container d-flex justify-content-center">
+                  <div class="table.container d-flex justify-content-center table-responsive">
                     <table class="table table-hover align-middle">
                       <thead class="">
                         <tr>
-                          <th scope="col">Cantidad</th>
-                          <th scope="col">Nombre</th>
-                          <th scope="col">Precio</th>
-                          <th scope="col">Eliminar</th>
+                          <th scope="col-2">Cantidad</th>
+                          <th scope="col-4">Nombre</th>
+                          <th scope="col-4">Precio</th>
+                          <th scope="col-2">Eliminar</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr v-for="productoSeleccionado of productosSeleccionadosSet">
-                          <td>{{productoSeleccionado.cantidad}}</td>
+                          <td ><img src="../../assets/boton-de-resta.png" alt="" class="menosBoton2 pe-2" @click="restarProducto(productoSeleccionado.id)">{{productoSeleccionado.cantidad}}<img src="../../assets/mas.png" alt="" class="sumaBoton2 ps-2" @click="sumarProducto(productoSeleccionado.id)"></td>
                           <td>{{productoSeleccionado.nombre}}</td>
                           <td>{{productoSeleccionado.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD'})}}</td>
                           <td><img src="../../assets/eliminar.png" alt="" class="botonBasura"></td>
@@ -248,6 +248,7 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../js/pedidos.js"></script>
 </body>
 
