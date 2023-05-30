@@ -8,21 +8,35 @@ createApp({
       carrito: [],
       totalCompra: "",
       plantas: [],
+      cliente: [],
     }
   },
   created() {
     this.cargarDatos();
+    this.cargarCliente();
     this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
   },
   methods: {
     cargarDatos() {
       axios.get('/api/productos')
-          .then(respuesta => {
-              this.plantas = respuesta.data.filter(planta => planta.activo);
-              console.log(this.plantas);
-          })
-          .catch(error => console.log(error))
+        .then(respuesta => {
+          this.plantas = respuesta.data.filter(producto => producto.activo && producto.stock > 0);
+          console.log(this.plantas);
+        })
+        .catch(error => console.log(error))
+    },
+    cargarCliente() {
+      axios.get('/api/clientes/actual')
+        .then(respuesta => {
+          this.cliente = respuesta.data;
+          console.log(this.cliente);
+        })
+        .catch(error => {
+          this.cliente = []
+          console.log(this.cliente);
+          console.log(error)
+        })
     },
     aparecerCuenta() {
       if (this.isCarritoInactivo) {
@@ -99,6 +113,17 @@ createApp({
               })
               .catch(error => console.log(error))
           }
+        })
+        .catch(error => console.log(error))
+    },
+    logout() {
+      axios.post('/api/logout')
+        .then(response => {
+          this.carrito = [];
+          this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
+          localStorage.setItem("carrito", JSON.stringify(this.carrito));
+          localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+          window.location.href = '/index.html'
         })
         .catch(error => console.log(error))
     },

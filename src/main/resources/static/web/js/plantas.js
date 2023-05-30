@@ -129,7 +129,7 @@ createApp({
             localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
         },
         crearOrden(){
-            axios.post("/api/cliente/orden",`idCliente=${1}`)
+            axios.post("/api/cliente/orden")
             .then(response => {
                 for( producto of this.carrito ){
                     axios.post("/api/cliente/carrito",

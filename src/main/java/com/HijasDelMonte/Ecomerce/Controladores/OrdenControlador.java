@@ -8,6 +8,7 @@ import com.HijasDelMonte.Ecomerce.Servicios.OrdenServicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,19 +25,19 @@ public class OrdenControlador {
     @Autowired
     ClientesServicios clientesServicios;
 
-    @GetMapping("/api/cliente/orden/{id}")
-    public List<OrdenDTO> obtenerOrdenesDTO( @PathVariable Long id ){
+    @GetMapping("/api/cliente/orden")
+    public List<OrdenDTO> obtenerOrdenesDTO(Authentication authentication){
 
-        Clientes clientes = clientesServicios.findById(id);
+        Clientes clientes = clientesServicios.obtenerClienteAutenticado(authentication);
 
         List<OrdenDTO> ordenes = clientes.getOrdenes().stream().map(OrdenDTO::new).collect(toList());
         return ordenes;
     }
 
     @PostMapping("/api/cliente/orden")
-    public ResponseEntity<Object> crearOrden(@RequestParam long idCliente){
+    public ResponseEntity<Object> crearOrden(Authentication authentication){
 
-        Clientes clientes = clientesServicios.findById(idCliente);
+        Clientes clientes = clientesServicios.obtenerClienteAutenticado(authentication);
 
         if ( clientes == null ){
             return new ResponseEntity<>("El cliente no existe", HttpStatus.FORBIDDEN);}
