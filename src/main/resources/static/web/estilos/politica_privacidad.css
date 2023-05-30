@@ -13,6 +13,9 @@ header {
 nav {
     background-color: #99A98F;
 }
+.nav-item span{
+    height: 50%;
+}
 
 /* nav {
     background-color: #e1e7dd;
@@ -24,6 +27,16 @@ nav {
 
 .navbar-nav img {
     width: 1.5rem;
+}
+
+main{
+    position: relative;
+}
+
+/*Botones*/
+.btnFondo{
+    background-color: #324545;
+    color: aliceblue;
 }
 
 /* ------------------------------------------------main-inicio--------------------------------------- */
@@ -45,6 +58,75 @@ nav {
     height: 45rem;
 }
 
+/*Aside Cuentas*/
+.inactive {
+    display: none;
+}
+
+.asideCuentas {
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 12rem;
+    z-index: 10;
+    margin-right: 2rem;
+    background-color: #e8edec;
+}
+
+.asideCuentas a {
+    text-decoration: none;
+    color: black;
+}
+
+.asideCuentas a:hover {
+    color: #094b08;
+    text-decoration: none;
+}
+
+.asideCuentas p{
+    cursor: pointer;
+}
+
+.asideCuentas img{
+    width: 2rem;
+}
+
+/*Aside Carrito*/
+.asideCarrito {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30rem;
+    height: 57%;
+    z-index: 10;
+    background-color: #e8edec;
+}
+
+.infoTotalDiv{
+    height: 100%;
+}
+
+.asideCarritoFoto{
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+}
+
+.sumaBoton, .menosBoton {
+    width: 2rem;
+    cursor: pointer;
+}
+
+.botonBasura{
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.infoCarrito{
+    width: 80%;
+}
 
   /*-----------------------------------------------------Footer--------------------------------------------*/
 footer {
@@ -85,5 +167,15 @@ footer a {
         width: 96%;
         margin-top: .5rem;
         margin-left: .6rem;
+    }
+
+    aside {
+        width: 100%;
+        margin-right: 0;
+        top: 0;
+    }
+
+    .asideCarrito{
+        width: 100%;
     }
 }
