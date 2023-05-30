@@ -5,6 +5,7 @@ createApp({
         return {
             // Inicializamos las variables
             plantas: [],
+            cliente: [],
             plantas_filtradas: [],
             tipo_plantas: [],
             tipo_planta: "",
@@ -19,6 +20,7 @@ createApp({
             cantidad: "",
             plantaId: [],
             totalCompra: 0,
+            categoria: new URLSearchParams(location.search).get("categoria")
         }
     },
     created() {
@@ -26,7 +28,7 @@ createApp({
     },
     methods: {
         cargarDatos() {
-            axios.get('/api/productos')
+            axios.get('/api/productos/'+this.categoria)
                 .then(respuesta => {
                     this.plantas = respuesta.data.filter(planta => planta.activo);
                     
@@ -42,6 +44,18 @@ createApp({
             this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
             this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
         },
+        cargarCliente() {
+            axios.get('/api/clientes/actual')
+              .then(respuesta => {
+                this.cliente = respuesta.data;
+                console.log(this.cliente);
+              })
+              .catch(error => {
+                this.cliente = []
+                console.log(this.cliente);
+                console.log(error)
+              })
+          },
         filtro_tipo(planta) {
             return planta.tipoPlanta.includes(this.tipo_planta);
         },

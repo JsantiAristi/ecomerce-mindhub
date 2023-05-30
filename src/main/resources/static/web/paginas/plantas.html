@@ -33,23 +33,20 @@
                                 Categorias
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item fs-5 text-white" href="#"><img src="../../assets/planta.png" alt="plantas"> Plantas</a></li>
-                                <li><a class="dropdown-item fs-5 text-white" href="#"><img src="../../assets/accesorios.png" alt="accesorios"> Accesorios</a></li>
-                                <li><a class="dropdown-item fs-5 text-white" href="#"><img src="../../assets/aprender-en-linea.png" alt="cursos"> Cursos</a></li>
+                                <li><a class="dropdown-item d-flex align-items-center fs-5 text-white" href="./web/paginas/plantas.html"><img src="../../assets/planta.png" alt="plantas" class="me-2"> Plantas</a></li>
+                                <li><a class="dropdown-item d-flex align-items-center fs-5 text-white" href="#"><img src="../../assets/accesorios.png" alt="accesorios" class="me-2"> Accesorios</a></li>
+                                <li><a class="dropdown-item d-flex align-items-center fs-5 text-white" href="#"><img src="../../assets/aprender-en-linea.png" alt="cursos" class="me-2"> Cursos</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 mb-lg-0 pe-5">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active text-white fs-5" aria-current="page" href="../../index.html">Home</a>
+                            <a class="nav-link active text-white fs-5" aria-current="page" href="#">Inicio</a>
                         </li>
                         <li class="nav-item dropdown d-md-none">
                             <a class="nav-link dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown"
@@ -57,24 +54,32 @@
                                 Categorias
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item fs-5 text-white" href="#"><img src="../../assets/planta.png" alt="plantas"> Plantas</a></li>
-                                <li><a class="dropdown-item fs-5 text-white" href="#"><img src="../../assets/accesorios.png" alt="accesorios"> Accesorios</a></li>
-                                <li><a class="dropdown-item fs-5 text-white" href="#"><img src="../../assets/aprender-en-linea.png" alt="cursos"> Cursos</a></li>
+                                <li><a class="dropdown-item d-flex align-items-center fs-5 text-white" href="#"><img src="../../assets/planta.png" alt="plantas" class="me-2"> Plantas</a></li>
+                                <li><a class="dropdown-item d-flex align-items-center fs-5 text-white" href="#"><img src="../../assets/accesorios.png" alt="accesorios" class="me-2"> Accesorios</a></li>
+                                <li><a class="dropdown-item d-flex align-items-center fs-5 text-white" href="#"><img src="../../assets/aprender-en-linea.png" alt="cursos" class="me-2"> Cursos</a></li>
                             </ul>
                         </li>
-                        <div class="d-flex gap-2">
-                            <li class="nav-item">
+                        <template v-if="cliente.length == 0">
+                            <div class="d-flex">
+                                <li class="nav-item d-flex align-items-center me-3">
+                                    <a href="./loginpage.html" class="btn btn-success">Iniciar sesión</a>
+                                </li>
+                            </div>
+                        </template> 
+                        <template v-else>
+                            <div class="d-flex gap-2">
+                            <li class="nav-item me-3">
                                 <a class="nav-link active" aria-current="page" href="#"><span class="pe-3">|</span><img
                                         src="../../assets/usuario.png" alt="" @click="aparecerCuenta"></a>
                             </li>
-                            <li class="nav-item d-flex">
-                                <a class="nav-link active" aria-current="page" href="#"><img
-                                        src="../../assets/carrito-de-compras.png" alt="" @click="aparecerCarrito"></a>
-                                <span class="pe-1 ps-1 bg-success rounded text-white">{{carrito.length}}</span>
-                            </li>
                         </div>
+                        </template>                                 
                     </ul>
                 </div>
+                <li class="nav-item d-flex">
+                    <a class="nav-link active" aria-current="page" href="#"><img src="../../assets/carrito-de-compras.png" width="30" alt="" @click="aparecerCarrito"></a>
+                    <span class="pe-1 ps-1 bg-success rounded text-white">{{carrito.length}}</span>
+                </li>
             </div>
         </nav>
         <main>

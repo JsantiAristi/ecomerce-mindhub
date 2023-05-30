@@ -27,6 +27,7 @@ public class WebAutorizacion {
                 .antMatchers("/api/clientes/actual","/api/cliente/orden").hasAuthority("CLIENTE")
                 .antMatchers("/api/productos","/api/productos/{id}").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/cliente/orden","/api/cliente/carrito").hasAuthority("CLIENTE")
+                .antMatchers(HttpMethod.PUT,"/api/cliente/carrito/suma","/api/cliente/carrito/resta").hasAuthority("CLIENTE")
                 .anyRequest().denyAll();
         http.formLogin()
                 .usernameParameter("email")
