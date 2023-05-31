@@ -47,60 +47,17 @@
   </head>
 
   <body>
-    <!-- LOADER -->
-    <!-- <div class="hexagon" aria-label="Animated hexagonal ripples">
-        <div class="hexagon__group">
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-        </div>
-        <div class="hexagon__group">
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-        </div>
-        <div class="hexagon__group">
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-        </div>
-        <div class="hexagon__group">
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-        </div>
-        <div class="hexagon__group">
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-        </div>
-        <div class="hexagon__group">
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-            <div class="hexagon__sector"></div>
-        </div>
-    </div>
-    <p aria-label="Loading">Loading</p> -->
-
+   
     <div id="app">
+
+       <!-- LOADER -->
+       <div id="loader" class="loader-container">
+        <div class="loader"></div>
+      </div>
+      
+          
+      
+
       <header>
         <p class="text-center text-white mb-0">
           Orquideas y plantas para regalar y decorar. Directo del cultivo a tu
@@ -475,9 +432,17 @@
                 <p class="mb-0 fs-5 fw-bold">Total = {{totalCompra}}</p>
               </div>
             </div>
+            <template v-if="cliente.length == 0">
+              <a href="./web/paginas/loginpage.html">
+            <button class="btn btnFondo rounded">
+              Añadir a la orden 
+            </button></a>
+            </template>
+            <template v-else>
             <button class="btn btnFondo rounded" @click="crearOrden">
               Añadir a la orden
             </button>
+          </template>
           </div>
         </aside>
       </main>

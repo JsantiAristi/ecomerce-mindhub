@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
+      isLoading: true,
       plantas: [],
             cliente: [],
             plantas_filtradas: [],
@@ -22,11 +23,19 @@ createApp({
             categoria: new URLSearchParams(location.search).get("categoria")
     }
   },
+  
   created() {
     this.cargarDatos();
     this.cargarCliente();
     this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
+  },
+  mounted() {
+    window.onload = function() {
+      var loader = document.getElementById('loader');
+      loader.style.display = 'none'; // Ocultar el loader una vez que la página haya cargado completamente
+    }
+    
   },
   methods: {
     cargarDatos() {
