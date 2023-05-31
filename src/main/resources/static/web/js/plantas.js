@@ -31,6 +31,7 @@ createApp({
             axios.get('/api/productos/'+this.categoria)
                 .then(respuesta => {
                     this.plantas = respuesta.data.filter(planta => planta.activo);
+                    console.log(this.plantas)
                     
                     for(planta of this.plantas){
                         planta.contador = 1

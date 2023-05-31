@@ -138,5 +138,16 @@ createApp({
             })
             .catch(error => console.log(error))
         },
+        logout() {
+            axios.post('/api/logout')
+              .then(response => {
+                this.carrito = [];
+                this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
+                localStorage.setItem("carrito", JSON.stringify(this.carrito));
+                localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+                window.location.href = '/index.html'
+              })
+              .catch(error => console.log(error))
+          },
     }
 }).mount("#app")

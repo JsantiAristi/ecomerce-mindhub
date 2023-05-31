@@ -81,13 +81,14 @@
             <div class="p-2 form_create">
                 <form @submit.prevent="add_product" enctype="multipart/form-data">
                     <div class="mb-3 div_form">
+                        <label for="categoria" class="form-label">CATEGORIA*</label>
+                        <input type="text" class="form-control" id="categoria" placeholder="Categoria del producto" v-model="categoria" required>
+                    </div>
+                    <div class="mb-3 div_form">
                         <label for="name" class="form-label">Nombre del Producto*</label>
                         <input type="text" class="form-control" id="name" placeholder="Nombre del producto" v-model="nombre" required>
                     </div>
-                    <div class="mb-3 div_form">
-                        <label for="color" class="form-label">Color Producto*</label>
-                        <input type="text" class="form-control" id="color" placeholder="Nombre del producto" v-model="color" required>
-                    </div>
+                   
                     <div class="mb-3 div_form">
                         <label for="descripcion" class="form-label">Descripción del producto</label>
                         <textarea class="form-control" id="descripcion" rows="3" v-model="descripcion"></textarea>
@@ -96,9 +97,8 @@
                         <img :src="foto" alt="" class="productImage mb-3">
                         <div class="div_form">
                             <label for="image" class="form-label">Imagen del producto</label>
-                            <input class="form-control" type="file" id="image" accept="image/" @change="changePicture">
-                        </div>
-                        
+                            <input class="form-control" type="file" id="image" accept="image/"  @change="changePicture">
+                        </div>                   
                     </div>
                     <div class="mb-3 div_form">
                         <label for="Type" class="text-start pb-2">Tipo*</label>
