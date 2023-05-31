@@ -40,7 +40,9 @@ public class OrdenControlador {
         Clientes clientes = clientesServicios.obtenerClienteAutenticado(authentication);
 
         if ( clientes == null ){
-            return new ResponseEntity<>("El cliente no existe", HttpStatus.FORBIDDEN);}
+            return new ResponseEntity<>("El cliente no existe", HttpStatus.FORBIDDEN);
+        } else if ( !clientes.isValido() ) {
+            return new ResponseEntity<>("Tu cuenta ha sido desactivada.", HttpStatus.FORBIDDEN);}
 
         if (clientes.getOrdenes().stream().filter( ordenPagada -> !ordenPagada.isComprado()).collect(toList()).size() > 1){
             return new ResponseEntity<>("Ya tienes una orden en proceso", HttpStatus.FORBIDDEN);

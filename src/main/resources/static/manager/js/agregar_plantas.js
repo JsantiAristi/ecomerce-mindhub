@@ -34,7 +34,6 @@ createApp({
                 alert("Selecciona solo archivos de imagen")
             }else if (e.target.files[0]) {
                 this.foto = URL.createObjectURL(e.target.files[0])
-                console.log(this.foto)
             } else {
                 this.foto = "../../assets/agregar-producto.png"
             }
