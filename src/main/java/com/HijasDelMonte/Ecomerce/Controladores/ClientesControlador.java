@@ -69,12 +69,12 @@ public class ClientesControlador {
             return new ResponseEntity<>("No se encontro el cliente" , HttpStatus.ACCEPTED);}
     }
 
-    @PostMapping ("api/clientes")
+    @PostMapping ("/api/clientes")
     public ResponseEntity<Object> registro(
             @RequestParam String nombre,
             @RequestParam String apellido,
             @RequestParam String email,
-            @RequestBody String contraseña){
+            @RequestParam String contraseña){
         if (nombre.isBlank() || apellido.isBlank() || email.isBlank() || contraseña.isBlank()){
             return new ResponseEntity<>("Campos vacios", HttpStatus.FORBIDDEN);
         }
@@ -83,6 +83,7 @@ public class ClientesControlador {
         }
 
         Clientes nuevoCliente = new Clientes(nombre, apellido, " ", 0, Genero.OTRO, LocalDate.now(), email, passwordEnconder.encode(contraseña), true);
+        clientesServicios.saveCliente(nuevoCliente);
         return new ResponseEntity<>("Bienvenido!", HttpStatus.CREATED);
 
     }

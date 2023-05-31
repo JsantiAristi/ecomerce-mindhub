@@ -18,6 +18,7 @@ public class WebAutorizacion {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().authorizeRequests()
+                .antMatchers(HttpMethod.POST,"/api/login","/api/clientes").permitAll()
                 .antMatchers("/manager/**").hasAuthority("ADMIN")
                 .antMatchers("/web/paginas/perfil.html", "/web/estilos/perfil.css", "/web/js/perfil.js").hasAuthority("CLIENTE")
                 .antMatchers("/web/paginas/editarPerfil.html", "/web/estilos/editarPerfil.css", "/web/js/editarPerfil.js").hasAuthority("CLIENTE")
@@ -27,6 +28,7 @@ public class WebAutorizacion {
                 .antMatchers("/api/clientes/actual","/api/cliente/orden","/h2-console").hasAnyAuthority("CLIENTE","ADMIN")
                 .antMatchers("/api/productos","/api/productos/{id}").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/cliente/orden","/api/cliente/carrito").hasAuthority("CLIENTE")
+
                 .antMatchers(HttpMethod.PUT,"/api/cliente/carrito/suma","/api/cliente/carrito/resta").hasAuthority("CLIENTE")
                 .antMatchers(HttpMethod.PUT,"/api/plantas").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.POST,"/api/plantas").hasAuthority("ADMIN")
