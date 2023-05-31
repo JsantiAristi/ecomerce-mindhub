@@ -74,41 +74,84 @@ table td{
 
 
 /*Footer*/
-footer {
-    color: white;
+.pie-pagina{
+    width: 100%;
     background-color: #99A98F;
-}
-
-footer a {
-    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+  }
+  
+  .pie-pagina .grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .pie-pagina .grupo-1 .box figure img{
+    width: 250px;
+    height: 7rem;
+    object-fit: cover;
+  }
+  
+  .pie-pagina .grupo-1 .box h2{
     color: white;
-}
-
-.logo_empresa img {
-    width: 10rem;
-}
-
-.iconos_footer img {
-    width: 4rem;
-    height: 2rem;
-    padding: 0 1rem;
-}
-
-.medios_pago img {
-    width: 4rem;
-}
-
-.footer_bajo {
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  
+  .pie-pagina .grupo-1 .box a{
+    text-decoration: none;
+    color: #efefef;
+  }
+  
+  
+  .pie-pagina .grupo-1 .box p{
+    margin-bottom: 10px;
+    color: #efefef;
+    cursor: pointer;
+  }
+  
+  .pie-pagina .grupo-1 .box a:hover, .pie-pagina .grupo-1 .box p:hover{
+    color: green;
+  }
+  
+  .pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
     background-color: #464d41;
-}
-
-@media only screen and (max-width: 700px) {
-    main {
-        padding: 0 1rem !important;
-    }
-    .footer_arriba {
-        display: flex;
-        justify-content: start !important;
-        align-items: center;
-    }
-}
+    text-align: center;
+    transition: all 300ms ease;
+    border-radius: 5px;
+  }
+  
+  .pie-pagina .grupo-1 .red-social a:hover{
+    color: green;
+  }
+  
+  .pie-pagina .grupo-2{
+    background-color: #464d41;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .pie-pagina .grupo-2 small{
+    font-size: 15px;
+  }
+  
