@@ -14,7 +14,8 @@ createApp({
             plantaId: [],
             totalCompra: 0,
             plantas:[],
-            cliente:''
+            cliente:'',
+            id: new URLSearchParams(location.search).get("id")
         }
     },
     created() {
@@ -23,7 +24,7 @@ createApp({
     },
     methods: {
         cargarDatos() {
-            axios.get('/api/plantas/1')
+            axios.get('/api/productos/'+this.id)
                 .then(respuesta => {
                     this.producto = respuesta.data;
                     console.log(this.producto)

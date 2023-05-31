@@ -123,7 +123,7 @@
                             <template v-if="plantas_filtradas.length > 0" v-for="planta of plantas_filtradas">
                             <div class="card mb-5">
                                 <div class="card-img d-flex justify-content-center">
-                                    <img :src="planta.foto" alt="productoPrueba">
+                                    <a :href="'./detalles.html?id='+ planta.id"><img :src="planta.foto" alt="productoPrueba"></a>                                   
                                 </div>
                                 <div class="card-info">
                                     <p class="text-title" style=" min-height: 5rem;">{{planta.nombre}}</p>

@@ -24,7 +24,7 @@ public class WebAutorizacion {
                 .antMatchers("/web/paginas/pedidos.html", "/web/estilos/pedidos.css", "/web/js/pedidos.js").hasAuthority("CLIENTE")
                 .antMatchers("/index.html","/web/**","/assets/**").permitAll()
                 .antMatchers("/api/clientes").hasAuthority("ADMIN")
-                .antMatchers("/api/clientes/actual","/api/cliente/orden").hasAuthority("CLIENTE")
+                .antMatchers("/api/clientes/actual","/api/cliente/orden").hasAnyAuthority("CLIENTE","ADMIN")
                 .antMatchers("/api/productos","/api/productos/{id}").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/cliente/orden","/api/cliente/carrito").hasAuthority("CLIENTE")
                 .antMatchers(HttpMethod.PUT,"/api/cliente/carrito/suma","/api/cliente/carrito/resta").hasAuthority("CLIENTE")
