@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
@@ -377,36 +380,88 @@ svg {
 }
 
 /*Footer*/
-footer{
-  color: white;
+.pie-pagina{
+  width: 100%;
   background-color: #99A98F;
+  font-family: 'Open Sans', sans-serif;
 }
 
-footer a{
-  text-decoration: none;
+.pie-pagina .grupo-1{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  padding: 45px 0px;
+}
+
+.pie-pagina .grupo-1 .box figure{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pie-pagina .grupo-1 .box figure img{
+  width: 250px;
+  height: 7rem;
+  object-fit: cover;
+}
+
+.pie-pagina .grupo-1 .box h2{
   color: white;
+  margin-bottom: 25px;
+  font-size: 20px;
 }
 
-footer a:hover {
-  color: #094b08;
+.pie-pagina .grupo-1 .box a{
+  text-decoration: none;
+  color: #efefef;
 }
 
-.logo_empresa img{
-  width: 10rem;
+
+.pie-pagina .grupo-1 .box p{
+  margin-bottom: 10px;
+  color: #efefef;
+  cursor: pointer;
 }
 
-.iconos_footer img{
-  width: 4rem;
-  height: 2rem;
-  padding: 0 1rem;
+.pie-pagina .grupo-1 .box a:hover, .pie-pagina .grupo-1 .box p:hover{
+  color: green;
 }
 
-.footer_bajo{
+.pie-pagina .grupo-1 .red-social a{
+  display: inline-block;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  color: #fff;
+  margin-right: 10px;
   background-color: #464d41;
+  text-align: center;
+  transition: all 300ms ease;
+  border-radius: 5px;
+}
+
+.pie-pagina .grupo-1 .red-social a:hover{
+  color: green;
+}
+
+.pie-pagina .grupo-2{
+  background-color: #464d41;
+  padding: 15px 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.pie-pagina .grupo-2 small{
+  font-size: 15px;
 }
 
 /*Scroll bar*/
-/* Scroll */
 body::-webkit-scrollbar {
   width: 10px;
   background: rgb(78, 73, 73);
@@ -418,12 +473,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media only screen and (max-width: 700px) {
-  .footer_arriba {
-      display: flex;
-      justify-content: start !important;
-      align-items: center;
-  }
-
   .asideCuentas{
       width: 100%;
       margin-right: 0;
@@ -436,6 +485,13 @@ body::-webkit-scrollbar-thumb {
 
   .divContenedorProductos{
     padding: 0rem 0rem;
+  }
+
+  .pie-pagina .grupo-1{
+    width: 90%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+    padding: 35px 0px;
   }
 }
 
