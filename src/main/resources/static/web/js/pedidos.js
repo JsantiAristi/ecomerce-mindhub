@@ -22,23 +22,12 @@ createApp({
         cargarDatos() {
             axios.get('/api/cliente/orden')
                 .then(respuesta => {
-                    console.log(respuesta.data);
                     this.ordenes = respuesta.data
                     console.log(this.ordenes);
                     this.productosSeleccionadosSet = this.ordenes[0].productosSeleccionadosSet;
                     console.log(this.productosSeleccionadosSet);
                 })
                 .catch(error => console.log(error))
-        },
-        cargarDatosPlantas() {
-            axios.get('/api/plantas')
-                .then(respuesta => {
-                    this.plantas = respuesta.data.filter(planta => planta.activo);
-                    console.log(this.plantas)
-                })
-                .catch(error => console.log(error))
-            // this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-            //this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
         },
         aparecerCuenta() {
             if (this.isCarritoInactivo) {
@@ -118,7 +107,6 @@ createApp({
                 .catch(error => console.log(error))
         },
         sumarProducto(id) {
-            console.log(id);
             axios.put("/api/cliente/carrito/suma", `idProducto=${id}`)
                 .then(response => {
                     Swal.fire({
