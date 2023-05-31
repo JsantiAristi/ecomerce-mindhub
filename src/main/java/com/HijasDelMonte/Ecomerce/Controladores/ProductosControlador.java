@@ -41,8 +41,6 @@ public class ProductosControlador {
             return new ResponseEntity<>("El nombre del producto no puede estar vacío", HttpStatus.FORBIDDEN);
         } else if ( !productosServicios.obtenerProductosDTO().stream().filter( plantaDB -> plantaDB.getNombre().equalsIgnoreCase(plantas.getNombre()) && plantaDB.isActivo()).collect(toList()).isEmpty() ){
             return new ResponseEntity<>("El nombre " + plantas.getNombre() + " ya está en uso", HttpStatus.FORBIDDEN);
-        } else if ( plantas.getTipoProdcuto().equals(TipoProducto.EXTERIOR) && plantas.getTipoProdcuto().equals(TipoProducto.INTERIOR)){
-            return new ResponseEntity<>("Ingresa una opción valida", HttpStatus.FORBIDDEN);
         } else if (plantas.getStock() < 0 ) {
             return new ResponseEntity<>("No puedes tener un stock negativo", HttpStatus.FORBIDDEN);
         } else if ( plantas.getPrecio() < 0 ) {
@@ -59,7 +57,7 @@ public class ProductosControlador {
             image = plantas.getFoto();}
 
         Productos nuevaPlanta = new Productos( plantas.getNombre(), plantas.getTipoProdcuto(),
-                description, plantas.getFoto(), plantas.getStock(), plantas.getPrecio(), true, Categorias.PLANTAS);
+                description, plantas.getFoto(), plantas.getStock(), plantas.getPrecio(), true, plantas.getCategorias());
         productosServicios.guardarPlanta(nuevaPlanta);
 
         return new ResponseEntity<>(HttpStatus.CREATED);}
