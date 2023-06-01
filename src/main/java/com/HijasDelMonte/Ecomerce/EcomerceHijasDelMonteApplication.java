@@ -62,6 +62,33 @@ public class EcomerceHijasDelMonteApplication {
 					"../../assets/maceta2.jpeg",
 					10, 5000, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_ceramica);
+
+			Productos maceta_colgante= new Productos("Colgador De Plantas",TipoProducto.MACETAS,
+					"Soporte de macramé para plantas.","../../assets/accesorios1.jpg",
+					6,7000,true,Categorias.ACCESORIOS);
+			productosRepositorio.save(maceta_colgante);
+
+			Productos maceta_matera= new Productos("Matera Para Plantas",TipoProducto.MACETAS,
+					"Matera para plantas pequeñas.","../../assets/matera.jpg",
+					2,4400,true,Categorias.ACCESORIOS);
+			productosRepositorio.save(maceta_matera);
+
+			Productos curso1= new Productos("Curso De Plantas Aromáticas",TipoProducto.PRESENCIAL,
+					"Clases teoricas y practicas, Lunes de 18 a 20 hs.","../../assets/curso_plantas_aromaticas.jpg",
+					10,7700,true,Categorias.CURSOS);
+			productosRepositorio.save(curso1);
+
+			Productos curso2= new Productos("Curso De Plantas Medicinales",TipoProducto.VIRTUAL,
+					"Clases teoricas y practicas, Lunes,Martes,Viernes de 15 a 18 hs.",
+					"../../assets/curso_plantas_medicinales.png",
+					8,8000,true,Categorias.CURSOS);
+			productosRepositorio.save(curso2);
+
+			Productos curso3= new Productos("Curso De Árboles",TipoProducto.PRESENCIAL,
+					"Clases practicas, Todos los dias de la semana de 12 a 20 hs.",
+					"../../assets/Curso-de-plantas-e-árbores.png",
+					4,12000,true,Categorias.CURSOS);
+			productosRepositorio.save(curso3);
 		};
 	};
 
