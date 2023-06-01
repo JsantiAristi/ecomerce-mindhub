@@ -100,10 +100,23 @@ createApp({
         añadirCarrito(id){
             this.filtro_planta_carrito = this.plantas.filter(planta => planta.id == id)[0];  
             if (!(this.carrito.some(planta => planta.id == id))) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto añadido',
+                    text: 'Se ha agregado a su carrito de comptras',
+                    
+                  })
                 this.carrito.push(this.filtro_planta_carrito);
                 this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
                 localStorage.setItem("carrito", JSON.stringify(this.carrito));
                 localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+            }else{
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Usted ya añadio este producto al carrito de compras',
+                    text: 'Para añadir más unidades diríjase al carrito de compras!',
+                    
+                  })
             }                
         },
         sumar(id){

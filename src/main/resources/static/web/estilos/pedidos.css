@@ -54,13 +54,13 @@ main {
 
 /*Botones*/
 .btnFondo{
-    background-color: #324545;
-    color: aliceblue;
+  background-color: #324545;
+  color: aliceblue;
 }
 
 .btnFondo:hover{
-    background-color: #324545;
-    color: aliceblue;
+  background-color: #324545;
+  color: aliceblue;
 }
 
 /*Botones*/
@@ -156,40 +156,39 @@ li{
     right: 0;
     top: 0;
     width: 30rem;
-    height: 70%;
+    min-height: 8%;
     z-index: 10;
     background-color: #e8edec;
-}
-
-.infoTotalDiv{
+  }
+  
+  .infoTotalDiv{
     height: 100%;
-}
-
-.asideCarritoFoto{
+  }
+  
+  .asideCarritoFoto{
     width: 6rem;
     height: 6rem;
     object-fit: cover;
-}
-
-.sumaBoton, .menosBoton {
+  }
+  
+  .sumaBoton, .menosBoton {
     width: 2rem;
     cursor: pointer;
-}
-
-.sumaBoton2, .menosBoton2 {
-    width: 1.4rem;
-    cursor: pointer;
-}
-
-.botonBasura{
+  }
+  
+  .botonBasura{
     width: 2rem;
     height: 2rem;
     object-fit: cover;
     cursor: pointer;
-}
-
-.infoCarrito{
+  }
+  
+  .infoCarrito{
     width: 80%;
+  }
+.sumaBoton2, .menosBoton2 {
+    width: 1.4rem;
+    cursor: pointer;
 }
 .nav ul, .nav a{
     width: 100% !important;

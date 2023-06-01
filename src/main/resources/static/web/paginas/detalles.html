@@ -245,7 +245,7 @@
           
                     <div class = "purchase-info">
                      <!--<input type = "number" min = "0" value = "1">-->
-                      <button :disabled="producto.stock==0?true:false" class="agregarBoton" @click="añadirCarrito">Agregar al carrito
+                      <button :disabled="producto.stock==0?true:false" class="agregarBoton" @click="añadirCarrito()">Agregar al carrito
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="icon icon-tabler icon-tabler-shopping-cart ms-2" width="30" height="30" 
                             viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
@@ -302,7 +302,7 @@
                         <p class="mb-0 fs-5 fw-bold">Total = {{totalCompra.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}</p>
                     </div>
                 </div>                   
-                <button class="btn btnFondo rounded" @click="crearOrden">Añadir a la orden</button>
+                <button class="btn btnFondo rounded rounded" @click="crearOrden">Añadir a la orden</button>
             </div>
         </aside>
            

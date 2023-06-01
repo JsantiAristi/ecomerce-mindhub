@@ -85,7 +85,15 @@ main {
     background-color: #324545;
     color: aliceblue;
   }
-
+  .btnFondo{
+    background-color: #324545;
+    color: aliceblue;
+  }
+  
+  .btnFondo:hover{
+    background-color: #324545;
+    color: aliceblue;
+  }
 .product-content{
   /*  padding: 2rem 1rem;*/
     background-color: #99A98F;
@@ -318,44 +326,41 @@ main {
   }
   
   /*Aside Carrito*/
-  .asideCarrito {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 30rem;
-    height: 34rem;
-    z-index: 10;
-    background-color: #e8edec;
-  }
-  
-  .infoTotalDiv{
-    height: 100%;
-  }
-  
-  .asideCarritoFoto{
-    width: 6rem;
-    height: 6rem;
-    object-fit: cover;
-  }  
-  .sumaBoton, .menosBoton {
-    width: 2rem;
-    cursor: pointer;
-  }
-  
-  .botonBasura{
-    width: 2rem;
-    height: 2rem;
-    object-fit: cover;
-    cursor: pointer;
-  }
-  .btnFondo{
-    background-color: #324545;
-    color: aliceblue;
-  }
-  .infoCarrito{
-    width: 80%;
-  }
+.asideCarrito {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30rem;
+  min-height: 8%;
+  z-index: 10;
+  background-color: #e8edec;
+}
 
+.infoTotalDiv{
+  height: 100%;
+}
+
+.asideCarritoFoto{
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+}
+
+.sumaBoton, .menosBoton {
+  width: 2rem;
+  cursor: pointer;
+}
+
+.botonBasura{
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.infoCarrito{
+  width: 80%;
+}
 .descripcion{
     width: 550px;    
 }
