@@ -36,7 +36,7 @@ createApp({
 
                     for( producto of this.productosProceso ){
                         this.totalProductosOrden += producto.cantidad;
-                        this.totalPrecioOrden += producto.precio;
+                        this.totalPrecioOrden += (producto.precio * producto.cantidad);
                     }
 
                     console.log(this.productosProceso);
@@ -221,7 +221,7 @@ createApp({
             this.productosProceso.forEach(producto => {
               if (producto.id === id && producto.cantidad > 1) {
                 producto.cantidad -= 1;
-                this.totalProductosOrden += 1;
+                this.totalProductosOrden -= 1;
                 this.totalPrecioOrden = this.productosProceso.reduce( (acomulador, producto) => acomulador + producto.precio * producto.cantidad,
                 0)
               }
@@ -262,6 +262,16 @@ createApp({
                 console.log('Error al realizar la compra:', error);
               });
           },
-
+          actualizarOrden(){
+            for(producto of this.productosProceso ){
+                axios.post("/api/orden/actualizacion",
+                {
+                    "id": producto.id,
+                    "unidadesSeleccionadas": producto.cantidad,
+                })
+                .then(response => {window.location.href= '/web/paginas/pagos.html'})
+                .catch(error => console.log(error))
+            }
+          },
     }
 }).mount("#app")

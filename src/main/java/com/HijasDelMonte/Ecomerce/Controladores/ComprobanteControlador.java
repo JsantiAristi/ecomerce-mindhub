@@ -98,9 +98,9 @@ public class ComprobanteControlador {
                 PdfWriter.getInstance( document, outputStream);
                 document.open();
 
-                Image logo = Image.getInstance("C:\\Users\\santi\\cursos programacion\\Ecomerce\\src\\main\\resources\\static\\assets\\LOGO_HIJAS_DEL_MONTE-01.png");
+                /*Image logo = Image.getInstance("C:\\Users\\santi\\cursos programacion\\Ecomerce\\src\\main\\resources\\static\\assets\\LOGO_HIJAS_DEL_MONTE-01.png");
                 logo.scaleToFit(100, 100);
-                document.add(logo);
+                document.add(logo);*/
 
                 Font Title = new Font(Font.FontFamily.TIMES_ROMAN, 30, Font.BOLD);
                 Paragraph title = new Paragraph("HIJAS DEL MONTE", Title);
