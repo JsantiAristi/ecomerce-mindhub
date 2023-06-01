@@ -5,6 +5,7 @@ import java.util.Set;
 import static java.util.stream.Collectors.toSet;
 
 public class OrdenDTO {
+    private long id;
     private int unidadesTotales;
     private double precioTotal;
     private boolean activo;
@@ -12,6 +13,7 @@ public class OrdenDTO {
     private Set<ProductosSeleccionadosDTO> productosSeleccionadosSet;
 
     public OrdenDTO(Orden orden) {
+        this.id = orden.getId();
         this.unidadesTotales = orden.getUnidadesTotales();
         this.precioTotal = orden.getPrecioTotal();
         this.activo = orden.isActivo();
@@ -19,6 +21,7 @@ public class OrdenDTO {
         this.productosSeleccionadosSet = orden.getProductosSeleccionadosSet().stream().map(ProductosSeleccionadosDTO::new).collect(toSet());
     }
 
+    public long getId() {return id;}
     public int getUnidadesTotales() {return unidadesTotales;}
     public double getPrecioTotal() {return precioTotal;}
     public boolean isActivo() {return activo;}
