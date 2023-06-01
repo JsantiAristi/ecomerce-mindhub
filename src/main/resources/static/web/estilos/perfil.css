@@ -82,7 +82,7 @@ main {
     width: 5rem;
     object-fit: cover;
 }
-a{
+.nav a{
     text-decoration: none;
     color: #000;
     font-size: large;

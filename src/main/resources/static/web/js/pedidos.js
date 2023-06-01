@@ -30,6 +30,7 @@ createApp({
                     this.ordenes = respuesta.data
                     this.ordenesProceso = this.ordenes.filter( orden => !orden.comprado )
                     this.ordenesRealizadas = this.ordenes.filter( orden => orden.comprado )
+                    console.log(this.ordenesRealizadas);
 
                     this.productosProceso = this.ordenesProceso[0].productosSeleccionadosSet;
                     this.productosRealizados = this.ordenesRealizadas[0].productosSeleccionadosSet;
