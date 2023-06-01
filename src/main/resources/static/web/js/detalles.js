@@ -201,7 +201,6 @@ createApp({
                     .catch(error => console.log(error))
                 }
               })
-          
           },
     }
 }).mount("#app")

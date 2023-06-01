@@ -24,7 +24,6 @@ createApp({
         cargarDatos() {
             axios.get('/api/cliente/orden')
                 .then(respuesta => {
-                    console.log(respuesta.data);
                     this.ordenes = respuesta.data
                     console.log(this.ordenes);
                     this.productosSeleccionadosSet = this.ordenes[0].productosSeleccionadosSet;
@@ -128,7 +127,6 @@ createApp({
                 .catch(error => console.log(error))
         },
         sumarProducto(id) {
-            console.log(id);
             axios.put("/api/cliente/carrito/suma", `idProducto=${id}`)
                 .then(response => {
                     Swal.fire({

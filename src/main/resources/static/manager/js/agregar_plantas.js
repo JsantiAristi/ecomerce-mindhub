@@ -6,7 +6,7 @@ createApp({
             plantas: [],
             tipo_plantas: [],
             nombre: "",
-            color: "",
+            categoria: "",
             descripcion: "",
             foto: "../../assets/agregar-producto.png",
             tipo: "",
@@ -24,7 +24,8 @@ createApp({
             axios.get('/api/productos')
             .then(res => {
                 this.plantas = res.data
-                this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoPlanta)));
+                this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoProducto)));
+                
             })
             .catch(error => console.log(error))
         },
@@ -40,8 +41,8 @@ createApp({
         add_product(){
             axios.post('/api/plantas',
             {
+                "categoria": this.categoria,
                 "nombre": this.nombre,
-                "color": this.color,
                 "descripcion": this.descripcion,
                 "tipoPlanta": this.tipo,
                 "stock": this.stock,

@@ -3,19 +3,39 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
-      isCuentaInactivo: true,
-      isCarritoInactivo: true,
-      carrito: [],
-      totalCompra: "",
+      isLoading: true,
       plantas: [],
-      cliente: [],
+            cliente: [],
+            plantas_filtradas: [],
+            tipo_plantas: [],
+            tipo_planta: "",
+            cantidad_plantas: 0,
+            rango_precio: 5000,
+            filtros_arreglo: "",
+            isCuentaInactivo: true,
+            isCarritoInactivo: true,
+            carrito: [],
+            contadorCarrito: 0,
+            filtro_planta_carrito: [],
+            cantidad: "",
+            plantaId: [],
+            totalCompra: 0,
+            categoria: new URLSearchParams(location.search).get("categoria")
     }
   },
+  
   created() {
     this.cargarDatos();
     this.cargarCliente();
     this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
+  },
+  mounted() {
+    window.onload = function() {
+      var loader = document.getElementById('loader');
+      loader.style.display = 'none'; // Ocultar el loader una vez que la página haya cargado completamente
+    }
+    
   },
   methods: {
     cargarDatos() {
@@ -23,6 +43,11 @@ createApp({
         .then(respuesta => {
           this.plantas = respuesta.data.filter(producto => producto.activo && producto.stock > 0);
           console.log(this.plantas);
+
+          for(planta of this.plantas){
+            planta.contador = 1
+        }
+        
         })
         .catch(error => console.log(error))
     },
@@ -52,6 +77,15 @@ createApp({
         this.isCarritoInactivo = !this.isCarritoInactivo;
       }
     },
+    añadirCarrito(id){
+      this.filtro_planta_carrito = this.plantas.filter(planta => planta.id == id)[0];  
+      if (!(this.carrito.some(planta => planta.id == id))) {
+          this.carrito.push(this.filtro_planta_carrito);
+          this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
+          localStorage.setItem("carrito", JSON.stringify(this.carrito));
+          localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+      }                
+  },
     sumar(id) {
       this.carrito.map(planta => {
         if (planta.id == id) {

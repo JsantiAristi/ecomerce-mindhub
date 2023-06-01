@@ -18,16 +18,20 @@ public class WebAutorizacion {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().authorizeRequests()
+                .antMatchers(HttpMethod.POST,"/api/login","/api/clientes").permitAll()
                 .antMatchers("/manager/**").hasAuthority("ADMIN")
                 .antMatchers("/web/paginas/perfil.html", "/web/estilos/perfil.css", "/web/js/perfil.js").hasAuthority("CLIENTE")
                 .antMatchers("/web/paginas/editarPerfil.html", "/web/estilos/editarPerfil.css", "/web/js/editarPerfil.js").hasAuthority("CLIENTE")
                 .antMatchers("/web/paginas/pedidos.html", "/web/estilos/pedidos.css", "/web/js/pedidos.js").hasAuthority("CLIENTE")
                 .antMatchers("/index.html","/web/**","/assets/**").permitAll()
-                .antMatchers("/api/clientes").hasAuthority("ADMIN")
-                .antMatchers("/api/clientes/actual","/api/cliente/orden").hasAnyAuthority("CLIENTE","ADMIN")
+                .antMatchers("/api/clientes","/rest/**").hasAuthority("ADMIN")
+                .antMatchers("/api/clientes/actual","/api/cliente/orden","/h2-console").hasAnyAuthority("CLIENTE","ADMIN")
                 .antMatchers("/api/productos","/api/productos/{id}").permitAll()
-                .antMatchers(HttpMethod.POST,"/api/cliente/orden","/api/cliente/carrito").hasAuthority("CLIENTE")
+                .antMatchers(HttpMethod.POST,"/api/cliente/orden","/api/cliente/carrito","/api/cliente/comprobante").hasAuthority("CLIENTE")
+
                 .antMatchers(HttpMethod.PUT,"/api/cliente/carrito/suma","/api/cliente/carrito/resta").hasAuthority("CLIENTE")
+                .antMatchers(HttpMethod.PUT,"/api/plantas").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST,"/api/plantas").hasAuthority("ADMIN")
                 .anyRequest().denyAll();
         http.formLogin()
                 .usernameParameter("email")
