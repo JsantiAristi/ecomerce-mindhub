@@ -41,7 +41,7 @@ createApp({
     cargarDatos() {
       axios.get('/api/productos')
         .then(respuesta => {
-          this.plantas = respuesta.data.filter(producto => producto.activo && producto.stock > 0);
+          this.plantas = respuesta.data.filter(producto => producto.activo && producto.stock > 0 && producto.stock>=6);
           console.log(this.plantas);
 
           for(planta of this.plantas){
