@@ -4,32 +4,32 @@ createApp({
     data() {
         return {
             // Inicializamos las variables
-            firstName: "",
-            secondName: "",
             colorCard: "",
             typeCard: "",
-            thruDate: "",
             cvv: "",
             number1: "",
             number2: "",
             number3: "",
             number4: "",
-            amount: "",
             emailClient: "",
         }
+    },
+    created() {
+        this.cargarDatos()
     },
     methods: {
         createNumberCard(){
             this.cardNumber = this.number1 + "-" + this.number2 + "-" + this.number3 + "-" + this.number4;
         },
+        cargarDatos() {
+            axios.get('/api/cliente/orden')
+                .then(respuesta => {
+                    this.ordenes = respuesta.data
+                    console.log(this.ordenes[0]);
+                })
+                .catch(error => console.log(error))
+        },
         payCard(){
-            console.log(this.typeCard); 
-            console.log(this.colorCard); 
-            console.log(this.cardNumber); 
-            console.log(this.cvv); 
-            console.log(this.thruDate); 
-            console.log(this.email); 
-            console.log(this.amount); 
             Swal.fire({
                 title: 'Please, confirm that you want to pay with the card ' + this.cardNumber,
                 inputAttributes: {
@@ -39,15 +39,15 @@ createApp({
                 confirmButtonText: 'Sure',
                 confirmButtonColor: "#7c601893",
                 preConfirm: () => {
-                    return axios.post('http://localhost:8080/api/clients/current/cards/postnet',
+                    console.log(this.ordenes[0].precioTotal);
+                    return axios.post('/api/cliente/comprobante',
                     {
                         "type": this.typeCard,
                         "color": this.colorCard,
                         "number": this.cardNumber,
                         "cvv": this.cvv,
-                        "thruDate": this.thruDate,
                         "email" : this.emailClient,
-                        "amount" : this.amount
+                        "amount" : this.ordenes[0].precioTotal
 
                     })
                     .then(response => {  
@@ -56,7 +56,7 @@ createApp({
                             text: 'succes paid',
                             showConfirmButton: false,
                             timer: 3000,
-                        }).then( () => window.location.href="/postnet.html")
+                        }).then( () => window.location.href="/web/paginas/pedidos.html")
                     })
                     .catch(error => {
                         Swal.fire({
@@ -71,15 +71,4 @@ createApp({
             })
         }
     },
-    computed: {
-        mayus(){
-            this.firstName = this.firstName.charAt(0).toUpperCase() + this.firstName.slice(1);
-            this.secondName = this.secondName.charAt(0).toUpperCase() + this.secondName.slice(1)
-        }      
-    }
 }).mount("#app");
-
-window.onload = function(){
-    $('#onload').fadeOut();
-    $('body').removeClass("hidden");
-}
