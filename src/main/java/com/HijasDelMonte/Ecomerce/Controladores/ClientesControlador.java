@@ -88,4 +88,17 @@ public class ClientesControlador {
 
     }
 
+    @PutMapping ("api/clientes")
+    public ResponseEntity<Object> eliminarCliente(
+            @RequestParam String email){
+        Clientes clienteEliminado = clientesServicios.findByEmail(email);
+
+        if (clienteEliminado != null){
+            clienteEliminado.setValido(false);
+            clientesServicios.saveCliente(clienteEliminado);
+            return new ResponseEntity<>("Cliente eliminado", HttpStatus.ACCEPTED);
+        }
+        return new ResponseEntity<>("Cliente no encontrado", HttpStatus.ACCEPTED);
+    }
+
 }

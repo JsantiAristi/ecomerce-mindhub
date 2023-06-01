@@ -6,6 +6,7 @@ createApp({
             // Inicializamos las variables
             clientes: [],
             clientes_filtadras: [],
+            email:[]
         }
     },
     created(){
@@ -20,6 +21,34 @@ createApp({
             })
             .catch(error => console.log(error))
         },
+        logout() {
+            axios.post('/api/logout')
+              .then(response => {
+                this.carrito = [];
+                this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
+                localStorage.setItem("carrito", JSON.stringify(this.carrito));
+                localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+                window.location.href = '/index.html'
+              })
+              .catch(error => console.log(error))
+          },
+          eliminarCliente(email){
+            axios.put('/api/clientes', `email=${this.email}`)
+            .then(response => {
+                Swal.fire({
+                    title: 'Mensaje de confirmación',
+                    text: 'Se ha eliminado un clienre',
+                    icon: 'success',
+                
+                })
+            }).catch(err => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error eliminando un cliente',
+                    text: err.response.data,
+                })
+            })
+          }
         
     }
 }).mount("#app")
