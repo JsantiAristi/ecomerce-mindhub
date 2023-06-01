@@ -114,15 +114,30 @@ createApp({
               .catch(error => console.log(error))
           },
           logout() {
-            axios.post('/api/logout')
-              .then(response => {
-                this.carrito = [];
-                this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
-                localStorage.setItem("carrito", JSON.stringify(this.carrito));
-                localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
-                window.location.href = '/index.html'
+            Swal.fire({
+                title: 'Esta seguro de cerrar sesión?',
+                text: "Confirmar",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#324545',
+                cancelButtonColor: '#db3939',
+                background:' rgb(238 243 236)',
+                iconColor:"#324545",
+                confirmButtonText: 'Si, cerrar sesión!',
+                cancelButtonText: 'Cancelar'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.post('/api/logout')
+                    .then(response => {
+                      this.carrito = [];
+                      this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
+                      localStorage.setItem("carrito", JSON.stringify(this.carrito));
+                      localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+                      window.location.href = '/index.html'
+                    })
+                    .catch(error => console.log(error))
+                }
               })
-              .catch(error => console.log(error))
           },
     }
 

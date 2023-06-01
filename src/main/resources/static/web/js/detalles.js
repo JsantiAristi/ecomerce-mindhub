@@ -78,8 +78,12 @@ createApp({
                     icon: 'info',
                     title: 'Usted ya añadio este producto al carrito de compras',
                     text: 'Para añadir más unidades diríjase al carrito de compras!',
+                    background:' rgb(238 243 236)',
+                    confirmButtonColor: " #324545",
+                    iconColor:"#324545",
                     
                   })
+                  
                 console.log("Usted ya añadio ese producto al carrito de compras")
             }else{
                 this.carrito.push(this.producto);
@@ -90,6 +94,9 @@ createApp({
                     icon: 'success',
                     title: 'Producto añadido',
                     text: 'Se ha agregado a su carrito de comptras',
+                    background:' rgb(238 243 236)',
+                    confirmButtonColor: "#324545",
+                    iconColor:"#324545",
                     
                   })
                 console.log("si lo esta añadiendo")   
@@ -173,9 +180,12 @@ createApp({
                 text: "Confirmar",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, log out!'
+                confirmButtonColor: '#324545',
+                cancelButtonColor: '#db3939',
+                background:' rgb(238 243 236)',
+                iconColor:"#324545",
+                confirmButtonText: 'Si, cerrar sesión!',
+                cancelButtonText: 'Cancelar'
               }).then((result) => {
                 if (result.isConfirmed) {
                     axios.post('/api/logout')

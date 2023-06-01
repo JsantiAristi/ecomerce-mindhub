@@ -149,9 +149,12 @@ createApp({
                 text: "Confirmar",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, log out!'
+                confirmButtonColor: '#324545',
+                cancelButtonColor: '#db3939',
+                background:' rgb(238 243 236)',
+                iconColor:"#324545",
+                confirmButtonText: 'Si, cerrar sesión!',
+                cancelButtonText: 'Cancelar'
               }).then((result) => {
                 if (result.isConfirmed) {
                     axios.post('/api/logout')
