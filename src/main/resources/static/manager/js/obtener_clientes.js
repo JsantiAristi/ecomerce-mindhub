@@ -34,6 +34,7 @@ createApp({
           },
           eliminarCliente(email){
             axios.put('/api/clientes', `email=${this.email}`)
+            console.log(this.clientes)
             .then(response => {
                 Swal.fire({
                     title: 'Mensaje de confirmación',

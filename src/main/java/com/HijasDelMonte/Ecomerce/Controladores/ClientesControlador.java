@@ -88,7 +88,7 @@ public class ClientesControlador {
 
     }
 
-    @PutMapping ("api/clientes")
+    @PutMapping ("/api/clientes")
     public ResponseEntity<Object> eliminarCliente(
             @RequestParam String email){
         Clientes clienteEliminado = clientesServicios.findByEmail(email);
