@@ -20,6 +20,7 @@ createApp({
     created() {
         this.cargarDatos()
         this.cargarDatosCliente()
+        this.cargarComprobantes()
         this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
     },
@@ -42,6 +43,16 @@ createApp({
             axios.get('/api/plantas')
                 .then(respuesta => {
                     this.plantas = respuesta.data.filter(planta => planta.activo);
+                })
+                .catch(error => console.log(error))
+            // this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            //this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
+        },
+        cargarComprobantes() {
+            axios.get('/api/cliente/comprobante')
+                .then(respuesta => {
+                    this.comprobantes = respuesta.data
+                    console.log(this.comprobantes);
                 })
                 .catch(error => console.log(error))
             // this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
