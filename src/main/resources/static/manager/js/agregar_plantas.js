@@ -12,7 +12,7 @@ createApp({
             tipo: "",
             precio: "",
             cantidad: "",
-            permitExtension: /(.PNG|.JPG|.png|.jpg)$/i,
+            permitExtension: /(.PNG|.JPG|.png|.jpg|.jpeg)$/i,
 
         }
     },
