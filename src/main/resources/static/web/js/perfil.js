@@ -48,7 +48,13 @@ createApp({
                         planta.contador += 0
                     } else {
                         planta.contador += 1
-                    }                    
+                    }
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Añadir unidad',
+                        text: 'Se ha añadido una unidad de su carrito!',
+                        
+                      })                    
                 }
             })
             this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
@@ -62,7 +68,13 @@ createApp({
                         planta.contador -= 0
                     } else {
                         planta.contador -= 1
-                    }                 
+                    }
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Eliminar unidad',
+                        text: 'Se ha eliminado una unidad de su carrito!',
+                        
+                      })                   
                 }
             })
             this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
@@ -72,7 +84,13 @@ createApp({
         eliminar(id){
             this.carrito.map(planta => {
                 if(planta.id == id){
-                    planta.contador = 1             
+                    planta.contador = 1
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Eliminar producto',
+                        text: 'Se ha eliminado el producto de su carrito!',
+                        
+                      })                 
                 }
             })
             this.carrito = this.carrito.filter(planta => !(planta.id === id))
@@ -101,6 +119,30 @@ createApp({
                 }               
             })
             .catch(error => console.log(error))
-        },      
+        },
+        logout() {
+            Swal.fire({
+                title: 'Esta seguro de cerrar sesión?',
+                text: "Confirmar",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, log out!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.post('/api/logout')
+                    .then(response => {
+                      this.carrito = [];
+                      this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
+                      localStorage.setItem("carrito", JSON.stringify(this.carrito));
+                      localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+                      window.location.href = '/index.html'
+                    })
+                    .catch(error => console.log(error))
+                }
+              })
+          
+          },     
     }
 }).mount("#app")

@@ -11,10 +11,12 @@ createApp({
             isCuentaInactivo: true,
             isCarritoInactivo: true,
             plantas: [],
+            cliente:''
         }
     },
     created() {
         this.cargarDatos()
+        this.cargarDatosCliente()
         this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
     },
@@ -28,6 +30,24 @@ createApp({
                     console.log(this.productosSeleccionadosSet);
                 })
                 .catch(error => console.log(error))
+        },
+        cargarDatosPlantas() {
+            axios.get('/api/plantas')
+                .then(respuesta => {
+                    this.plantas = respuesta.data.filter(planta => planta.activo);
+                    console.log(this.plantas)
+                })
+                .catch(error => console.log(error))
+            // this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            //this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
+        },
+        cargarDatosCliente(){
+            axios.get('/api/clientes/actual')
+            .then(respuesta => {
+                this.cliente=respuesta.data
+                console.log(this.cliente);
+            })
+            .catch(error => console.log(error))
         },
         aparecerCuenta() {
             if (this.isCarritoInactivo) {
@@ -110,8 +130,8 @@ createApp({
             axios.put("/api/cliente/carrito/suma", `idProducto=${id}`)
                 .then(response => {
                     Swal.fire({
-                        title: 'Message Confirmation',
-                        text: 'one unit has been added',
+                        title: 'Mensaje de confirmación',
+                        text: 'Se ha añadido una unidad',
                         icon: 'success',
                         didOpen: () => {
                             document.querySelector('.swal2-confirm').addEventListener('click', () => { location.reload(true) })
@@ -149,5 +169,29 @@ createApp({
             /*.then(response => window.location.href="/web/paginas/pedidos.html")
             .catch(error => console.log(error))*/
         },
+        logout() {
+            Swal.fire({
+                title: 'Esta seguro de cerrar sesión?',
+                text: "Confirmar",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, log out!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.post('/api/logout')
+                    .then(response => {
+                      this.carrito = [];
+                      this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
+                      localStorage.setItem("carrito", JSON.stringify(this.carrito));
+                      localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+                      window.location.href = '/index.html'
+                    })
+                    .catch(error => console.log(error))
+                }
+              })
+          
+          }, 
     }
 }).mount("#app")

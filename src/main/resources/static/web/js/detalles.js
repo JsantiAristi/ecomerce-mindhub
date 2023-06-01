@@ -21,6 +21,7 @@ createApp({
     created() {
         this.cargarDatos()
         this.cargarDatosPlantas()
+        this. cargarCliente()
     },
     methods: {
         cargarDatos() {
@@ -72,10 +73,28 @@ createApp({
             }
         },
         añadirCarrito(){
+            if(this.carrito.find(productoCarro=>productoCarro.id==this.producto.id) ){
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Usted ya añadio este producto al carrito de compras',
+                    text: 'Para añadir más unidades diríjase al carrito de compras!',
+                    
+                  })
+                console.log("Usted ya añadio ese producto al carrito de compras")
+            }else{
                 this.carrito.push(this.producto);
                 this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
                 localStorage.setItem("carrito", JSON.stringify(this.carrito));
-                localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))                          
+                localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto añadido',
+                    text: 'Se ha agregado a su carrito de comptras',
+                    
+                  })
+                console.log("si lo esta añadiendo")   
+            }
+                                       
         },
         sumar(id){
             this.carrito.map(planta => {
@@ -84,7 +103,13 @@ createApp({
                         planta.contador += 0
                     } else {
                         planta.contador += 1
-                    }                    
+                    }
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Añadir unidad',
+                        text: 'Se ha añadido una unidad de su carrito!',
+                        
+                      })                    
                 }
             })
             this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
@@ -98,7 +123,13 @@ createApp({
                         planta.contador -= 0
                     } else {
                         planta.contador -= 1
-                    }                 
+                    }
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Eliminar unidad',
+                        text: 'Se ha eliminado una unidad de su carrito!',
+                        
+                      })                 
                 }
             })
             this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
@@ -108,7 +139,13 @@ createApp({
         eliminar(id){
             this.carrito.map(planta => {
                 if(planta.id == id){
-                    planta.contador = 1             
+                    planta.contador = 1
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Eliminar producto',
+                        text: 'Se ha eliminado el producto de su carrito!',
+                        
+                      })                
                 }
             })
             this.carrito = this.carrito.filter(planta => !(planta.id === id))
@@ -117,6 +154,10 @@ createApp({
             localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
         },
         crearOrden(){
+            if(this.cliente.length==0){
+                window.location.href="/web/paginas/loginpage.html"
+            }
+            console.log(this.cliente.length)
             axios.post("/api/cliente/orden",`idCliente=${1}`)
             .then(response => {
                 for( producto of this.carrito ){
@@ -139,15 +180,27 @@ createApp({
             .catch(error => console.log(error))
         },
         logout() {
-            axios.post('/api/logout')
-              .then(response => {
-                this.carrito = [];
-                this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
-                localStorage.setItem("carrito", JSON.stringify(this.carrito));
-                localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
-                window.location.href = '/index.html'
+            Swal.fire({
+                title: 'Esta seguro de cerrar sesión?',
+                text: "Confirmar",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, log out!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.post('/api/logout')
+                    .then(response => {
+                      this.carrito = [];
+                      this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
+                      localStorage.setItem("carrito", JSON.stringify(this.carrito));
+                      localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+                      window.location.href = '/index.html'
+                    })
+                    .catch(error => console.log(error))
+                }
               })
-              .catch(error => console.log(error))
           },
     }
 }).mount("#app")
