@@ -6,11 +6,13 @@ createApp({
             // Inicializamos las variables
             ordenes: [],
             ordenesProceso: [],
-            ordenesRealizadas: [],
-            productosRealizados: "",
-            productosProceso: "",
+            // ordenesRealizadas: [],
+            // productosRealizados: "",
+            productosProceso: [],
+            totalProductosOrden: 0,
+            totalPrecioOrden: 0,
             carrito: [],
-            totalCompra: "",
+            totalCompra: 0,
             isCuentaInactivo: true,
             isCarritoInactivo: true,
             plantas: [],
@@ -29,12 +31,14 @@ createApp({
                 .then(respuesta => {
                     this.ordenes = respuesta.data
                     this.ordenesProceso = this.ordenes.filter( orden => !orden.comprado )
-                    this.ordenesRealizadas = this.ordenes.filter( orden => orden.comprado )
-                    console.log(this.ordenesRealizadas);
-
                     this.productosProceso = this.ordenesProceso[0].productosSeleccionadosSet;
-                    this.productosRealizados = this.ordenesRealizadas[0].productosSeleccionadosSet;
-                    console.log(this.productosRealizados);
+
+                    for( producto of this.productosProceso ){
+                        this.totalProductosOrden += producto.cantidad;
+                        this.totalPrecioOrden += producto.precio;
+                    }
+
+                    console.log(this.productosProceso);
                 })
                 .catch(error => console.log(error))
         },
@@ -109,40 +113,61 @@ createApp({
             localStorage.setItem("carrito", JSON.stringify(this.carrito));
             localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
         },
-        crearOrden() {
-            axios.post("/api/cliente/orden", `idCliente=${1}`)
-                .then(response => {
-                    for (producto of this.carrito) {
-                        axios.post("/api/cliente/carrito",
-                            {
-                                "id": producto.id,
-                                "idCliente": 1,
-                                "unidadesSeleccionadas": producto.contador,
-                            })
-                            .then(respuesta => {
-                                this.carrito = [];
-                                this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
-                                localStorage.setItem("carrito", JSON.stringify(this.carrito));
-                                localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
-                                window.location.href = "/web/paginas/pedidos.html"
-                            })
-                            .catch(error => console.log(error))
-                    }
-                })
-                .catch(error => console.log(error))
-        },
-        sumarProducto(id) {
-            axios.put("/api/cliente/carrito/suma", `idProducto=${id}`)
-            .then(response => window.location.href="/web/paginas/pedidos.html")
-            .catch(error => console.log(error))
-        },
-        restarProducto(id) {
-            console.log(id);
-            axios.put("/api/cliente/carrito/resta", `idProducto=${id}`)
+
+
+
+        // crearOrden() {
+        //     axios.post("/api/cliente/orden", `idCliente=${1}`)
+        //         .then(response => {
+        //             for (producto of this.carrito) {
+        //                 axios.post("/api/cliente/carrito",
+        //                     {
+        //                         "id": producto.id,
+        //                         "idCliente": 1,
+        //                         "unidadesSeleccionadas": producto.contador,
+        //                     })
+        //                     .then(respuesta => {
+        //                         this.carrito = [];
+        //                         this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
+        //                         localStorage.setItem("carrito", JSON.stringify(this.carrito));
+        //                         localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+        //                         window.location.href = "/web/paginas/pedidos.html"
+        //                     })
+        //                     .catch(error => console.log(error))
+        //             }
+        //         })
+        //         .catch(error => console.log(error))
+        // },
+        // sumarProducto(id) {
+        //     axios.put("/api/cliente/carrito/suma", `idProducto=${id}`)
+        //     .then(response => window.location.href="/web/paginas/pedidos.html")
+        //     .catch(error => console.log(error))
+        // },
+        // restarProducto(id) {
+        //     console.log(id);
+        //     axios.put("/api/cliente/carrito/resta", `idProducto=${id}`)
                 
-            .then(response => window.location.href="/web/paginas/pedidos.html")
-            .catch(error => console.log(error))
-        },
+        //     .then(response => window.location.href="/web/paginas/pedidos.html")
+        //     .catch(error => console.log(error))
+        // },
+        // sumarProducto(id) {
+        //     this.carrito.map(producto => {
+        //       if (producto.id === id) {
+        //         producto.contador += 1;
+        //       }
+        //     });
+        //     this.actualizarTotalesEnBackend();
+        //   },
+        //   restarProducto(id) {
+        //     this.carrito.map(producto => {
+        //       if (producto.id === id) {
+        //         if (producto.contador > 1) {
+        //           producto.contador -= 1;
+        //         }
+        //       }
+        //     });
+        //     this.actualizarTotalesEnBackend();
+        //   },
         logout() {
             Swal.fire({
                 title: 'Esta seguro de cerrar sesión?',
@@ -165,7 +190,67 @@ createApp({
                     .catch(error => console.log(error))
                 }
               })
+          },
+
+
           
-          }, 
+          //probando
+          sumarProducto(id) {
+            this.productosProceso.forEach(producto => {
+              if (producto.id === id) {
+                producto.cantidad += 1;
+                this.totalProductosOrden += 1;
+                this.totalPrecioOrden = this.productosProceso.reduce( (acomulador, producto) => acomulador + producto.precio * producto.cantidad,
+                0)
+              }
+            });
+            this.actualizarTotales();
+          },
+          restarProducto(id) {
+            this.productosProceso.forEach(producto => {
+              if (producto.id === id && producto.cantidad > 1) {
+                producto.cantidad -= 1;
+                this.totalProductosOrden += 1;
+                this.totalPrecioOrden = this.productosProceso.reduce( (acomulador, producto) => acomulador + producto.precio * producto.cantidad,
+                0)
+              }
+            });
+            this.actualizarTotales();
+          },
+          actualizarTotales() {
+            this.totalCompra = this.carrito.reduce(
+              (acumulador, producto) => acumulador + producto.precio * producto.contador,
+              0
+            );
+            localStorage.setItem("carrito", JSON.stringify(this.carrito));
+            localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra));
+          },
+          crearOrden() {
+            const ordenData = {
+              idCliente: 1,
+              productos: this.carrito.map(producto => ({
+                id: producto.id,
+                unidadesSeleccionadas: producto.contador
+              }))
+            };
+      
+            axios
+              .post('/api/cliente/orden', ordenData)
+              .then(response => {
+                console.log('Compra realizada con éxito');
+      
+                // Limpiar el carrito y el total de compra en el front-end
+                this.carrito = [];
+                this.totalCompra = 0;
+      
+                // Limpiar el carrito y el total de compra en el almacenamiento local
+                localStorage.removeItem('carrito');
+                localStorage.removeItem('totalCompra');
+              })
+              .catch(error => {
+                console.log('Error al realizar la compra:', error);
+              });
+          },
+
     }
 }).mount("#app")
