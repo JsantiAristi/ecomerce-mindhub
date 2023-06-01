@@ -148,17 +148,20 @@ createApp({
         crearOrden(){
             axios.post("/api/cliente/orden")
             .then(response => {
+                console.log(response);
+                
+                for( producto of this.carrito ){
+                    this.añadirProducto(producto)
+                }   
+
                 this.carrito = [];
                 this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
                 localStorage.setItem("carrito", JSON.stringify(this.carrito));
                 localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
-                window.location.href="/web/paginas/pedidos.html"              
+                window.location.href="/web/paginas/pedidos.html"   
             })
             .catch(error => console.log(error))
-
-            for( producto of this.carrito ){
-                this.añadirProducto(producto)
-            } 
+            
         },
         añadirProducto(producto){
             axios.post("/api/cliente/carrito",{
