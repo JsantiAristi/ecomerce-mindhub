@@ -1,6 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 * {
-    font-family: 'Work Sans', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -35,6 +35,7 @@ nav {
 
 main{
     position: relative;
+    background-color: #f9f5eb;
 }
 
 /*Botones*/
@@ -42,6 +43,15 @@ main{
     background-color: #324545;
     color: aliceblue;
 }
+.btnProductos{
+    background-color: #324545a8;
+    color: aliceblue;
+  }
+  
+  .btnProductos:hover{
+    background-color: #324545;
+    color: aliceblue;
+  }
 
 
 /* ------------------------------------------------main-inicio--------------------------------------- */
@@ -62,6 +72,9 @@ main{
     width: 50%;
     height: 45rem;
 }
+.dropdown-menu li{
+    --bs-dropdown-link-hover-bg: #464d41;
+  }
 
 /*Aside Cuentas*/
 .inactive {
@@ -102,7 +115,7 @@ main{
     right: 0;
     top: 0;
     width: 30rem;
-    height: 57%;
+    min-height: 8%;
     z-index: 10;
     background-color: #e8edec;
 }
@@ -216,6 +229,17 @@ main{
     font-size: 15px;
   }
 
+  /*Scroll bar*/
+body::-webkit-scrollbar {
+    width: 10px;
+    background: rgb(78, 73, 73);
+  }
+  body::-webkit-scrollbar-thumb {
+    background: #e8edec;
+    border-radius: 10px;
+    border-right: 2px solid #161a1e;
+  }
+
 @media only screen and (max-width: 767px) {
     .padre-inf{
         flex-direction: column;
@@ -239,4 +263,11 @@ main{
     .asideCarrito{
         width: 100%;
     }
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+      }
+    
 }
