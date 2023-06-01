@@ -312,6 +312,15 @@ body::-webkit-scrollbar {
         grid-gap: 30px;
         padding: 35px 0px;
       }
+      aside {
+        width: 100%;
+        margin-right: 0;
+        top: 0;
+    }
+
+    .asideCarrito{
+        width: 100%;
+    }
     
 }
 @media only screen and (min-width:320px) and (max-width:649px){

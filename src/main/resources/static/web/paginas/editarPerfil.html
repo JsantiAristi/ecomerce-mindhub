@@ -288,39 +288,34 @@
             </aside>
             <!-- Aside carrito de compras -->
             <aside :class="{ inactive: isCarritoInactivo }" class="border rounded p-2 asideCarrito" id="aside">
-                <div class="d-flex flex-column justify-content-between align-items-between infoTotalDiv">
-                    <div>
-                        <template v-if="carrito.length>0" v-for="producto of carrito">
-                            <div class="d-flex align-items-center mb-2 p-2">
-                                <img :src="producto.foto" alt="" class="asideCarritoFoto">
-                                <div class="ps-2 infoCarrito">
-                                    <p class="mb-0">{{producto.nombre}}</p>
-                                    <p>C/U {{producto.precio.toLocaleString("en-US", { style: 'currency', currency:
-                                        'USD' })}}</p>
-                                    <div>
-                                        <img src="../../assets/boton-de-resta.png" alt="" class="menosBoton pe-2"
-                                            @click="resta(producto.id)">
-                                        <span>{{producto.contador}}</span>
-                                        <img src="../../assets/mas.png" alt="" class="sumaBoton ps-2"
-                                            @click="sumar(producto.id)">
-                                        <span v-if="producto.contador == producto.stock" class="text-danger ps-2">No
-                                            puedes sumar más</span>
-                                    </div>
-                                </div>
-                                <img src="../../assets/eliminar.png" alt="" class="botonBasura"
-                                    @click="eliminar(producto.id)">
-                            </div>
-                        </template>
-                        <template v-else>
-                            <p class="fs-5 text-center mt-5 mb-5">No has añadido nada al carrito 😥</p>
-                        </template>
-                        <div>
-                            <p class="mb-0 fs-5 fw-bold">Total = {{totalCompra.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}</p>
-                        </div>
-                    </div>
-                    <button class="btn btnFondo rounded" @click="crearOrden">Añadir a la orden</button>
-                </div>
-            </aside>
+              <div class="d-flex flex-column justify-content-between align-items-between infoTotalDiv">
+                  <div>
+                      <template v-if="carrito.length>0" v-for="producto of carrito">
+                          <div class="d-flex align-items-center mb-2 p-2">
+                              <img :src="producto.foto" alt="" class="asideCarritoFoto">
+                              <div class="ps-2 infoCarrito">
+                                  <p class="mb-0">{{producto.nombre}}</p>
+                                  <p>C/U {{producto.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}</p>
+                                  <div>
+                                      <img src="../../assets/boton-de-resta.png" alt="" class="menosBoton pe-2" @click="resta(producto.id)">                               
+                                      <span>{{producto.contador}}</span>
+                                      <img src="../../assets/mas.png" alt="" class="sumaBoton ps-2" @click="sumar(producto.id)"> 
+                                      <span v-if="producto.contador == producto.stock" class="text-danger ps-2">No puedes sumar más</span>                        
+                                  </div>                              
+                              </div>  
+                              <img src="../../assets/eliminar.png" alt=""class="botonBasura" @click="eliminar(producto.id)">                          
+                          </div>
+                      </template>
+                      <template v-else>
+                          <p class="fs-5 text-center mt-5 mb-5">No has añadido nada al carrito 😥</p>
+                      </template>
+                      <div>
+                          <p class="mb-0 fs-5 fw-bold">Total = {{totalCompra.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}</p>
+                      </div>
+                  </div>                   
+                  <button class="btn btnFondo rounded" @click="crearOrden">Añadir a la orden</button>
+              </div>
+          </aside>
         </main>
         <footer class="pie-pagina">
           <div class="grupo-1">
@@ -377,28 +372,36 @@
                     </div>
                     <div class="modal-body" style="background-color: #fff8de91">
                       <div class="d-flex justify-content-between">
-                        <p  style="color: black;">Santiado Aristizabal</p>
-                        <a href="https://github.com/JsantiAristi" class="fa fa-github" style="font-size: 36px; color: black" ></a>
-                        <a href="https://www.linkedin.com/feed/" class="fa fa-linkedin" style="font-size: 36px; color: black" ></a>
+                        <p  style="color: black;">Santiago Aristizábal</p>
+                        <div class="d-flex">
+                          <a href="https://github.com/JsantiAristi" class="fa fa-github pe-4" style="font-size: 36px; color: black" ></a>
+                          <a href="https://www.linkedin.com/feed/" class="fa fa-linkedin" style="font-size: 36px; color: black" ></a>
+                        </div>     
                       </div>
                       <div class="d-flex justify-content-between">
-                        <p style="color: black;">Eugenia Gonzalez</p>
-                        <a href="https://github.com/ceugeniag" class="fa fa-github" style="font-size: 36px; color: black"></a>
-                        <a href="https://www.linkedin.com/in/gonzalezceugenia/" class="fa fa-linkedin" style="font-size: 36px; color: black" ></a>
+                        <p style="color: black;">Eugenia González</p>
+                        <div class="d-flex">
+                          <a href="https://github.com/ceugeniag" class="fa fa-github pe-4" style="font-size: 36px; color: black"></a>
+                          <a href="https://www.linkedin.com/in/gonzalezceugenia/" class="fa fa-linkedin" style="font-size: 36px; color: black" ></a>
+                        </div>
                       </div>
                       <div class="d-flex justify-content-between">
-                        <p style="color: black;">Laura Garcia</p>
-                        <a href="https://github.com/lgar005" class="fa fa-github" style="font-size: 36px; color: black"></a>
-                        <a href="https://www.linkedin.com/" class="fa fa-linkedin" style="font-size: 36px; color: black"></a>
+                        <p style="color: black;">Laura García</p>
+                        <div>
+                          <a href="https://github.com/lgar005" class="fa fa-github pe-4" style="font-size: 36px; color: black"></a>
+                          <a href="https://www.linkedin.com/" class="fa fa-linkedin" style="font-size: 36px; color: black"></a>   
+                        </div>
                       </div>
                       <div class="d-flex justify-content-between">
                         <p style="color: black;">Alexander Rey</p>
-                        <a href="https://github.com/alex11g" class="fa fa-github" style="font-size: 36px; color: black;" ></a>
-                        <a href="https://www.linkedin.com/feed/" class="fa fa-linkedin" style="font-size: 36px; color: black"></a>
+                        <div>
+                          <a href="https://github.com/alex11g" class="fa fa-github pe-4" style="font-size: 36px; color: black;" ></a>
+                          <a href="https://www.linkedin.com/feed/" class="fa fa-linkedin" style="font-size: 36px; color: black"></a>
+                        </div>
                       </div>
                     </div>
                     <div class="modal-footer" style="background-color: #99A98F">
-                      <button type="button"class="btn btn-secondary"data-bs-dismiss="modal"  @click="logout"> Cerrar sesión</button>
+                      <button type="button"class="btn btn-secondary"data-bs-dismiss="modal"> Cerrar </button>
                     </div>
                   </div>
                 </div>

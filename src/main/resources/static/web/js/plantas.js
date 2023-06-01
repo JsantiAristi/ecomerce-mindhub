@@ -103,6 +103,9 @@ createApp({
                     icon: 'success',
                     title: 'Producto añadido',
                     text: 'Se ha agregado a su carrito de comptras',
+                    background:' rgb(238 243 236)',
+                    confirmButtonColor: " #324545",
+                    iconColor:"#324545",
                     
                   })
                 this.carrito.push(this.filtro_planta_carrito);
@@ -114,7 +117,9 @@ createApp({
                     icon: 'info',
                     title: 'Usted ya añadio este producto al carrito de compras',
                     text: 'Para añadir más unidades diríjase al carrito de compras!',
-                    
+                    background:' rgb(238 243 236)',
+                    confirmButtonColor: " #324545",
+                    iconColor:"#324545",
                   })
             }                
         },
@@ -183,10 +188,31 @@ createApp({
             .then(respuesta => console.log(respuesta))
             .catch(error => console.log(error))
         },
-        logout(){
-            axios.post('/api/logout')
-            .then(response=> console.log('signed out!!!'), (window.location.href = '/index.html'))
-            .catch(error => console.log(error))
-        },
+        logout() {
+            Swal.fire({
+            title: 'Esta seguro de cerrar sesión?',
+            text: "Confirmar",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#324545',
+            cancelButtonColor: '#db3939',
+            background:' rgb(238 243 236)',
+            iconColor:"#324545",
+            confirmButtonText: 'Si, cerrar sesión!',
+            cancelButtonText: 'Cancelar'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                axios.post('/api/logout')
+                .then(response => {
+                  this.carrito = [];
+                  this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
+                  localStorage.setItem("carrito", JSON.stringify(this.carrito));
+                  localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+                  window.location.href = '/index.html'
+                })
+                .catch(error => console.log(error))
+              }
+            })
+          },
     }
 }).mount("#app")
