@@ -133,46 +133,15 @@ createApp({
         },
         sumarProducto(id) {
             axios.put("/api/cliente/carrito/suma", `idProducto=${id}`)
-                .then(response => {
-                    Swal.fire({
-                        title: 'Mensaje de confirmación',
-                        text: 'Se ha añadido una unidad',
-                        icon: 'success',
-                        didOpen: () => {
-                            document.querySelector('.swal2-confirm').addEventListener('click', () => { location.reload(true) })
-                        },
-                    })
-                }).catch(err => {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error adding a product unit',
-                        text: err.response.data,
-                    })
-                })
-            /*.then(response => window.location.href="/web/paginas/pedidos.html")
-            .catch(error => console.log(error))*/
+            .then(response => window.location.href="/web/paginas/pedidos.html")
+            .catch(error => console.log(error))
         },
         restarProducto(id) {
             console.log(id);
             axios.put("/api/cliente/carrito/resta", `idProducto=${id}`)
-                .then(response => {
-                    Swal.fire({
-                        title: 'Mensaje de confirmación',
-                        text: 'Se ha eliminado una unidad',
-                        icon: 'success',
-                        didOpen: () => {
-                            document.querySelector('.swal2-confirm').addEventListener('click', () => { location.reload(true) })
-                        },
-                    })
-                }).catch(err => {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error eliminando una unidad',
-                        text: err.response.data,
-                    })
-                })
-            /*.then(response => window.location.href="/web/paginas/pedidos.html")
-            .catch(error => console.log(error))*/
+                
+            .then(response => window.location.href="/web/paginas/pedidos.html")
+            .catch(error => console.log(error))
         },
         logout() {
             Swal.fire({

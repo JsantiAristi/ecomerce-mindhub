@@ -103,12 +103,7 @@ createApp({
                     } else {
                         planta.contador += 1
                     }
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Añadir unidad',
-                        text: 'Se ha añadido una unidad de su carrito!',
-                        
-                      })                     
+                   
                 }
             })
             this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
@@ -123,12 +118,7 @@ createApp({
                     } else {
                         planta.contador -= 1
                     }
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Eliminar unidad',
-                        text: 'Se ha eliminado una unidad de su carrito!',
-                        
-                      })                  
+                             
                 }
             })
             this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
