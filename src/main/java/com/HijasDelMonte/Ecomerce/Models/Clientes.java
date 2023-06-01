@@ -24,6 +24,9 @@ public class Clientes {
     @OneToMany(mappedBy = "clientes", fetch = FetchType.EAGER)
     private Set<Orden> ordenes = new HashSet<>();
 
+    @OneToMany(mappedBy = "clientes", fetch = FetchType.EAGER)
+    private Set<Comprobante> comprobantes = new HashSet<>();
+
     public Clientes() {
     }
 
@@ -45,6 +48,12 @@ public class Clientes {
         ordenes.add(orden);
     }
 
+    // Método para añadir los comprobantes
+    public void añadirComprobante(Comprobante comprobante){
+        comprobante.setClientes(this);
+        comprobantes.add(comprobante);
+    }
+
     public long getId() {return id;}
     public String getNombre() {return nombre;}
     public String getApellido() {return apellido;}
@@ -56,6 +65,7 @@ public class Clientes {
     public String getContraseña() {return contraseña;}
     public boolean isValido() {return valido;}
     public Set<Orden> getOrdenes() {return ordenes;}
+    public Set<Comprobante> getComprobantes() {return comprobantes;}
 
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setApellido(String apellido) {this.apellido = apellido;}
@@ -66,5 +76,4 @@ public class Clientes {
     public void setEmail(String email) {this.email = email;}
     public void setContraseña(String contraseña) {this.contraseña = contraseña;}
     public void setValido(boolean valido) {this.valido = valido;}
-    public void setOrdenes(Set<Orden> ordenes) {this.ordenes = ordenes;}
 }
