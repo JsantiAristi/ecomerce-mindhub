@@ -118,16 +118,33 @@
                             src="../../assets/carrito-de-compras.png" width="30" alt="" @click="aparecerCarrito" /></a>
                     <span class="pe-1 ps-1 bg-success rounded text-white">{{carrito.length}}</span>
                 </li>
-
             </div>
         </nav>
         <main>
             <div class="container pt-4">
-                <a href="../../index.html" class="text-dark">Inicio</a><span class="pe-1 ps-1"> ></span> <a href="#"
-                    class="text-dark">Plantas</a>
+                <a href="../../index.html" class="text-dark">Inicio</a><span class="pe-1 ps-1"> ></span> 
+                <template v-if="categoria === 'plantas'">
+                    <a href="#"class="text-dark">Plantas</a>
+                </template>
+                <template v-if="categoria === 'accesorios'">
+                    <a href="#"class="text-dark">Accesorios</a>
+                </template>
+                <template v-if="categoria === 'cursos'">
+                    <a href="#"class="text-dark">Cursos</a>
+                </template>
+                
             </div>
             <div class="p-2 p-md-5">
-                <h1 class="fw-bold">Plantas</h1>
+                <template v-if="categoria === 'plantas'">
+                    <h1 class="fw-bold">Plantas</h1>
+                </template>
+                <template v-if="categoria === 'accesorios'">
+                    <h1 class="fw-bold">Accesorios</h1>
+                </template>
+                <template v-if="categoria === 'cursos'">
+                    <h1 class="fw-bold">Cursos</h1>
+                </template>
+                
                 <div class="d-flex div_productos">
                     <div class="filtros col-12 col-sm-3">
                         <h3 class="border-bottom fw-bold">Filtros</h3>

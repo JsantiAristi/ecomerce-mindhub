@@ -107,6 +107,10 @@ main{
   color: aliceblue;
 }
 
+.btnIndex{
+  width: 100%;
+}
+
 /*Carrousel*/
 /* .carousel-control-prev-icon, .carousel-control-next-icon{
   background-color: #094b08 !important;

@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             // Inicializamos las variables
+            nombre: "",
             colorCard: "",
             typeCard: "",
             cvv: "",
@@ -12,10 +13,12 @@ createApp({
             number3: "",
             number4: "",
             emailClient: "",
+            cliente: "",
         }
     },
     created() {
         this.cargarDatos()
+        this.cargarCliente()
     },
     methods: {
         createNumberCard(){
@@ -29,6 +32,16 @@ createApp({
                 })
                 .catch(error => console.log(error))
         },
+        cargarCliente() {
+            axios.get('/api/clientes/actual')
+              .then(respuesta => {
+                this.cliente = respuesta.data;
+                console.log(this.cliente);
+              })
+              .catch(error => {
+                this.cliente = []
+              })
+          },
         payCard(){
             Swal.fire({
                 title: 'Please, confirm that you want to pay with the card ' + this.cardNumber,
@@ -46,7 +59,7 @@ createApp({
                         "color": this.colorCard,
                         "number": this.cardNumber,
                         "cvv": this.cvv,
-                        "email" : this.emailClient,
+                        "email" : this.cliente.email,
                         "amount" : this.ordenes[0].precioTotal
 
                     })

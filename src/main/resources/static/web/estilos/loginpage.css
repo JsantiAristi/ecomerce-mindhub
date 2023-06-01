@@ -7,20 +7,23 @@ body {
   background:
     linear-gradient(
         #7a924f69 ,
-    rgba(246,247,249,0.8)),
+        rgb(80 81 81 / 80%)),
     url(../../assets/fondoLogin.jpg) no-repeat center center fixed;
   background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
   width: 100%;
-  padding-top: 60px;
-  padding-bottom: 100px;
+  padding: 2rem 0;
 }
 
 .frame {
-  height: 575px;
-  width: 430px;
+  height: 350px;
+  width: 349px;
   background:
     linear-gradient(
         #7a924f69,
@@ -37,7 +40,7 @@ body {
 }
 
 .frame-long {
-  height: 615px;
+  height: 540px;
 }
 
 .frame-short {
@@ -101,13 +104,12 @@ body {
 }
 
 .form-signin {
-  width: 430px;
+  width: 100%;
   height: 375px;
   font-size: 16px;
   font-weight: 300;
   padding-left: 37px;
   padding-right: 37px;
-  padding-top: 55px;
   transition: opacity .5s ease, transform .5s ease;
 }
 
@@ -117,13 +119,12 @@ body {
 }
 
 .form-signup {
-  width: 430px;
+  width: 100%;
   height: 375px;
   font-size: 16px;
   font-weight: 300;
   padding-left: 37px;
   padding-right: 37px;
-  padding-top: 55px;
   position: relative;
   top: -375px;
   left: 400px;
@@ -184,7 +185,7 @@ body {
 
 .form-signin input, .form-signup input {
   color: #ffffff;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .form-styling {
@@ -194,16 +195,16 @@ body {
   border: none;
   border-radius: 20px;
   margin-bottom: 20px;
-  background: rgba(255,255,255,.2);
+  background: rgba(20, 20, 20, 0.508);
 }
 
 label {
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 15px;
   padding-left: 15px;
   padding-bottom: 10px;
-  color: rgba(255,255,255,.7);
+  color: rgba(255, 255, 255, 0.921);
   display: block;
 }
 
@@ -513,39 +514,6 @@ a.btn-goback:hover {
 /*--------------------------------------------------------------
 # Sections & Section Header
 --------------------------------------------------------------*/
-header {
-    background-color: #464d41;
-  }
-  
-  /*Nav*/
-  nav {
-    background-color: #99A98F;
-  }
-  
-  .logo {
-    width: 8rem;
-  }
-  
-  .navbar-nav img {
-    width: 1.5rem;
-  }
-  
-  .nav-item span{
-    height: 50%;
-  }
-  
-  .nav-link:hover{
-    color: #094b08 !important;
-  }
-  
-  .dropdown-menu{
-    background-color: #8a9981;
-  }
-  
-  .dropdown-menu li{
-    --bs-dropdown-link-hover-bg: #464d41;
-  }
-  
   /*Main*/
   body, swiper-slide{
     background-color: #fff8de91 !important;
@@ -556,53 +524,17 @@ header {
   }
   
   /*Botones*/
-  .btnFondo{
-    background-color: #324545;
-    color: aliceblue;
-  }
-  
-  .btnFondo:hover{
-    background-color: #324545;
-    color: aliceblue;
-  }
-
-  /*Footer*/
-footer{
-  color: white;
-  background-color: #99A98F;
+.btnProductos{
+  background-color: #324545a8;
+  color: aliceblue;
 }
 
-footer a{
-  text-decoration: none;
-  color: white;
+.btnProductos:hover{
+  background-color: #324545;
+  color: aliceblue;
 }
 
-footer a:hover {
-  color: #094b08;
+.btnIndex{
+  width: 100%;
 }
 
-.logo_empresa img{
-  width: 10rem;
-}
-
-.iconos_footer img{
-  width: 4rem;
-  height: 2rem;
-  padding: 0 1rem;
-}
-
-.medios_pago img{
-  width: 4rem;
-}
-
-.footer_bajo{
-  background-color: #464d41;
-}
-
-@media only screen and (max-width: 700px) {
-  .footer_arriba {
-      display: flex;
-      justify-content: start !important;
-      align-items: center;
-  }
-}
