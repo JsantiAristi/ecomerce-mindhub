@@ -5,7 +5,10 @@ createApp({
         return {
             // Inicializamos las variables
             ordenes: [],
-            productosSeleccionadosSet: [],
+            ordenesProceso: [],
+            ordenesRealizadas: [],
+            productosRealizados: "",
+            productosProceso: "",
             carrito: [],
             totalCompra: "",
             isCuentaInactivo: true,
@@ -25,9 +28,12 @@ createApp({
             axios.get('/api/cliente/orden')
                 .then(respuesta => {
                     this.ordenes = respuesta.data
-                    console.log(this.ordenes);
-                    this.productosSeleccionadosSet = this.ordenes[0].productosSeleccionadosSet;
-                    console.log(this.productosSeleccionadosSet);
+                    this.ordenesProceso = this.ordenes.filter( orden => !orden.comprado )
+                    this.ordenesRealizadas = this.ordenes.filter( orden => orden.comprado )
+
+                    this.productosProceso = this.ordenesProceso[0].productosSeleccionadosSet;
+                    this.productosRealizados = this.ordenesRealizadas[0].productosSeleccionadosSet;
+                    console.log(this.productosRealizados);
                 })
                 .catch(error => console.log(error))
         },
@@ -35,7 +41,6 @@ createApp({
             axios.get('/api/plantas')
                 .then(respuesta => {
                     this.plantas = respuesta.data.filter(planta => planta.activo);
-                    console.log(this.plantas)
                 })
                 .catch(error => console.log(error))
             // this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -45,7 +50,6 @@ createApp({
             axios.get('/api/clientes/actual')
             .then(respuesta => {
                 this.cliente=respuesta.data
-                console.log(this.cliente);
             })
             .catch(error => console.log(error))
         },

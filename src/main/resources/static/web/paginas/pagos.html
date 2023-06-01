@@ -11,14 +11,8 @@
     <link rel="stylesheet" href="../estilos/pagos.css">
 </head>
 
-<body class="hidden">
-    <div class="center" id="onload">
-        <div class="lds-circle">
-            <div></div>
-        </div>
-    </div>
+<body>
     <div id="app">
-        {{mayus}}
         <main>
             <div class="pt-5 cardContainer d-flex justify-content-center">
                 <div class="card1 mb-5">
@@ -40,12 +34,11 @@
                                 </svg>
                             </div>
                             <div class="card-chip"></div>
-                            <div class="card-holder">{{firstName}} {{secondName}}</div>
+                            <!-- <div class="card-holder">{{firstName}} {{secondName}}</div> -->
                             <div class="card-number">{{cardNumber}}</div>
-                            <div class="card-valid">{{thruDate.slice(2,4)}}/{{thruDate.slice(8,10)}}</div>
                         </div>
                         <div :class="colorCard" class="card-back">
-                            <div class="card-signature fs-5">{{firstName}} {{secondName}}</div>
+                            <!-- <div class="card-signature fs-5">{{firstName}} {{secondName}}</div> -->
                             <div class="card-seccode">{{cvv}}</div>
                         </div>
                     </div>                                  
@@ -55,38 +48,30 @@
                 <div class="glassmorphism mt-3 mb-2 d-flex flex-column justify-content-center align-items-center">
                     <h1 class="text-center text-white mt-3">Payment Service</h1>
                     <form class="d-flex flex-column justify-content-center align-items-center" @submit.prevent="payCard">
-                        <div class="formRegister mb-3">
-                            <label for="firstName" class="form-label text-white fs-5">First Name*</label>
-                            <input type="text" class="form-control" id="firstName" v-model="firstName" pattern="^[a-zA-Z]+$" minlength="0" >
-                        </div>
-                        <div class="mb-3 formRegister">
-                            <label for="secondName" class="form-label text-white fs-5">Second Name*</label>
-                            <input type="text" class="form-control" id="secondName" v-model="secondName" pattern="^[a-zA-Z]+$" >
-                        </div>
                         <div class="mb-3 formRegister">
                             <label for="email" class="form-label text-white fs-5">email*</label>
-                            <input type="email" class="form-control" id="email" v-model="emailClient">
+                            <input type="email" class="form-control" id="email" v-model="emailClient" placeholder="melba@mindhub.com" required>
                         </div>
                         <div class="d-flex flex-column justify-content-center align-items-center mb-3">
                             <label for="firstName" class="form-label text-white fs-5">Card Number*</label>
                             <div class="d-flex justify-content-center align-items-center">
                                 <input type="text" class="form-control number-form me-1" id="firstName" v-model="number1"
-                                maxlength="4" @input="createNumberCard">
+                                maxlength="4" @input="createNumberCard" placeholder="2947" required>
                                 <label for="number2" class="fs-1"> </label>
                                 <input type="text" class="form-control number-form ms-1 me-1" id="number2" v-model="number2"
-                                maxlength="4" @input="createNumberCard">
+                                maxlength="4" @input="createNumberCard" placeholder="3282" required>
                                 <label for="number3"> </label>
                                 <input type="text" class="form-control number-form ms-1 me-1" id="number3" v-model="number3"
-                                maxlength="4" @input="createNumberCard">
+                                maxlength="4" @input="createNumberCard" placeholder="1765" required>
                                 <label for="number4"> </label>
                                 <input type="text" class="form-control number-form ms-1" id="number4" v-model="number4"
-                                maxlength="4" @input="createNumberCard">
+                                maxlength="4" @input="createNumberCard" placeholder="3924" required>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center align-items-center gap-2">
                             <div>
                                 <label for="" class="text-white fs-5">Color of the card*</label>
-                                <select class="form-select mb-3" v-model="colorCard" >
+                                <select class="form-select mb-3" v-model="colorCard" required>
                                     <option selected class="fs-6" value="">Open this select menu</option>
                                     <option value="TITANIUM" class="fs-6">Titanium</option>
                                     <option value="GOLD" class="fs-6">Gold</option>
@@ -95,7 +80,7 @@
                             </div>
                             <div>
                                 <label for="" class="text-white fs-5">Type of the card*</label>
-                                <select class="form-select mb-3" v-model="typeCard" >
+                                <select class="form-select mb-3" v-model="typeCard" required>
                                     <option selected class="fs-6" value="">Open this select menu</option>
                                     <option value="DEBIT" class="fs-6">Debit</option>
                                     <option value="CREDIT" class="fs-6">Credit</option>
@@ -103,18 +88,10 @@
                             </div>
                         </div>    
                         <div class="d-flex">
-                            <div class="mb-3 me-4">                         
-                                <label class="text-white fs-5" for="start">ThruDate Card*</label>                         
-                                <input class="form-control" type="date" id="start" name="trip-start" min="2023-05-01" max="2028-12-31" v-model="thruDate" />                    
-                            </div>
                             <div class="mb-3">
                                 <label for="cvv" class="form-label text-white fs-5 mb-0">CVV*</label>
-                                <input type="text" class="form-control number-form" id="cvv" v-model="cvv" maxlength="3" >
+                                <input type="text" class="form-control number-form" id="cvv" v-model="cvv" maxlength="3" placeholder="326" required>
                             </div>
-                        </div>  
-                        <div class="mb-3">
-                            <label for="amount" class="form-label text-white fs-5 mb-0">Amount*</label>
-                            <input type="number" class="form-control" id="amount" v-model="amount" >
                         </div>                   
                         <button type="submit" class="btn btn-register mt-3 fs-4">Pay</button>
                     </form>

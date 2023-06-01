@@ -4,7 +4,10 @@ import com.HijasDelMonte.Ecomerce.DTO.OrdenDTO;
 import com.HijasDelMonte.Ecomerce.DTO.PagarConTarjetaDTO;
 import com.HijasDelMonte.Ecomerce.Models.Clientes;
 import com.HijasDelMonte.Ecomerce.Models.Orden;
+import com.HijasDelMonte.Ecomerce.Models.Productos;
+import com.HijasDelMonte.Ecomerce.Models.ProductosSeleccionados;
 import com.HijasDelMonte.Ecomerce.Servicios.ClientesServicios;
+import com.HijasDelMonte.Ecomerce.Servicios.ProductosServicios;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +31,8 @@ import static java.util.stream.Collectors.toList;
 public class ComprobanteControlador {
     @Autowired
     ClientesServicios clientesServicios;
+    @Autowired
+    ProductosServicios productosServicios;
 
     @Transactional
     @PostMapping("/api/cliente/comprobante")
@@ -60,6 +65,12 @@ public class ComprobanteControlador {
 
                 connection.getInputStream().close();
                 connection.disconnect();
+                orden.setComprado(true);
+
+                for (ProductosSeleccionados productoSelect : orden.getProductosSeleccionadosSet() ){
+                    productoSelect.getProductos().setStock( productoSelect.getProductos().getStock() - productoSelect.getCantidad() );
+                    productosServicios.guardarPlanta( productoSelect.getProductos() );
+                }
 
                 return new ResponseEntity<>("Pago aceptado", HttpStatus.CREATED);
             } else {
