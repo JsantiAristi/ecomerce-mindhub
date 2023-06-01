@@ -59,9 +59,22 @@ main {
     width: 470px;
     object-fit: cover;
 }
+
+/*Botones*/
+.btnProductos{
+  background-color: #324545a8;
+  color: aliceblue;
+}
+
+.btnProductos:hover{
+  background-color: #324545;
+  color: aliceblue;
+}
+
+
 /*Boton */
 .agregarBoton{
-    background-color: #324545;
+  background-color: #324545a8;
     border:1px solid #324545a8;
     border-radius: 5px;
     transition: .3s;
@@ -74,7 +87,7 @@ main {
   }
   
   .agregarBoton:hover{
-    background-color: #324545a8;
+    background-color: #324545;
   }
   .btnProductos{
     background-color: #324545a8;

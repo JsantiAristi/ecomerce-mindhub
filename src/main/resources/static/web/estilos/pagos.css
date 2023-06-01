@@ -5,14 +5,14 @@
 }
 
 /*Main*/
-main{
+main {
     background-image: url(../../assets/fondoHistoria.jpg);
     background-size: cover;
     min-height: 110vh;
 }
 
 /*Cards*/
-.cardContainer{
+.cardContainer {
     width: 100%;
     height: 16rem;
 }
@@ -27,8 +27,8 @@ main{
     height: 190px;
     border-radius: 10px;
     perspective: 1000px;
-    --bs-card-bg : transparent;
-    --bs-card-border-width : none;
+    --bs-card-bg: transparent;
+    --bs-card-border-width: none;
 
 }
 
@@ -57,15 +57,15 @@ main{
     backface-visibility: hidden;
 }
 
-.GOLD{
+.GOLD {
     background: linear-gradient(321.03deg, rgb(226, 195, 16) 0%, rgb(196, 169, 15) 91.45%) !important;
 }
 
-.SILVER{
+.SILVER {
     background: linear-gradient(321.03deg, silver 0%, rgba(163, 161, 161, 0.788) 91.45%) !important;
 }
 
-.TITANIUM{
+.TITANIUM {
     background: linear-gradient(321.03deg, rgb(88, 88, 88) 0%, rgba(114, 113, 113, 0.788) 91.45%) !important;
 }
 
@@ -293,14 +293,14 @@ main{
 }
 
 /*glassmorphism*/
-.glassmorphism{
-    background: rgba( 255, 255, 255, 0.2 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 1.5px );
-    -webkit-backdrop-filter: blur( 1.5px );
+.glassmorphism {
+    background: rgb(41 40 40 / 67%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    height: 110vh;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    height: 90vh;
     width: 50vw;
 }
 
@@ -308,29 +308,53 @@ form {
     width: 90%;
 }
 
-.number-form{
+.number-form {
     width: 5rem;
 }
 
-.formRegister{
+.formRegister {
     width: 90%;
 }
 
-.btn-register{
+.btn-register {
     background-color: #b5844347;
     border: 1px solid white;
     color: white;
 }
 
-.btn-register:hover {
-    background-color: #966c37da;
-    border: 1px solid white;
-    color: white;
+.btnFondo {
+    background-color: #324545;
+    color: aliceblue;
+}
+
+.btnProductos {
+    background-color: #324545a8;
+    color: aliceblue;
+    width: 80%;
+    border: 1px solid snow;
+}
+
+.btnProductos:hover {
+    background-color: #324545;
+    color: aliceblue;
+    border: 1px solid snow;
+}
+
+/*Scroll bar*/
+body::-webkit-scrollbar {
+    width: 10px;
+    background: rgb(78, 73, 73);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #e8edec;
+    border-radius: 10px;
+    border-right: 2px solid #161a1e;
 }
 
 @media only screen and (max-width: 800px) {
-    .glassmorphism{
-        width: 90vw;
-        height: 130vh;
+    .glassmorphism {
+        width: 95vw;
+        height: 100vh;
     }
 }

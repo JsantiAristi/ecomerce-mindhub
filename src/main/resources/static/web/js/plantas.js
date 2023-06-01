@@ -32,7 +32,7 @@ createApp({
             axios.get('/api/productos/'+this.categoria)
                 .then(respuesta => {
                     this.plantas = respuesta.data.filter(planta => planta.activo);
-                    console.log(this.plantas)
+                    console.log(this.categoria);
                     
                     for(planta of this.plantas){
                         planta.contador = 1
@@ -41,7 +41,6 @@ createApp({
                     this.plantas_filtradas = this.plantas;
                     this.cantidad_plantas = this.plantas.length;
                     this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoProducto)));
-                    console.log(this.tipo_plantas)
                 })
                 .catch(error => console.log(error))
             this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -60,7 +59,7 @@ createApp({
               })
           },
         filtro_tipo(planta) {
-            return planta.tipoPlanta.includes(this.tipo_planta);
+            return planta.tipoProducto.includes(this.tipo_planta);
         },
         filtro_precio(planta) {
             return planta.precio <= this.rango_precio;

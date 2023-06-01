@@ -107,6 +107,10 @@ main{
   color: aliceblue;
 }
 
+.btnIndex{
+  width: 100%;
+}
+
 /*Carrousel*/
 /* .carousel-control-prev-icon, .carousel-control-next-icon{
   background-color: #094b08 !important;
@@ -292,7 +296,7 @@ svg {
   justify-content: center;
 }
 .contenedorHistoria{
-  background-color: rgba(0, 0, 0, 0.416);
+  background-color: rgba(0, 0, 0, 0.725);
   color:#f5f5f5;
   /* font-family: 'Barlow', sans-serif; */
   font-family: 'Roboto Slab', serif;
