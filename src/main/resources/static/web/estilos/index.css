@@ -198,6 +198,11 @@ swiper-slide img {
     transition: .5s ease;
     object-fit: contain;
 }
+.card-img img {
+  height: 15rem;
+  width: 15rem;
+  object-fit: cover;
+}
 .card-info {
     padding-top: 4%;
 }
@@ -225,6 +230,12 @@ svg {
     text-align: center;
     margin-bottom: 0 !important;
 }
+/*Contenedor de productos detacados*/
+.lista_productos {
+  height: 550px;
+  overflow-y: scroll;
+}
+
 /*Button*/
 .card-button {
     border: 1px solid #252525;
