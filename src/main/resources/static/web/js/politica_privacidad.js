@@ -7,12 +7,14 @@ createApp({
             isCuentaInactivo: true,
             isCarritoInactivo: true,
             carrito: [],
+            cliente: [],
             totalCompra: "",
         };
     },
     created() { 
     this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
+    this.cargarCliente()
     },
     methods: {
         mostrar1() {
@@ -23,6 +25,15 @@ createApp({
           },
           mostrar3() {
             this.mostrarImagen = 3;
+          },
+          cargarCliente() {
+            axios.get('/api/clientes/actual')
+              .then(respuesta => {
+                this.cliente = respuesta.data;
+              })
+              .catch(error => {
+                this.cliente = []
+              })
           },
           aparecerCuenta() {
             if (this.isCarritoInactivo) {
@@ -99,6 +110,17 @@ createApp({
                     })
                     .catch(error => console.log(error))
                 }
+              })
+              .catch(error => console.log(error))
+          },
+          logout() {
+            axios.post('/api/logout')
+              .then(response => {
+                this.carrito = [];
+                this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
+                localStorage.setItem("carrito", JSON.stringify(this.carrito));
+                localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+                window.location.href = '/index.html'
               })
               .catch(error => console.log(error))
           },

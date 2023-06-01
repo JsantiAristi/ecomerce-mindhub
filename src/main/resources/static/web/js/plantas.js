@@ -25,6 +25,7 @@ createApp({
     },
     created() {
         this.cargarDatos()
+        this.cargarCliente()
     },
     methods: {
         cargarDatos() {
@@ -40,6 +41,7 @@ createApp({
                     this.plantas_filtradas = this.plantas;
                     this.cantidad_plantas = this.plantas.length;
                     this.tipo_plantas = Array.from(new Set(this.plantas.map(planta => planta.tipoProducto)));
+                    console.log(this.tipo_plantas)
                 })
                 .catch(error => console.log(error))
             this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
