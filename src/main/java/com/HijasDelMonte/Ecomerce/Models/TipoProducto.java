@@ -4,5 +4,7 @@ public enum TipoProducto {
     INTERIOR,
     EXTERIOR,
     MACETAS,
-    REGADORES
+    REGADORES,
+    PRESENCIAL,
+    VIRTUAL,
 }

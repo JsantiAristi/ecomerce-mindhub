@@ -59,7 +59,7 @@ createApp({
               })
           },
         filtro_tipo(planta) {
-            return planta.tipoPlanta.includes(this.tipo_planta);
+            return planta.tipoProducto.includes(this.tipo_planta);
         },
         filtro_precio(planta) {
             return planta.precio <= this.rango_precio;
