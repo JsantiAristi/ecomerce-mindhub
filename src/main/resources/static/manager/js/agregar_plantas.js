@@ -19,6 +19,13 @@ createApp({
     created(){
         this.loadData()
     },
+    //LOADER
+  mounted() {
+    window.onload = function() {
+      var loader = document.getElementById('loader');
+      loader.style.display = 'none'; // Ocultar el loader una vez que la página haya cargado completamente
+    }
+  },
     methods: {
         loadData(){
             axios.get('/api/productos')

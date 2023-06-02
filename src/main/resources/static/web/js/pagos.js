@@ -20,6 +20,13 @@ createApp({
         this.cargarDatos()
         this.cargarCliente()
     },
+    //LOADER
+  mounted() {
+    window.onload = function() {
+      var loader = document.getElementById('loader');
+      loader.style.display = 'none'; // Ocultar el loader una vez que la página haya cargado completamente
+    }
+  },
     methods: {
         createNumberCard(){
             this.cardNumber = this.number1 + "-" + this.number2 + "-" + this.number3 + "-" + this.number4;
