@@ -11,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -52,7 +53,10 @@ public class ProductosSeleccionadosControlador {
         } else if ( producto.getStock() == 0 ) {
             return new ResponseEntity<>("Ha ocurrido un error, el producto que intentas añadir no tiene stock, por favor, vuelve a intentarlo" , HttpStatus.FORBIDDEN);
         } else if ( productoSeleccionadoDTO.getUnidadesSeleccionadas() > producto.getStock() ) {
-            return new ResponseEntity<>("Ha ocurrido un error, el producto que intentas añadir no tiene el stock que tratas de añadir a la orden, por favor, vuelve a intentarlo" , HttpStatus.FORBIDDEN);}
+            return new ResponseEntity<>("Ha ocurrido un error, el producto que intentas añadir no tiene el stock que tratas de añadir a la orden, por favor, vuelve a intentarlo" , HttpStatus.FORBIDDEN);
+        } else if ( !orden.getProductosSeleccionadosSet().stream().filter( productosSeleccionados -> productosSeleccionados.getProductos().getNombre().equalsIgnoreCase(producto.getNombre())).collect(toList()).isEmpty() ) {
+            return new ResponseEntity<>("Ya tienes este producto añadido a la orden" , HttpStatus.FORBIDDEN);
+        }
 
         ProductosSeleccionados nuevoProductosSeleccionado = new ProductosSeleccionados(productoSeleccionadoDTO.getUnidadesSeleccionadas(), producto.getPrecio(), producto.getPrecio()*productoSeleccionadoDTO.getUnidadesSeleccionadas(),true);
             producto.añadirProducto(nuevoProductosSeleccionado);

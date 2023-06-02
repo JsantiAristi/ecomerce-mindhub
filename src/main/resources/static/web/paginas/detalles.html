@@ -229,7 +229,7 @@
                       <p class = "new-price">Precio: <span>{{producto.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD'})}}</span></p>
                       <p class = "new-price">Categoria: <span>{{producto.categorias}}</span></p>
                       <template v-if="producto.stock>0">
-                        <p class = "new-price">disponibles: <span>{{producto.stock}}</span></p> 
+                        <p class = "new-price">Disponibles: <span>{{producto.stock}}</span></p> 
                       </template>
                       <template v-else>
                         <div class="sinUnidades">
