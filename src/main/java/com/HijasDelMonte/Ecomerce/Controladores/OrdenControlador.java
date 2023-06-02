@@ -47,11 +47,16 @@ public class OrdenControlador {
         double precioTotal = 0;
         int cantidadTotal = 0;
 
+        if ( productoSeleccionadoDTO.getUnidadesSeleccionadas() > producto.getProductos().getStock() ){
+            return new ResponseEntity<>("No se puede añadir más de " + producto.getProductos().getNombre() + " revisa el stock, por favor", HttpStatus.FORBIDDEN);
+        }
+
         producto.setCantidad(productoSeleccionadoDTO.getUnidadesSeleccionadas());
         productosSeleccionadosServicio.guardarProductoSeleccionado(producto);
 
         for ( ProductosSeleccionados productoSelec : orden.getProductosSeleccionadosSet() ){
-            precioTotal += productoSelec.getPrecio()*productoSelec.getCantidad();
+            productoSelec.setPrecioTotal( productoSelec.getPrecio()*productoSelec.getCantidad() );
+            precioTotal += productoSelec.getPrecioTotal();
             cantidadTotal += productoSelec.getCantidad();
         };
 

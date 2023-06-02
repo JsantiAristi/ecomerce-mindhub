@@ -193,7 +193,6 @@
               src="../../assets/carrito-de-compras.png"
               width="30"
               alt=""
-              @click="aparecerCarrito"
           /></a>
           <span class="pe-1 ps-1 bg-success rounded text-white"
             >{{carrito.length}}</span
@@ -239,19 +238,19 @@
                   <div class="accordion-body">
                     <div class="table.container d-flex justify-content-center table-responsive">
                       <table class="table table-hover align-middle">
-                        <thead class="">
+                        <thead>
                           <tr>
-                            <th scope="col-2">Cantidad</th>
-                            <th scope="col-4">Nombre</th>
-                            <th scope="col-4">Precio Unidad</th>
-                            <th scope="col-2">Eliminar</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">precio Total</th>
+                            <th scope="col">Eliminar</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr v-for="productoSeleccionado of productosProceso">
                             <td ><img src="../../assets/boton-de-resta.png" alt="" class="menosBoton2 pe-2" @click="restarProducto(productoSeleccionado.id)">{{productoSeleccionado.cantidad}}<img src="../../assets/mas.png" alt="" class="sumaBoton2 ps-2" @click="sumarProducto(productoSeleccionado.id)"></td>
                             <td>{{productoSeleccionado.nombre}}</td>
-                            <td>{{productoSeleccionado.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD'})}}</td>
+                            <td>{{productoSeleccionado.precioTotal.toLocaleString("en-US", { style: 'currency', currency: 'USD'})}}</td>
                             <td><img src="../../assets/eliminar.png" alt="" class="botonBasura"  ></td>
                           </tr>
                         </tbody>
@@ -268,52 +267,7 @@
               <h6>¡Usted todavia no tiene pedidos!</h6>
             </div>
           </template>
-
-          <!-- Ordenes compradas -->
-          <!-- <template v-if="ordenesRealizadas.length > 0">
-            <div class="accordion mt-5" id="accordionExample2">
-              <div class="accordion-item">
-                <h2 class="accordion-header " id="headingOne">
-                  <button class="accordion-button me-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2"
-                    aria-expanded="true" aria-controls="collapseOne2">
-                    Productos comprados: <br>
-                    N° Orden: {{ordenesRealizadas[0].id}} <br>
-                  </button>
-                </h2>
-                <div id="collapseOne2" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                  data-bs-parent="#accordionExample2">
-                  <div class="accordion-body">
-                    <div class="table.container d-flex justify-content-center table-responsive">
-                      <table class="table table-hover align-middle">
-                        <thead class="">
-                          <tr>
-                            <th scope="col-2">Cantidad</th>
-                            <th scope="col-4">Nombre</th>
-                            <th scope="col-4">Precio</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr v-for="productoSeleccionado of productosRealizados">
-                            <td >{{productoSeleccionado.cantidad}}</td>
-                            <td>{{productoSeleccionado.nombre}}</td>
-                            <td>{{productoSeleccionado.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD'})}}</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>               
-                </div>           
-              </div>
-            </div>
-          </template>
-          <template v-else>
-            <div class="d-flex align-items-center contenedorPedidos p-5">
-              <h6>¡Usted todavia no tiene pedidos!</h6>
-            </div>
-          </template> -->
-
-        </div>
-       
+        </div>     
       </div>
       <!-- Aside cuentas -->
       <aside :class="{ inactive: isCuentaInactivo }" class="border rounded p-2 asideCuentas" id="aside">
@@ -324,36 +278,6 @@
             <p class="text-center fs-5 text-danger mb-0"  @click="logout">Cerrar sesión</p>
         </div>
     </aside>  
-    <!-- Aside carrito de compras -->
-<aside :class="{ inactive: isCarritoInactivo }" class="border rounded p-2 asideCarrito" id="aside">
-    <div class="d-flex flex-column justify-content-between align-items-between infoTotalDiv">
-        <div>
-            <template v-if="carrito.length>0" v-for="producto of carrito">
-                <div class="d-flex align-items-center mb-2 p-2">
-                    <img :src="producto.foto" alt="" class="asideCarritoFoto">
-                    <div class="ps-2 infoCarrito">
-                        <p class="mb-0">{{producto.nombre}}</p>
-                        <p>C/U {{producto.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}</p>
-                        <div>
-                            <img src="../../assets/boton-de-resta.png" alt="" class="menosBoton pe-2" @click="resta(producto.id)">                               
-                            <span>{{producto.contador}}</span>
-                            <img src="../../assets/mas.png" alt="" class="sumaBoton ps-2" @click="sumar(producto.id)"> 
-                            <span v-if="producto.contador == producto.stock" class="text-danger ps-2">No puedes sumar más</span>                        
-                        </div>                              
-                    </div>  
-                    <img src="../../assets/eliminar.png" alt=""class="botonBasura" @click="eliminar(producto.id)">                          
-                </div>
-            </template>
-            <template v-else>
-                <p class="fs-5 text-center mt-5 mb-5">No has añadido nada al carrito 😥</p>
-            </template>
-            <div>
-                <p class="mb-0 fs-5 fw-bold">Total = {{totalCompra.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}</p>
-            </div>
-        </div>                   
-        <button class="btn btnFondo" @click="crearOrden">Añadir a la orden</button>
-    </div>
-</aside>
     </main>
     <footer class="pie-pagina">
       <div class="grupo-1">
