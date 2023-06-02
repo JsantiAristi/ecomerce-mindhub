@@ -5,10 +5,13 @@ createApp({
         return {
             // Inicializamos las variables
             ordenes: [],
+            ordenes2: [],
             ordenesProceso: [],
+            ordenesPagadas: [],
             // ordenesRealizadas: [],
             // productosRealizados: "",
             productosProceso: [],
+            productosPagados: [],
             totalProductosOrden: 0,
             totalPrecioOrden: 0,
             carrito: [],
@@ -22,7 +25,7 @@ createApp({
     created() {
         this.cargarDatos()
         this.cargarDatosCliente()
-        this.cargarComprobantes()
+        this.cargarDatosComprado()
         this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
     },
@@ -39,7 +42,6 @@ createApp({
                 .then(respuesta => {
                     this.ordenes = respuesta.data
                     this.ordenesProceso = this.ordenes.filter(orden => !orden.comprado)
-                    console.log(this.ordenesProceso);
                     this.productosProceso = this.ordenesProceso[0].productosSeleccionadosSet;
 
                     for (producto of this.productosProceso) {
@@ -47,22 +49,24 @@ createApp({
                         this.totalPrecioOrden += (producto.precio * producto.cantidad);
                     }
 
-                    console.log(this.productosProceso);
                 })
                 .catch(error => console.log(error))
+        },
+        cargarDatosComprado(){
+            axios.get('/api/cliente/orden')
+            .then(respuesta=> {
+                this.ordenes2 = respuesta.data;
+                this.ordenesPagadas = this.ordenes2.filter(orden => orden.comprado);
+                console.log(this.ordenesPagadas);
+                this.productosPagados = this.ordenesPagadas[0].productosSeleccionadosSet;
+                console.log(this.productosPagados);
+            })
+            .catch(error => console.log(error))
         },
         cargarDatosPlantas() {
             axios.get('/api/plantas')
                 .then(respuesta => {
                     this.plantas = respuesta.data.filter(planta => planta.activo);
-                })
-                .catch(error => console.log(error))
-        },
-        cargarComprobantes() {
-            axios.get('/api/cliente/comprobante')
-                .then(respuesta => {
-                    this.comprobantes = respuesta.data
-                    console.log(this.comprobantes);
                 })
                 .catch(error => console.log(error))
         },

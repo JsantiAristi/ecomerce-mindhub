@@ -165,7 +165,15 @@ createApp({
                 localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
                 window.location.href = "/web/paginas/pedidos.html"
               })
-              .catch(error => console.log(error))
+              .catch(error => {
+                Swal.fire({
+                  icon: 'error',
+                  text: error.response.data,
+                  background:' rgb(238 243 236)',
+                  confirmButtonColor: " #324545",
+                  iconColor:"#324545",                  
+                })
+              })
           }
         })
         .catch(error => console.log(error))
