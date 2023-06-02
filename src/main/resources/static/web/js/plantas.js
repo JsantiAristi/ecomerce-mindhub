@@ -20,12 +20,14 @@ createApp({
             cantidad: "",
             plantaId: [],
             totalCompra: 0,
+            favoritos: [],
             categoria: new URLSearchParams(location.search).get("categoria")
         }
     },
     created() {
         this.cargarDatos()
         this.cargarCliente()
+        this.favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
     },
     //LOADER
   mounted() {
@@ -217,6 +219,13 @@ createApp({
                 .catch(error => console.log(error))
               }
             })
+          },
+          borrarFavoritos(){
+            this.favoritos = []
+            localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
+          },
+          handleFav(){
+            localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
           },
     }
 }).mount("#app")

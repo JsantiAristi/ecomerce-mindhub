@@ -255,7 +255,7 @@
                             <td ><img src="../../assets/boton-de-resta.png" alt="" class="menosBoton2 pe-2" @click="restarProducto(productoSeleccionado.id)">{{productoSeleccionado.cantidad}}<img src="../../assets/mas.png" alt="" class="sumaBoton2 ps-2" @click="sumarProducto(productoSeleccionado.id)"></td>
                             <td>{{productoSeleccionado.nombre}}</td>
                             <td>{{productoSeleccionado.precioTotal.toLocaleString("en-US", { style: 'currency', currency: 'USD'})}}</td>
-                            <td><img src="../../assets/eliminar.png" alt="" class="botonBasura"  ></td>
+                            <td><img src="../../assets/eliminar.png" class="botonBasura"  @click="borrarProducto(productoSeleccionado.id)"></td>
                           </tr>
                         </tbody>
                       </table>

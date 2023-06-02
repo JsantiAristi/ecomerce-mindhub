@@ -112,6 +112,7 @@ main {
 
 .botonBasura{
   width: 1.4rem;
+  cursor: pointer;
 }
 
 /*Perfil*/

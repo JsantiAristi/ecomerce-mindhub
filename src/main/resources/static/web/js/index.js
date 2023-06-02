@@ -20,6 +20,8 @@ createApp({
             cantidad: "",
             plantaId: [],
             totalCompra: 0,
+            plantafilter: [],
+            favoritos:[],
             categoria: new URLSearchParams(location.search).get("categoria")
     }
   },
@@ -29,6 +31,7 @@ createApp({
     this.cargarCliente();
     this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
+    this.favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
   },
   //LOADER
   mounted() {
@@ -192,6 +195,13 @@ createApp({
           .catch(error => console.log(error))
         }
       })
+    },
+    borrarFavoritos(){
+      this.favoritos = []
+      localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
+    },
+    handleFav(){
+      localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
     },
   }
 }).mount("#app")

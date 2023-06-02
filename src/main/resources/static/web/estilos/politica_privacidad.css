@@ -70,19 +70,31 @@ main{
 
 /*Botones*/
 .btnFondo{
-    background-color: #324545;
-    color: aliceblue;
+  background-color: #324545;
+  color: aliceblue;
 }
-.btnProductos{
-    background-color: #324545a8;
-    color: aliceblue;
-  }
-  
-  .btnProductos:hover{
-    background-color: #324545;
-    color: aliceblue;
-  }
 
+.btnProductos{
+  background-color: #324545a8;
+  color: aliceblue;
+}
+  
+.btnProductos:hover{
+  background-color: #324545;
+  color: aliceblue;
+}
+
+  .titulosIndex b{
+    display: block;
+    height: 2px;
+    background-color: gray;
+    width: 50%;
+    opacity: 0.1;
+}
+.titulosIndex span{
+    width: 35rem;
+    color: #99A98F;
+}
 
 /* ------------------------------------------------main-inicio--------------------------------------- */
 .accordion{
@@ -93,7 +105,7 @@ main{
     justify-content: space-evenly;
 }
 .contenedor-texto, .accordion-button, .accordion-collapse{
-   background-color: #e6e4e44f !important;
+    background-color: #e6e4e44f !important;
 }
 #app .temple1:not(:first-of-type) {
     display: none;
