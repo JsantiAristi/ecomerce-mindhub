@@ -33,10 +33,9 @@
       <div class="loader"></div>
     </div>
         <header>
-          <p class="text-center text-white mb-0">
-            Orquideas y plantas para regalar y decorar. Directo del cultivo a tu
-            hogar.
-          </p>
+          <p class="text-center text-white mb-0" style="letter-spacing: 2.5px;">
+            Naturaleza en tus espacios   
+       </p>
         </header>
         <nav class="navbar navbar-expand-lg">
           <div class="container-fluid">
@@ -234,19 +233,19 @@
                         <form class="px-md-2" @submit.prevent="editarPerfil">
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form3Example1q">Nombre</label>
-                                <input type="text" id="form3Example1q" class="form-control" :value="nombre"
+                                <input type="text" id="form3Example1q" class="form-control"
                                     v-model="nombre" required/>
                             </div>
 
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form3Example2q">Apellido</label>
-                                <input type="text" id="form3Example2q" class="form-control" :value="apellido" v-model="apellido" required/>
+                                <input type="text" id="form3Example2q" class="form-control" v-model="apellido" required/>
                             </div>
 
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form3Example3q">Cedula de Ciudadanía</label>
+                                <label class="form-label" for="form3Example3q">DNI</label>
                                 <input type="text" id="form3Example3q" class="form-control"
-                                    :value="cedulaCiudadania" :v-model="cedulaCiudadania" />
+                                    :value="dni" :v-model="dni" />
                             </div>
 
                             <div class="form-outline mb-4">
@@ -255,19 +254,10 @@
                                     :v-model="telefono" />
                             </div>
 
-                            <label for="">Género </label>
-                            <div class="mb-4">
-                                <select class="select" :value="genero" v-model="genero">
-                                    <option value="MASCULINO">Masculino</option>
-                                    <option value="FEMENINO">Femenino</option>
-                                    <option value="OTRO">Otro</option>
-                                </select>
-                            </div>
-
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form3Example4q">Fecha de nacimiento</label>
-                                <input type="date" id="form3Example4q" class="form-control"
-                                    :value="fechaNacimiento" v-model="fechaNacimiento" required/>
+                                <label class="form-label" for="form3Example5q">Fecha de nacimiento</label>
+                                <input type="date" id="form3Example5q" class="form-control"
+                                     v-model="fechaNacimiento" required/>
                             </div>
 
                             <button type="submit" class="btn btnFondo btn-lg mb-1">Guardar
@@ -414,18 +404,15 @@
             <div class="box">
               <h2>SIGUENOS</h2>
               <div class="red-social">
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-instagram"></a>
-                <a href="#" class="fa fa-twitter"></a>
-                <a href="#" class="fa fa-youtube"></a>
+                <a href="https://www.facebook.com/hijasdelmonte" class="fa fa-facebook" style="font-size: 30px;"></a>
+                <a href="https://www.instagram.com/hijasdelmonte/" class="fa fa-instagram" style="font-size: 30px;"></a>
+                <a href="https://ar.pinterest.com/ccapkauskas/" class="fa fa-pinterest" style="font-size: 30px;"></a>
+                <a href="https://www.youtube.com/@hijasdelmonte1089/" class="fa fa-youtube" style="font-size: 30px;"></a>
               </div>
             </div>
           </div>
           <div class="grupo-2">
-            <small
-              >&copy; 2021 <b>Hijas del Monte</b> - Todos los Derechos
-              Reservados.</small
-            >
+            <small>&copy; 2015 <b>Hijas del Monte</b> - Todos los Derechos Reservados.</small>
           </div>
         </footer>
     </div>
