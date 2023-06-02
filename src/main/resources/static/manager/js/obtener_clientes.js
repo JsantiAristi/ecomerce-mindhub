@@ -6,7 +6,7 @@ createApp({
             // Inicializamos las variables
             clientes: [],
             clientes_filtadras: [],
-            email:[]
+            email:"",
         }
     },
     created(){
@@ -33,15 +33,15 @@ createApp({
               .catch(error => console.log(error))
           },
           eliminarCliente(email){
-            axios.put('/api/clientes', `email=${this.email}`)
-            console.log(this.clientes)
+            axios.put('/api/clientes', `email=${email}`)
             .then(response => {
                 Swal.fire({
                     title: 'Mensaje de confirmación',
-                    text: 'Se ha eliminado un clienre',
+                    text: 'Se ha eliminado un cliente',
                     icon: 'success',
-                
-                })
+                });
+                this.cargarDatos();
+                console.log(this.clientes);
             }).catch(err => {
                 Swal.fire({
                     icon: 'error',
