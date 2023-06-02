@@ -151,9 +151,9 @@
                         <div>
                             <select class="form-select form-select-lg mb-3 fw-bold" aria-label=".form-select-lg example"
                                 @change="filtros" v-model="tipo_planta">
-                                <option value="" class="fw-bold">Tipo</option>
+                                <option value="" class="">Tipo</option>
                                 <template v-for="tipo of tipo_plantas">
-                                    <option :value="tipo" class="fw-bold">{{tipo.toLowerCase()}}</option>
+                                    <option :value="tipo" class="">{{tipo.toLowerCase()}}</option>
                                 </template>
                             </select>
                         </div>
