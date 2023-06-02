@@ -22,6 +22,13 @@ createApp({
         this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
     },
+    //LOADER
+  mounted() {
+    window.onload = function() {
+      var loader = document.getElementById('loader');
+      loader.style.display = 'none'; // Ocultar el loader una vez que la página haya cargado completamente
+    }
+  },
     methods: {
         cargarDatos() {
             axios.get('/api/clientes/actual')

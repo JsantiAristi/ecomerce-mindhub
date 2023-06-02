@@ -23,6 +23,13 @@ createApp({
         this.cargarDatosPlantas()
         this. cargarCliente()
     },
+    //LOADER
+  mounted() {
+    window.onload = function() {
+      var loader = document.getElementById('loader');
+      loader.style.display = 'none'; // Ocultar el loader una vez que la página haya cargado completamente
+    }
+  },
     methods: {
         cargarDatos() {
             axios.get('/api/productos/'+this.id)
