@@ -167,5 +167,39 @@ createApp({
                     .catch(error => console.log(error))
             }
         },
+        borrarProducto(id){
+            Swal.fire({
+                title: 'Esta seguro de cerrar sesión?',
+                text: "Confirmar",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#324545',
+                cancelButtonColor: '#db3939',
+                background: ' rgb(238 243 236)',
+                iconColor: "#324545",
+                confirmButtonText: 'Si, eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.delete("/api/cliente/carrito/"+id)
+                    .then(response => {
+                        Swal.fire({
+                            icon: 'success',
+                            text: 'Se elimino correctamente',
+                            showConfirmButton: false,
+                            timer: 2000,
+                        }).then(() => window.location.href = "/web/paginas/pedidos.html")
+                    })
+                    .catch(error => {
+                        Swal.fire({
+                            icon: 'error',
+                            text: error.response.data,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        })
+                    })
+                }
+            })           
+        }
     }
 }).mount("#app")

@@ -70,4 +70,13 @@ public class ProductosSeleccionadosControlador {
 
         return new ResponseEntity<>("Producto añadido a la orden", HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/api/cliente/carrito/{id}")
+    public ResponseEntity<Object> eliminarProducto(@PathVariable long id) {
+
+        ProductosSeleccionados productosSeleccionados = productosSeleccionadosServicio.obtenerProducto(id);
+        productosSeleccionadosServicio.eliminarProducto(productosSeleccionados);
+
+        return new ResponseEntity<>("Producto eliminado", HttpStatus.OK);
+    }
 }

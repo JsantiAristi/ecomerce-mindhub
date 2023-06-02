@@ -22,6 +22,11 @@ public class ProductosSeleccionadoServicioImplementacion implements ProductosSel
     }
 
     @Override
+    public void eliminarProducto(ProductosSeleccionados productosSeleccionados) {
+        productosSeleccionadosRepositorio.delete(productosSeleccionados);
+    }
+
+    @Override
     public List<ProductosSeleccionadosDTO> obtenerProductosSeleccionadosDTO() {
         return productosSeleccionadosRepositorio.findAll().stream().map(ProductosSeleccionadosDTO::new).collect(toList());
     }

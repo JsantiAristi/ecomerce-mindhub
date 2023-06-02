@@ -80,6 +80,58 @@ main {
     position: relative;
 }
 
+/*Favoritos*/
+.containerInput input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .containerInput {
+    display: block;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .containerInput svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 30px;
+    transition: all 0.3s;
+    fill: #666;
+  }
+  
+  .containerInput svg:hover {
+    transform: scale(1.1);
+  }
+  
+  .containerInput input:checked ~ svg{
+    fill: #E3474F;
+  }
+
+  /*Moda Fav*/
+#fav .modal-content{
+    background-color: #fff8dee1
+  }
+  
+  #fav .modal-header, #fav .modal-footer{
+    background-color: #fff8de !important;
+  }
+  
+  /*Scroll bar*/
+  #fav .modal-body::-webkit-scrollbar {
+    width: 10px;
+    background: rgb(78, 73, 73);
+  }
+  #fav .modal-body::-webkit-scrollbar-thumb {
+    background: #e8edec;
+    border-radius: 10px;
+    border-right: 2px solid #161a1e;
+  }
+
 /*Botones*/
 .btnFondo{
     background-color: #324545;
