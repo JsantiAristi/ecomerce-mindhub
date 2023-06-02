@@ -26,7 +26,7 @@ public class ProductosControlador {
     @GetMapping("/api/productos/accesorios")
     public List<ProductosDTO> obtenerAccesorios(){return productosServicios.obtenerProductosDTO().stream().filter( productosDTO -> productosDTO.getCategorias().equals(Categorias.ACCESORIOS)).collect(toList());}
     @GetMapping("/api/productos/cursos")
-    public List<ProductosDTO> obtenerCursos(){return productosServicios.obtenerProductosDTO().stream().filter( productosDTO -> productosDTO.getCategorias().equals(Categorias.CURSOS)).collect(toList());}
+    public List<ProductosDTO> obtenerCursos(){return productosServicios.obtenerProductosDTO().stream().filter( productosDTO -> productosDTO.getCategorias().equals(Categorias.TALLERES)).collect(toList());}
     @GetMapping("/api/productos/{id}")
     public ProductosDTO obtenerPlantas(@PathVariable long id ){return productosServicios.obtenerProductoDTO(id);}
 

@@ -75,19 +75,19 @@ public class EcomerceHijasDelMonteApplication {
 
 			Productos curso1= new Productos("Curso De Plantas Aromáticas",TipoProducto.PRESENCIAL,
 					"Clases teoricas y practicas, Lunes de 18 a 20 hs.","../../assets/curso_plantas_aromaticas.jpg",
-					10,7700,true,Categorias.CURSOS);
+					10,7700,true,Categorias.TALLERES);
 			productosRepositorio.save(curso1);
 
 			Productos curso2= new Productos("Curso De Plantas Medicinales",TipoProducto.VIRTUAL,
 					"Clases teoricas y practicas, Lunes,Martes,Viernes de 15 a 18 hs.",
 					"../../assets/curso_plantas_medicinales.png",
-					8,8000,true,Categorias.CURSOS);
+					8,8000,true,Categorias.TALLERES);
 			productosRepositorio.save(curso2);
 
 			Productos curso3= new Productos("Curso De Árboles",TipoProducto.PRESENCIAL,
 					"Clases practicas, Todos los dias de la semana de 12 a 20 hs.",
 					"../../assets/Curso-de-plantas-e-árbores.png",
-					4,12000,true,Categorias.CURSOS);
+					4,12000,true,Categorias.TALLERES);
 			productosRepositorio.save(curso3);
 
 			Productos maceta_artesanal = new Productos("Maceta Artesanal", TipoProducto.MACETAS,
