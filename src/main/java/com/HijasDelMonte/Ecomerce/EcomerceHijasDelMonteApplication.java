@@ -146,6 +146,33 @@ public class EcomerceHijasDelMonteApplication {
 					11, 2500, true, Categorias.PLANTAS);
 			productosRepositorio.save(planta_photus);
 
+			Productos maceta_plastica_rosa = new Productos("Maceta plástica rosa",
+					TipoProducto.MACETAS,
+					"Maceta plástica mediana rosa con patas de madera. No incluye planta, la imagen es ilustrativa.",
+					"../../assets/maceta-plastica-rosa.jpeg" ,
+					9, 3500, true, Categorias.ACCESORIOS);
+			productosRepositorio.save(maceta_plastica_rosa);
+
+			Productos maceta_ceramica_rosa = new Productos("Maceta cerámica rosa",
+					TipoProducto.MACETAS,
+					"Maceta ceramica pequeña rosa. No incluye planta, la imagen es ilustrativa.",
+					"../../assets/maceta-ceramica-rosa.jpeg" ,
+					15, 3000, true, Categorias.ACCESORIOS);
+			productosRepositorio.save(maceta_ceramica_rosa);
+
+			Productos planta_difenbaquia_gigante = new Productos("Difenbaquia gigante",
+					TipoProducto.INTERIOR,
+					"Planta que tolera muy bien la falta de luz. Es muy buena para principiantes. Riego moderado y mucha humedad. No incluye maceta, la imagen es ilustrativa.",
+					"../../assets/difenbaquia-gigante.jpeg" ,
+					2, 30000, true, Categorias.PLANTAS);
+			productosRepositorio.save(planta_difenbaquia_gigante);
+
+			Productos planta_difenbaquia_mini = new Productos("Difenbaquia pequeña",
+					TipoProducto.INTERIOR,
+					"Planta que tolera muy bien la falta de luz. Es muy buena para principiantes. Riego moderado y mucha humedad. No incluye maceta, la imagen es ilustrativa.",
+					"../../assets/difenbaquia.jpeg" ,
+					2, 3000, true, Categorias.PLANTAS);
+			productosRepositorio.save(planta_difenbaquia_mini);
 		};
 	}
 
