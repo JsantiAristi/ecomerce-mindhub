@@ -32,26 +32,16 @@ public class EcomerceHijasDelMonteApplication {
 			clientesRepositorio.save(cliente2);
 
 			//Productos PLantas
-			Productos orquidea_rosa = new Productos(
-					"Orquidea Mini Premium Salitre en Cultivo", TipoProducto.INTERIOR,
-					"Purifica el aire y filtra toxinas al interior de la casa.",
-					"../../assets/orquidea-rosa.jpg", 12, 2000, true, Categorias.PLANTAS );
-			productosRepositorio.save(orquidea_rosa);
-			Productos bromelia_blanca = new Productos(
-					"Bromelia Premium en Cultivo", TipoProducto.EXTERIOR,
-					"Se adapta perfectamente en espacios interiores y exteriores.",
-					"../../assets/bromelia-blanca.jpg", 20, 1000, true, Categorias.PLANTAS );
-			productosRepositorio.save(bromelia_blanca);
-			Productos anturio_rojo = new Productos(
-					"Anturio Premium en Cultivo", TipoProducto.EXTERIOR,
-					"Requiere cuidados mínimos siendo una planta perfecta para las personas con poco tiempo disponible.",
-					"../../assets/anturio-rojo.jpg", 0, 5000, true , Categorias.PLANTAS);
-			productosRepositorio.save(anturio_rojo);
-			Productos orquidea_blanca = new Productos(
-					"Orquidea Supreme Kasy en Cultivo", TipoProducto.INTERIOR,
-					"Purifica el aire y filtra toxinas al interior de la casa.",
-					"../../assets/orquidea-blanca.jpg", 4, 3000, true, Categorias.PLANTAS );
-			productosRepositorio.save(orquidea_blanca);
+			Productos parlorPalm = new Productos(
+					"Parlor Palm", TipoProducto.INTERIOR,
+					"Parlor Palm es ideal porque crece muy lentamente y prospera en espacios reducidos.",
+					"../../assets/parlor.jpg", 12, 2000, true, Categorias.PLANTAS );
+			productosRepositorio.save(parlorPalm);
+			Productos pothos = new Productos(
+					"Pothos", TipoProducto.EXTERIOR,
+					"Los pothos llegan directos del bosque tropical a tu casa.",
+					"../../assets/pothos.jpg", 20, 1000, true, Categorias.PLANTAS );
+			productosRepositorio.save(pothos);
 			Productos maceta_aluminio = new Productos("Maceta Aluminio", TipoProducto.MACETAS,
 					"Maceta con plato y pie de metal.",
 					"../../assets/maceta1.jpeg",
@@ -81,7 +71,9 @@ public class EcomerceHijasDelMonteApplication {
 			Productos curso2= new Productos("Curso De Plantas Medicinales",TipoProducto.VIRTUAL,
 					"Clases teoricas y practicas, Lunes,Martes,Viernes de 15 a 18 hs.",
 					"../../assets/curso_plantas_medicinales.png",
+
 					8,8000,true,Categorias.TALLERES);
+
 			productosRepositorio.save(curso2);
 
 			Productos curso3= new Productos("Curso De Árboles",TipoProducto.PRESENCIAL,
