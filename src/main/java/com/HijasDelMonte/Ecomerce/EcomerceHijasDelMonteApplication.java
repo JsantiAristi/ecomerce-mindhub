@@ -142,7 +142,7 @@ public class EcomerceHijasDelMonteApplication {
 			Productos planta_photus = new Productos("Photus mediano",
 					TipoProducto.INTERIOR,
 					"Planta de cuidados sencillos, necesita un riego moderado y se adapta a lugares con poca luz. No incluye maceta, la imagen es ilustrativa.",
-					"../../assets/photus.png" ,
+					"../../assets/pothus.png" ,
 					11, 2500, true, Categorias.PLANTAS);
 			productosRepositorio.save(planta_photus);
 
