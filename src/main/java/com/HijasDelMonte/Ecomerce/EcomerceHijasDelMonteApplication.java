@@ -89,6 +89,55 @@ public class EcomerceHijasDelMonteApplication {
 					"../../assets/Curso-de-plantas-e-árbores.png",
 					4,12000,true,Categorias.CURSOS);
 			productosRepositorio.save(curso3);
+
+			Productos maceta_artesanal = new Productos("Maceta Artesanal", TipoProducto.MACETAS,
+					"Maceta artesanal con material reciclado.",
+					"../../assets/macetaArtesanal.jpg",
+					5, 20000, true, Categorias.ACCESORIOS);
+			productosRepositorio.save(maceta_artesanal);
+
+			Productos maceta_cabeza = new Productos("Maceta de cabeza", TipoProducto.MACETAS,
+					"Maceta de cabeza para exterior.",
+					"../../assets/macetaCabeza.jpg",
+					11, 30000, true, Categorias.ACCESORIOS);
+			productosRepositorio.save(maceta_cabeza);
+
+			Productos maceta_cabeza_resina = new Productos("Maceta con cabeza de niña", TipoProducto.MACETAS,
+					"Maceta de resina con cabeza de niña.",
+					"../../assets/macetaDeResinaConCabeza.jpg",
+					8, 25000, true, Categorias.ACCESORIOS);
+			productosRepositorio.save(maceta_cabeza_resina);
+
+			Productos maceta_mediana = new Productos("Maceta mediana para interior ", TipoProducto.MACETAS,
+					"Maceta para interior.",
+					"../../assets/materaMediana.jpg",
+					5, 20000, true, Categorias.ACCESORIOS);
+			productosRepositorio.save(maceta_mediana);
+
+			Productos anthurium_rosa = new Productos(
+					"Anthurium Rosa", TipoProducto.INTERIOR,
+					".",
+					"../../assets/arthuriumRosa.jpg", 3, 50000, true, Categorias.PLANTAS );
+			productosRepositorio.save(anthurium_rosa);
+
+			Productos lirio_paz = new Productos(
+					"Lirio de Paz", TipoProducto.INTERIOR,
+					".",
+					"../../assets/lirioPaz.jpg", 4, 35000, true, Categorias.PLANTAS );
+			productosRepositorio.save(lirio_paz);
+
+			Productos buganvilla = new Productos(
+					"Buganvilla", TipoProducto.EXTERIOR,
+					".",
+					"../../assets/buganvilla.jpg", 15, 50000, true, Categorias.PLANTAS );
+			productosRepositorio.save(buganvilla);
+
+			Productos clivia = new Productos(
+					"Clivia", TipoProducto.INTERIOR,
+					".",
+					"../../assets/clivia.jpg", 9, 27000, true, Categorias.PLANTAS );
+			productosRepositorio.save(clivia);
+
 		};
 	};
 
