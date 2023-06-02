@@ -26,9 +26,9 @@ public class EcomerceHijasDelMonteApplication {
 	public CommandLineRunner IniciarDatos(ClientesRepositorio clientesRepositorio, ProductosRepositorio productosRepositorio, ProductosSeleccionadosRepositorio productosSeleccionadosRepositorio, OrdenRepositorio ordenRepositorio){
 		return (args) -> {
 			//Clientes
-			Clientes clientes= new Clientes("Juan", "Rojas", "129010101", 310101010, Genero.MASCULINO, LocalDate.now().minusYears(29), "juan@gmail.com",passwordEnconder.encode("1234"), true);
+			Clientes clientes= new Clientes("Juan", "Rojas", "129010101", 310101010, LocalDate.now().minusYears(29), "juan@gmail.com",passwordEnconder.encode("1234"), true);
 			clientesRepositorio.save(clientes);
-			Clientes cliente2= new Clientes("Melba", "Morel", "1000000", 323242010, Genero.FEMENINO, LocalDate.now().minusYears(20), "melba@mindhub.com",passwordEnconder.encode("12345"), true);
+			Clientes cliente2= new Clientes("Melba", "Morel", "1000000", 323242010, LocalDate.now().minusYears(20), "melba@mindhub.com",passwordEnconder.encode("12345"), true);
 			clientesRepositorio.save(cliente2);
 
 			//Productos PLantas
