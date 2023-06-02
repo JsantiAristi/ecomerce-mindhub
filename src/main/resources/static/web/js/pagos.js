@@ -51,12 +51,12 @@ createApp({
           },
         payCard(){
             Swal.fire({
-                title: 'Please, confirm that you want to pay with the card ' + this.cardNumber,
+                title: '¿Está seguro de pagar con esta tarjeta?' + this.cardNumber,
                 inputAttributes: {
                     autocapitalize: 'off'
                 },
                 showCancelButton: true,
-                confirmButtonText: 'Sure',
+                confirmButtonText: 'Confirmar',
                 confirmButtonColor: "#7c601893",
                 preConfirm: () => {
                     console.log(this.ordenes[0].precioTotal);
@@ -73,7 +73,7 @@ createApp({
                     .then(response => {  
                         Swal.fire({
                             icon: 'success',
-                            text: 'succes paid',
+                            text: 'Pago realizado',
                             showConfirmButton: false,
                             timer: 3000,
                         }).then( () => window.location.href="/web/paginas/pedidos.html")
