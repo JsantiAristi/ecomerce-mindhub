@@ -40,7 +40,7 @@ public class EcomerceHijasDelMonteApplication {
 			Productos pothos = new Productos(
 					"Pothos", TipoProducto.EXTERIOR,
 					"Los pothos llegan directos del bosque tropical a tu casa.",
-					"../../assets/pothos.jpg", 20, 1000, true, Categorias.PLANTAS );
+					"../../assets/pothos.jpg", 20, 2000, true, Categorias.PLANTAS );
 			productosRepositorio.save(pothos);
 			Productos maceta_aluminio = new Productos("Maceta Aluminio", TipoProducto.MACETAS,
 					"Maceta con plato y pie de metal.",
@@ -55,12 +55,12 @@ public class EcomerceHijasDelMonteApplication {
 
 			Productos maceta_colgante= new Productos("Colgador De Plantas",TipoProducto.MACETAS,
 					"Soporte de macramé para plantas.","../../assets/accesorios1.jpg",
-					6,7000,true,Categorias.ACCESORIOS);
+					6,3000,true,Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_colgante);
 
 			Productos maceta_matera= new Productos("Matera Para Plantas",TipoProducto.MACETAS,
 					"Matera para plantas pequeñas.","../../assets/matera.jpg",
-					2,4400,true,Categorias.ACCESORIOS);
+					2,1400,true,Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_matera);
 
 			Productos curso1= new Productos("Curso De Plantas Aromáticas",TipoProducto.PRESENCIAL,
@@ -85,49 +85,49 @@ public class EcomerceHijasDelMonteApplication {
 			Productos maceta_artesanal = new Productos("Maceta Artesanal", TipoProducto.MACETAS,
 					"Maceta artesanal con material reciclado.",
 					"../../assets/macetaArtesanal.jpg",
-					5, 20000, true, Categorias.ACCESORIOS);
+					5, 2000, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_artesanal);
 
 			Productos maceta_cabeza = new Productos("Maceta de cabeza", TipoProducto.MACETAS,
 					"Maceta de cabeza para exterior.",
 					"../../assets/macetaCabeza.jpg",
-					11, 30000, true, Categorias.ACCESORIOS);
+					11, 3000, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_cabeza);
 
 			Productos maceta_cabeza_resina = new Productos("Maceta con cabeza de niña", TipoProducto.MACETAS,
 					"Maceta de resina con cabeza de niña.",
 					"../../assets/macetaDeResinaConCabeza.jpg",
-					8, 25000, true, Categorias.ACCESORIOS);
+					8, 2000, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_cabeza_resina);
 
 			Productos maceta_mediana = new Productos("Maceta mediana para interior ", TipoProducto.MACETAS,
 					"Maceta para interior.",
 					"../../assets/materaMediana.jpg",
-					5, 20000, true, Categorias.ACCESORIOS);
+					5, 2000, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_mediana);
 
 			Productos anthurium_rosa = new Productos(
 					"Anthurium Rosa", TipoProducto.INTERIOR,
 					".",
-					"../../assets/arthuriumRosa.jpg", 3, 50000, true, Categorias.PLANTAS );
+					"../../assets/arthuriumRosa.jpg", 3, 5000, true, Categorias.PLANTAS );
 			productosRepositorio.save(anthurium_rosa);
 
 			Productos lirio_paz = new Productos(
 					"Lirio de Paz", TipoProducto.INTERIOR,
 					".",
-					"../../assets/lirioPaz.jpg", 4, 35000, true, Categorias.PLANTAS );
+					"../../assets/lirioPaz.jpg", 4, 3000, true, Categorias.PLANTAS );
 			productosRepositorio.save(lirio_paz);
 
 			Productos buganvilla = new Productos(
 					"Buganvilla", TipoProducto.EXTERIOR,
 					".",
-					"../../assets/buganvilla.jpg", 15, 50000, true, Categorias.PLANTAS );
+					"../../assets/buganvilla.jpg", 15, 5000, true, Categorias.PLANTAS );
 			productosRepositorio.save(buganvilla);
 
 			Productos clivia = new Productos(
 					"Clivia", TipoProducto.INTERIOR,
 					".",
-					"../../assets/clivia.jpg", 9, 27000, true, Categorias.PLANTAS );
+					"../../assets/clivia.jpg", 9, 2000, true, Categorias.PLANTAS );
 			productosRepositorio.save(clivia);
 
 			Productos planta_monstera = new Productos("Monstera mediana",
