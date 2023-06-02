@@ -209,10 +209,8 @@ svg {
 }
 
 .card-footer {
-
     display: flex;
     justify-content: center;
-    align-items: center;
     padding-top: 10px;
     border-top: 1.5px solid #094b08ac;
     background-color: #aad0c745;
