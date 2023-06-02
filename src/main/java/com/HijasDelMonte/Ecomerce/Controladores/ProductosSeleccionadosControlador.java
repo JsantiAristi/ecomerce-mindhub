@@ -54,7 +54,7 @@ public class ProductosSeleccionadosControlador {
         } else if ( productoSeleccionadoDTO.getUnidadesSeleccionadas() > producto.getStock() ) {
             return new ResponseEntity<>("Ha ocurrido un error, el producto que intentas añadir no tiene el stock que tratas de añadir a la orden, por favor, vuelve a intentarlo" , HttpStatus.FORBIDDEN);}
 
-        ProductosSeleccionados nuevoProductosSeleccionado = new ProductosSeleccionados(productoSeleccionadoDTO.getUnidadesSeleccionadas(), producto.getPrecio()*productoSeleccionadoDTO.getUnidadesSeleccionadas(), true);
+        ProductosSeleccionados nuevoProductosSeleccionado = new ProductosSeleccionados(productoSeleccionadoDTO.getUnidadesSeleccionadas(), producto.getPrecio(), producto.getPrecio()*productoSeleccionadoDTO.getUnidadesSeleccionadas(),true);
             producto.añadirProducto(nuevoProductosSeleccionado);
             orden.añadirProducto(nuevoProductosSeleccionado);
             productosSeleccionadosServicio.guardarProductoSeleccionado(nuevoProductosSeleccionado);
@@ -69,56 +69,5 @@ public class ProductosSeleccionadosControlador {
         ordenServicios.guardarOrden(orden);
 
         return new ResponseEntity<>("Producto añadido a la orden", HttpStatus.CREATED);
-    }
-
-    @PutMapping("/api/cliente/carrito/suma")
-    public ResponseEntity<Object> sumarProducto(@RequestParam long idProducto){
-
-        ProductosSeleccionados productosSeleccionado= productosSeleccionadosServicio.obtenerProducto(idProducto);
-        Productos productos = productosSeleccionado.getProductos();
-        Orden orden= productosSeleccionado.getOrden();
-        double precioTotal = 0;
-        int cantidadTotal = 0;
-
-        productosSeleccionado.setCantidad(productosSeleccionado.getCantidad()+1);
-        productosSeleccionado.setPrecio(productos.getPrecio()*productosSeleccionado.getCantidad());
-        productosSeleccionadosServicio.guardarProductoSeleccionado(productosSeleccionado);
-
-        for ( ProductosSeleccionados productoSelec : orden.getProductosSeleccionadosSet() ){
-            precioTotal += productoSelec.getPrecio();
-            cantidadTotal += productoSelec.getCantidad();
-        };
-
-        orden.setUnidadesTotales(cantidadTotal);
-        orden.setPrecioTotal(precioTotal);
-        ordenServicios.guardarOrden(orden);
-        return new ResponseEntity<>("Producto añadido", HttpStatus.OK);
-    }
-
-    @PutMapping("/api/cliente/carrito/resta")
-    public ResponseEntity<Object> restarProducto(@RequestParam long idProducto){
-
-        ProductosSeleccionados productosSeleccionado= productosSeleccionadosServicio.obtenerProducto(idProducto);
-        Productos productos = productosSeleccionado.getProductos();
-        Orden orden= productosSeleccionado.getOrden();
-        double precioTotal = 0;
-        int cantidadTotal = 0;
-
-        if(productosSeleccionado.getCantidad()==1){
-            return new ResponseEntity<>("La unidad seleccionada actualmente es uno no puede seguir restando, si deseas puedes eliminarlo" , HttpStatus.FORBIDDEN);}
-
-        productosSeleccionado.setCantidad(productosSeleccionado.getCantidad()-1);
-        productosSeleccionado.setPrecio(productos.getPrecio()*productosSeleccionado.getCantidad());
-        productosSeleccionadosServicio.guardarProductoSeleccionado(productosSeleccionado);
-
-        for ( ProductosSeleccionados productoSelec : orden.getProductosSeleccionadosSet() ){
-            precioTotal += productoSelec.getPrecio();
-            cantidadTotal += productoSelec.getCantidad();
-        };
-
-        orden.setUnidadesTotales(cantidadTotal);
-        orden.setPrecioTotal(precioTotal);
-        ordenServicios.guardarOrden(orden);
-        return new ResponseEntity<>("Unidad eliminada", HttpStatus.OK);
     }
 }

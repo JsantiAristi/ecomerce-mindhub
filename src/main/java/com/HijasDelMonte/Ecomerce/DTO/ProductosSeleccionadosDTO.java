@@ -8,6 +8,7 @@ public class ProductosSeleccionadosDTO {
     private String nombre;
     private int cantidad;
     private double precio;
+    private double precioTotal;
     private boolean activo;
 
     public ProductosSeleccionadosDTO(ProductosSeleccionados productosSeleccionados) {
@@ -16,6 +17,7 @@ public class ProductosSeleccionadosDTO {
         this.nombre = productosSeleccionados.getProductos().getNombre();
         this.cantidad = productosSeleccionados.getCantidad();
         this.precio = productosSeleccionados.getPrecio();
+        this.precioTotal = productosSeleccionados.getPrecioTotal();
         this.activo = productosSeleccionados.isActivo();
     }
 
@@ -24,5 +26,6 @@ public class ProductosSeleccionadosDTO {
     public String getNombre() {return nombre;}
     public int getCantidad() {return cantidad;}
     public double getPrecio() {return precio;}
+    public double getPrecioTotal() {return precioTotal;}
     public boolean isActivo() {return activo;}
 }

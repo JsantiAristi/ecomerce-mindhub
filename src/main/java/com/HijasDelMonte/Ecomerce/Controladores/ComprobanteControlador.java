@@ -165,7 +165,7 @@ public class ComprobanteControlador {
                     cantidadCeldaInfo.setFixedHeight(50);
                     table.addCell(cantidadCeldaInfo);
 
-                    PdfPCell precioCeldaInfo = new PdfPCell(new Paragraph( "$" + NumberFormat.getNumberInstance(Locale.US).format(productosSeleccionados.getPrecio()) ));
+                    PdfPCell precioCeldaInfo = new PdfPCell(new Paragraph( "$" + NumberFormat.getNumberInstance(Locale.US).format(productosSeleccionados.getPrecioTotal()) ));
                     precioCeldaInfo.setHorizontalAlignment(Element.ALIGN_CENTER);
                     precioCeldaInfo.setVerticalAlignment(Element.ALIGN_MIDDLE);
                     precioCeldaInfo.setFixedHeight(50);

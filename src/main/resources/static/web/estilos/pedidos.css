@@ -74,6 +74,15 @@ main {
     color: aliceblue;
 }
 
+.sumaBoton2, .menosBoton2 {
+  width: 1.4rem;
+  cursor: pointer;
+}
+
+.botonBasura{
+  width: 1.4rem;
+}
+
 /*Perfil*/
 .perfil{
     height: 10rem;
@@ -150,52 +159,9 @@ li{
     width: 2rem;
 }
 
-/*Aside Carrito*/
-.asideCarrito {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 30rem;
-    min-height: 8%;
-    z-index: 10;
-    background-color: #e8edec;
-  }
-  
-  .infoTotalDiv{
-    height: 100%;
-  }
-  
-  .asideCarritoFoto{
-    width: 6rem;
-    height: 6rem;
-    object-fit: cover;
-  }
-  
-  .sumaBoton, .menosBoton {
-    width: 2rem;
-    cursor: pointer;
-  }
-  
-  .botonBasura{
-    width: 2rem;
-    height: 2rem;
-    object-fit: cover;
-    cursor: pointer;
-  }
-  
-  .infoCarrito{
-    width: 80%;
-  }
-.sumaBoton2, .menosBoton2 {
-    width: 1.4rem;
-    cursor: pointer;
-}
-.nav ul, .nav a{
-    width: 100% !important;
-}
-.nav a{
-    display: inline-block;
-}
+
+
+
 
 /*Footer*/
 .pie-pagina{
