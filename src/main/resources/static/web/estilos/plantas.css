@@ -68,7 +68,8 @@ main {
 }
 
 .filtros select {
-    background-color: rgb(228, 228, 228);
+    background-color: #324545a8;
+    color: white;
 }
 
 .filtros_productos p {
@@ -81,8 +82,8 @@ main {
 
 .filtros_productos select {
     border-radius: 1.5rem;
-    background-color: transparent !important;
-    border: 1px solid #707b69;
+    background-color: #324545a8;
+    color: white;
 }
 
 /*Tarjetas*/

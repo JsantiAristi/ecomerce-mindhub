@@ -61,12 +61,9 @@ createApp({
         filtro_tipo(planta) {
             return planta.tipoProducto.includes(this.tipo_planta);
         },
-        filtro_precio(planta) {
-            return planta.precio <= this.rango_precio;
-        },
         filtros() {
             this.plantas_filtradas = this.plantas.filter(planta => {
-                return (this.filtro_tipo(planta) && this.filtro_precio(planta));
+                return (this.filtro_tipo(planta))
             })
         },
         filtro_plantas() {

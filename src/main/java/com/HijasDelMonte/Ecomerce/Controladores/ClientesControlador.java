@@ -75,12 +75,23 @@ public class ClientesControlador {
             @RequestParam String apellido,
             @RequestParam String email,
             @RequestParam String contraseña){
-        if (nombre.isBlank() || apellido.isBlank() || email.isBlank() || contraseña.isBlank()){
+        if (nombre.isBlank() || apellido.isBlank()){
             return new ResponseEntity<>("Campos vacios", HttpStatus.FORBIDDEN);
         }
         if (clientesServicios.findByEmail(email) != null){
             return new ResponseEntity<>("Ese email ya está en uso", HttpStatus.FORBIDDEN);
         }
+        if (!apellido.matches("^[a-z A-Z]*$")){
+            return new ResponseEntity<>("Apellido inválido, solo se permiten letras.", HttpStatus.FORBIDDEN);
+        }
+        if (!nombre.matches("^[a-z A-Z]*$")){
+            return new ResponseEntity<>("Nombre inválido, solo se permiten letras.", HttpStatus.FORBIDDEN);
+        }
+        if ( email.isBlank() || !email.contains("@") ) {
+            return new ResponseEntity<>("Error, por favor ingrese una dirección de correo electrónico válida.", HttpStatus.FORBIDDEN);
+        }
+        if ( contraseña.isBlank()) {
+            return new ResponseEntity<>("Contraseña Requerida", HttpStatus.FORBIDDEN);}
 
         Clientes nuevoCliente = new Clientes(nombre, apellido, " ", 0, Genero.OTRO, LocalDate.now(), email, passwordEnconder.encode(contraseña), true);
         clientesServicios.saveCliente(nuevoCliente);
