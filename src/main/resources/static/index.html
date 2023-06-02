@@ -34,7 +34,7 @@
              Naturaleza en tus espacios   
         </p>
       </header>
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid">
           <div class="d-flex align-items-center ps-5">
             <a href="../../index.html"
@@ -280,7 +280,7 @@
     </h2>
     <section  class="pb-5">
       <div class="lista_productos border-top d-flex flex-wrap justify-content-evenly pt-5 gap-1 ">
-        <template v-for="producto of plantas">  
+        <template v-for="producto of plantas.slice(0,10)">  
             <div class="card mb-2">
               <div class="card-img d-flex justify-content-center">
                 <a :href="'./web/paginas/detalles.html?id='+ producto.id"><img :src="producto.foto" alt="productoPrueba"
@@ -537,7 +537,7 @@
             </div>   
           </template>
           <template v-else>
-            <p>Sin favoritos</p>
+            <p class="fs-4">Sin favoritos</p>
           </template>
       </div>
       <div class="modal-footer">
