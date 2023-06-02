@@ -145,77 +145,77 @@ public class EcomerceHijasDelMonteApplication {
 					10, 5000, true, Categorias.PLANTAS);
 			productosRepositorio.save(planta_monstera);
 
-			Productos planta_paloDeAgua = new Productos("Palo de agua grande",
+			Productos planta_paloDeAgua = new Productos("Palo de Agua Grande",
 					TipoProducto.INTERIOR,
 					"Excelente para interiores muy iluminados, pero de forma indirecta. Necesita muy poco riego, humedad eventual en sus hojas. No incluye maceta, la imagen es ilustrativa.",
 					"../../assets/palo-de-agua.jpeg" ,
 					5, 15000, true, Categorias.PLANTAS);
 			productosRepositorio.save(planta_paloDeAgua);
 
-			Productos planta_helecho = new Productos("Helecho pequeño",
+			Productos planta_helecho = new Productos("Helecho Pequeño",
 					TipoProducto.INTERIOR,
 					"Excelente interiores, terrazas o balcones muy humedos. Necesita mucho riego, principalmente en epocas de calor, humedad eventual en sus hojas. No incluye maceta, la imagen es ilustrativa.",
 					"../../assets/helecho.jpeg" ,
 					5, 3000, true, Categorias.PLANTAS);
 			productosRepositorio.save(planta_helecho);
 
-			Productos planta_ficus = new Productos("Ficus Pandurata grande",
+			Productos planta_ficus = new Productos("Ficus Pandurata Grande",
 					TipoProducto.INTERIOR,
 					"Excelente interiores y lugares muy humedos. Necesita bastante riego, principalmente en epocas de calor, humedad eventual en sus hojas y mucha iluminacion indirecta. No incluye maceta, la imagen es ilustrativa.",
 					"../../assets/ficus-pandurata.jpeg" ,
 					3, 20000, true, Categorias.PLANTAS);
 			productosRepositorio.save(planta_ficus);
 
-			Productos planta_gomero = new Productos("Ficus elástica grande",
+			Productos planta_gomero = new Productos("Ficus Elástica Grande",
 					TipoProducto.INTERIOR,
 					"Excelente interiores. Necesita bastante riego, principalmente en epocas de calor, humedad en sus hojas y mucha iluminacion. No incluye maceta, la imagen es ilustrativa.",
 					"../../assets/gomero.jpeg" ,
 					1, 20000, true, Categorias.PLANTAS);
 			productosRepositorio.save(planta_gomero);
 
-			Productos planta_sanseviera = new Productos("Sansevieria pequeña",
+			Productos planta_sanseviera = new Productos("Sansevieria Pequeña",
 					TipoProducto.EXTERIOR,
 					"Esta planta necesita cuidados mínimos para vivir. Se adapta tanto a interiores como a exteriores, puede vivir tanto con abundante luz como en ambientes mas oscuros. Riego muy moderado. No incluye maceta, la imagen es ilustrativa.",
 					"../../assets/sanseviera.jpg" ,
 					15, 2000, true, Categorias.PLANTAS);
 			productosRepositorio.save(planta_sanseviera);
 
-			Productos planta_philodendron = new Productos("Philodendron pequeño",
+			Productos planta_philodendron = new Productos("Philodendron Pequeño",
 					TipoProducto.INTERIOR,
 					"Planta ideal para espacios con iluminacion moderada. Es una planta trepadora, es decir que conviene colocarle un tutor para que crezca hacia arriba. Riego moderado. No incluye maceta, la imagen es ilustrativa.",
 					"../../assets/philodendron.jpeg" ,
 					8, 4500, true, Categorias.PLANTAS);
 			productosRepositorio.save(planta_philodendron);
 
-			Productos planta_photus = new Productos("Photus mediano",
+			Productos planta_photus = new Productos("Photus Mediano",
 					TipoProducto.INTERIOR,
 					"Planta de cuidados sencillos, necesita un riego moderado y se adapta a lugares con poca luz. No incluye maceta, la imagen es ilustrativa.",
 					"../../assets/pothus.png" ,
 					11, 2500, true, Categorias.PLANTAS);
 			productosRepositorio.save(planta_photus);
 
-			Productos maceta_plastica_rosa = new Productos("Maceta plástica rosa",
+			Productos maceta_plastica_rosa = new Productos("Maceta Plástica Rosa",
 					TipoProducto.MACETAS,
 					"Maceta plástica mediana rosa con patas de madera. No incluye planta, la imagen es ilustrativa.",
 					"../../assets/maceta-plastica-rosa.jpeg" ,
 					9, 3500, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_plastica_rosa);
 
-			Productos maceta_ceramica_rosa = new Productos("Maceta cerámica rosa",
+			Productos maceta_ceramica_rosa = new Productos("Maceta Cerámica Rosa",
 					TipoProducto.MACETAS,
 					"Maceta ceramica pequeña rosa. No incluye planta, la imagen es ilustrativa.",
 					"../../assets/maceta-ceramica-rosa.jpeg" ,
 					15, 3000, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_ceramica_rosa);
 
-			Productos planta_difenbaquia_gigante = new Productos("Difenbaquia gigante",
+			Productos planta_difenbaquia_gigante = new Productos("Difenbaquia Gigante",
 					TipoProducto.INTERIOR,
 					"Planta que tolera muy bien la falta de luz. Es muy buena para principiantes. Riego moderado y mucha humedad. No incluye maceta, la imagen es ilustrativa.",
 					"../../assets/difenbaquia-gigante.jpeg" ,
 					2, 30000, true, Categorias.PLANTAS);
 			productosRepositorio.save(planta_difenbaquia_gigante);
 
-			Productos planta_difenbaquia_mini = new Productos("Difenbaquia pequeña",
+			Productos planta_difenbaquia_mini = new Productos("Difenbaquia Pequeña",
 					TipoProducto.INTERIOR,
 					"Planta que tolera muy bien la falta de luz. Es muy buena para principiantes. Riego moderado y mucha humedad. No incluye maceta, la imagen es ilustrativa.",
 					"../../assets/difenbaquia.jpeg" ,
