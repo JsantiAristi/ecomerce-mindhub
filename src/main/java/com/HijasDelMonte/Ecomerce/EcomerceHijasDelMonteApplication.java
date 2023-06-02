@@ -89,7 +89,64 @@ public class EcomerceHijasDelMonteApplication {
 					"../../assets/Curso-de-plantas-e-árbores.png",
 					4,12000,true,Categorias.CURSOS);
 			productosRepositorio.save(curso3);
+
+			Productos planta_monstera = new Productos("Monstera mediana",
+					TipoProducto.INTERIOR,
+					"Planta trepadora, excelente para interiores muy iluminados. Necesita de mucha humedad ambiental y poco riego. No incluye maceta, la imagen es ilustrativa.",
+					"../../assets/monstera.jpeg" ,
+					10, 5000, true, Categorias.PLANTAS);
+			productosRepositorio.save(planta_monstera);
+
+			Productos planta_paloDeAgua = new Productos("Palo de agua grande",
+					TipoProducto.INTERIOR,
+					"Excelente para interiores muy iluminados, pero de forma indirecta. Necesita muy poco riego, humedad eventual en sus hojas. No incluye maceta, la imagen es ilustrativa.",
+					"../../assets/palo-de-agua.jpeg" ,
+					5, 15000, true, Categorias.PLANTAS);
+			productosRepositorio.save(planta_paloDeAgua);
+
+			Productos planta_helecho = new Productos("Helecho pequeño",
+					TipoProducto.INTERIOR,
+					"Excelente interiores, terrazas o balcones muy humedos. Necesita mucho riego, principalmente en epocas de calor, humedad eventual en sus hojas. No incluye maceta, la imagen es ilustrativa.",
+					"../../assets/helecho.jpeg" ,
+					5, 3000, true, Categorias.PLANTAS);
+			productosRepositorio.save(planta_helecho);
+
+			Productos planta_ficus = new Productos("Ficus Pandurata grande",
+					TipoProducto.INTERIOR,
+					"Excelente interiores y lugares muy humedos. Necesita bastante riego, principalmente en epocas de calor, humedad eventual en sus hojas y mucha iluminacion indirecta. No incluye maceta, la imagen es ilustrativa.",
+					"../../assets/ficus-pandurata.jpeg" ,
+					3, 20000, true, Categorias.PLANTAS);
+			productosRepositorio.save(planta_ficus);
+
+			Productos planta_gomero = new Productos("Ficus elástica grande",
+					TipoProducto.INTERIOR,
+					"Excelente interiores. Necesita bastante riego, principalmente en epocas de calor, humedad en sus hojas y mucha iluminacion. No incluye maceta, la imagen es ilustrativa.",
+					"../../assets/gomero.jpeg" ,
+					1, 20000, true, Categorias.PLANTAS);
+			productosRepositorio.save(planta_gomero);
+
+			Productos planta_sanseviera = new Productos("Sansevieria pequeña",
+					TipoProducto.EXTERIOR,
+					"Esta planta necesita cuidados mínimos para vivir. Se adapta tanto a interiores como a exteriores, puede vivir tanto con abundante luz como en ambientes mas oscuros. Riego muy moderado. No incluye maceta, la imagen es ilustrativa.",
+					"../../assets/sanseviera.jpg" ,
+					15, 2000, true, Categorias.PLANTAS);
+			productosRepositorio.save(planta_sanseviera);
+
+			Productos planta_philodendron = new Productos("Philodendron pequeño",
+					TipoProducto.INTERIOR,
+					"Planta ideal para espacios con iluminacion moderada. Es una planta trepadora, es decir que conviene colocarle un tutor para que crezca hacia arriba. Riego moderado. No incluye maceta, la imagen es ilustrativa.",
+					"../../assets/philodendron.jpeg" ,
+					8, 4500, true, Categorias.PLANTAS);
+			productosRepositorio.save(planta_philodendron);
+
+			Productos planta_photus = new Productos("Photus mediano",
+					TipoProducto.INTERIOR,
+					"Planta de cuidados sencillos, necesita un riego moderado y se adapta a lugares con poca luz. No incluye maceta, la imagen es ilustrativa.",
+					"../../assets/photus.png" ,
+					11, 2500, true, Categorias.PLANTAS);
+			productosRepositorio.save(planta_photus);
+
 		};
-	};
+	}
 
 }
