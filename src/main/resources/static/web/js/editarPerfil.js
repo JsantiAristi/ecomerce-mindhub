@@ -7,9 +7,8 @@ createApp({
             cliente: '',
             nombre: '',
             apellido: '',
-            cedulaCiudadania: '',
+            dni: '',
             telefono: '',
-            genero: '',
             fechaNacimiento: '',
             carrito: [],
             totalCompra: "",
@@ -36,14 +35,14 @@ createApp({
                     this.cliente = respuesta.data;
                     this.nombre = this.cliente.nombre;
                     this.apellido = this.cliente.apellido;
-                    this.cedulaCiudadania = this.cliente.cedulaCiudadania;
+                    this.dni = this.cliente.dni;
                     this.telefono = this.cliente.telefono;
-                    this.genero = this.cliente.genero;
                     this.fechaNacimiento = this.cliente.fechaNacimiento;
                 })
                 .catch(error => console.log(error))
         },
         editarPerfil() {
+
             Swal.fire({
                 title: 'Esta seguro?',
                 text: "Usted quiere modificar su informacion personal?",
@@ -60,13 +59,14 @@ createApp({
                             "id": this.cliente.id,
                             "nombre": this.nombre,
                             "apellido": this.apellido,
-                            "cedulaCiudadania": this.cedulaCiudadania,
+                            "dni": this.dni,
                             "telefono": this.telefono,
-                            "genero": this.genero,
                             "fechaNacimiento": this.fechaNacimiento
                         }
                     )
                         .then(response => {
+                            console.log(dni)
+                            console.log(telefono);
                             Swal.fire({
                                 title: 'Modificado!',
                                 text: 'Usted ha modificado su informacion',

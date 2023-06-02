@@ -14,9 +14,8 @@ public class Clientes {
     private long id;
     private String nombre;
     private String apellido;
-    private String cedulaCiudadania;
+    private String dni;
     private long telefono;
-    private Genero genero;
     private LocalDate fechaNacimiento;
     private String email;
     private String contraseña;
@@ -30,12 +29,11 @@ public class Clientes {
     public Clientes() {
     }
 
-    public Clientes(String nombre, String apellido, String cedulaCiudadania, long telefono, Genero genero, LocalDate fechaNacimiento, String email, String contraseña, boolean valido){
+    public Clientes(String nombre, String apellido, String dni, long telefono, LocalDate fechaNacimiento, String email, String contraseña, boolean valido){
         this.nombre=nombre;
         this.apellido=apellido;
-        this.cedulaCiudadania=cedulaCiudadania;
+        this.dni=dni;
         this.telefono =telefono;
-        this.genero=genero;
         this.fechaNacimiento=fechaNacimiento;
         this.email=email;
         this.contraseña=contraseña;
@@ -57,9 +55,8 @@ public class Clientes {
     public long getId() {return id;}
     public String getNombre() {return nombre;}
     public String getApellido() {return apellido;}
-    public String getCedulaCiudadania() {return cedulaCiudadania;}
+    public String getDni() {return dni;}
     public long getTelefono() {return telefono;}
-    public Genero getGenero() {return genero;}
     public LocalDate getFechaNacimiento() {return fechaNacimiento;}
     public String getEmail() {return email;}
     public String getContraseña() {return contraseña;}
@@ -69,9 +66,8 @@ public class Clientes {
 
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setApellido(String apellido) {this.apellido = apellido;}
-    public void setCedulaCiudadania(String cedulaCiudadania) {this.cedulaCiudadania = cedulaCiudadania;}
+    public void setDni(String dni) {this.dni = dni;}
     public void setTelefono(long telefono) {this.telefono = telefono;}
-    public void setGenero(Genero genero) {this.genero = genero;}
     public void setFechaNacimiento(LocalDate fechaNacimiento) {this.fechaNacimiento = fechaNacimiento;}
     public void setEmail(String email) {this.email = email;}
     public void setContraseña(String contraseña) {this.contraseña = contraseña;}
