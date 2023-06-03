@@ -287,7 +287,7 @@ svg {
   right: 0;
   top: -50px;
   width: 12rem;
-  z-index: 100000;
+  z-index: 9998;
   margin-right: 2rem;
   background-color: #e8edec;
 }

@@ -57,9 +57,7 @@ createApp({
             .then(respuesta=> {
                 this.ordenes2 = respuesta.data;
                 this.ordenesPagadas = this.ordenes2.filter(orden => orden.comprado);
-                console.log(this.ordenesPagadas);
                 this.productosPagados = this.ordenesPagadas[0].productosSeleccionadosSet;
-                console.log(this.productosPagados);
             })
             .catch(error => console.log(error))
         },
