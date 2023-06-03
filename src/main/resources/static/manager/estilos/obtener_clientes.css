@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap');
+
 /* LOADER */
 .loader-container {
   display: flex;
@@ -41,7 +44,9 @@ a:hover {
 }
 
 header {
-    background-color: #464d41;
+  background-color: #464d41;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
 }
 
 /*Nav*/
@@ -186,3 +191,19 @@ table td{
     font-size: 15px;
   }
   
+  @media only screen and (max-width: 700px) {
+    .div_productos{
+        flex-direction: column;
+        align-items: center;
+    }
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+      }
+      main {
+        padding: 0 1rem !important;
+    }
+    
+}

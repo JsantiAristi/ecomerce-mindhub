@@ -35,6 +35,7 @@ createApp({
             icon: 'success',
             text: 'Accediste correctamente a tu cuenta',
             showConfirmButton: false,
+            iconColor:"#324545",
             timer: 2000,
           }).then(() => window.location.href = "/index.html")
         })
@@ -53,41 +54,22 @@ createApp({
       axios.post('/api/clientes',`nombre=${this.nombre}&apellido=${this.apellido}&email=${this.correoNuevo}&contraseña=${this.contraseñaNuevo}`)
       .then(response => 
           axios.post('/api/login',`email=${this.correoNuevo}&contraseña=${this.contraseñaNuevo}`)
-          .then(response => window.location.href = "/index.html")
+          .then(response => {
+            Swal.fire({
+              icon: 'success',
+              text: 'Creaste correctamente tu cuenta',
+              showConfirmButton: false,
+              iconColor:"#324545",
+              timer: 2000,
+            }).then(() => window.location.href = "/index.html")
+          })
           .catch(error => console.log(error)))
-        
-        // {
-        // Swal.fire({
-        //   icon: 'success',
-        //   text: 'Cuenta creada correctamente',
-        //   showConfirmButton: false,
-        //   timer: 2000,
-        // }).then(response =>
-        //   axios.post('/api/login',`email=${this.correoNuevo}&contraseña=${this.contraseñaNuevo}`)
-        // .then(response => {
-        //   Swal.fire({
-        //     icon: 'success',
-        //     text: 'Accediste correctamente a tu cuenta',
-        //     showConfirmButton: false,
-        //     timer: 2000,
-        //   }).then(() => window.location.href = "/index.html")
-        // })
         .catch(error => {
           Swal.fire({
             icon: 'error',
-            text: 'Wrong password',
-            confirmButtonColor: "#7c601893",
+            text: error.response.data,
+            confirmButtonColor: "#324545",
           })
-          console.log(error);
-        // }))
-      })
-      .catch(error => {
-        Swal.fire({
-          icon: 'error',
-          text: 'Wrong password',
-          confirmButtonColor: "#7c601893",
-        })
-        console.log(error);
       })
     },
     aparecerCuenta() {

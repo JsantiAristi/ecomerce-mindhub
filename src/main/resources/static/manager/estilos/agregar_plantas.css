@@ -70,20 +70,25 @@ nav {
     --bs-dropdown-link-hover-bg: #464d41;
 }
 
+.btnFondo{
+  background-color: #32454586;
+  color: aliceblue;
+  width: 20rem;
+}
+
+.btnFondo:hover{
+  background-color: #324545;
+  color: aliceblue;
+}
+
 
 /* Main */
 main {
     background-color: #f9f5eb;
 }
 
-.div_form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .form_create{
-    width: 500px;
+    width: 100%;
 }
 
 .form_create label{
@@ -96,12 +101,7 @@ main {
 }
 
 .form_create button{
-    width: 100%;
-}
-
-.btn_add_product{
-    background-color: rgb(97, 218, 178) !important;
-    color: white !important;
+    width: 20rem;
 }
 
 .productImage{
@@ -193,4 +193,18 @@ main {
   .pie-pagina .grupo-2 small{
     font-size: 15px;
   }
+
+  @media only screen and (max-width: 700px) {
+    .div_productos{
+        flex-direction: column;
+        align-items: center;
+    }
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+      }
+    
+}
   

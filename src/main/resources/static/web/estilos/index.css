@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap');
 
 
 /* LOADER */
@@ -46,6 +47,8 @@
 --------------------------------------------------------------*/
 header {
   background-color: #464d41;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
 }
 
 /*Nav*/
@@ -59,6 +62,18 @@ nav {
 
 .navbar-nav img {
   width: 1.5rem;
+}
+
+.navGranPantalla img{
+  width: 1.5rem;
+}
+
+.navGranPantalla a{
+  text-decoration: none;
+}
+
+.navGranPantalla a:hover{
+  color: #094b08 !important;
 }
 
 .nav-item span{
@@ -239,6 +254,17 @@ svg {
   overflow-y: scroll;
 }
 
+.lista_productos::-webkit-scrollbar {
+  width: 10px;
+  background: rgb(78, 73, 73);
+}
+
+.lista_productos::-webkit-scrollbar-thumb {
+  background: #e8edec;
+  border-radius: 10px;
+  border-right: 2px solid #161a1e;
+}
+
 /*Button*/
 .card-button {
     border: 1px solid #252525;
@@ -370,7 +396,7 @@ svg {
   right: 0;
   top: -50px;
   width: 12rem;
-  z-index: 10;
+  z-index: 10000000;
   margin-right: 2rem;
   background-color: #e8edec;
 }
@@ -528,8 +554,8 @@ body::-webkit-scrollbar-thumb {
   background-color: #fff8dee1
 }
 
-#fav .modal-header, #fav .modal-footer{
-  background-color: #fff8de !important;
+#fav .modal-footer{
+  background-color: #99A98F;
 }
 
 /*Scroll bar*/

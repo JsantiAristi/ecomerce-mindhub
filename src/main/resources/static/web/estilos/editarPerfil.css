@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap');
+
 /* LOADER */
 .loader-container {
   display: flex;
@@ -37,7 +39,9 @@
 
 
 header {
-    background-color: #464d41;
+  background-color: #464d41;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
 }
 
 /*Nav*/
@@ -71,6 +75,18 @@ nav {
 
 .dropdown-menu li {
     --bs-dropdown-link-hover-bg: #464d41;
+}
+
+.navGranPantalla img{
+  width: 1.5rem;
+}
+
+.navGranPantalla a{
+  text-decoration: none;
+}
+
+.navGranPantalla a:hover{
+  color: #094b08 !important;
 }
 
 /* Main */
@@ -195,42 +211,6 @@ form{
     width: 2rem;
 }
 
-/*Aside Carrito*/
-.asideCarrito {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 30rem;
-    min-height: 8%;
-    z-index: 10;
-    background-color: #e8edec;
-  }
-  
-  .infoTotalDiv{
-    height: 100%;
-  }
-  
-  .asideCarritoFoto{
-    width: 6rem;
-    height: 6rem;
-    object-fit: cover;
-  }
-  
-  .sumaBoton, .menosBoton {
-    width: 2rem;
-    cursor: pointer;
-  }
-  
-  .botonBasura{
-    width: 2rem;
-    height: 2rem;
-    object-fit: cover;
-    cursor: pointer;
-  }
-  
-  .infoCarrito{
-    width: 80%;
-  }
 .nav ul, .nav a{
     width: 100% !important;
 }

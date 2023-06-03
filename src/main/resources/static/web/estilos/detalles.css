@@ -73,6 +73,18 @@ nav {
     --bs-dropdown-link-hover-bg: #464d41;
 }
 
+.navGranPantalla img{
+  width: 1.5rem;
+}
+
+.navGranPantalla a{
+  text-decoration: none;
+}
+
+.navGranPantalla a:hover{
+  color: #094b08 !important;
+}
+
 /* Main */
 main {
     background-color: #f9f5eb;

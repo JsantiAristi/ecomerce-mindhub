@@ -199,6 +199,7 @@ createApp({
                             icon: 'error',
                             text: error.response.data,
                             showConfirmButton: false,
+                            iconColor:"#324545",
                             timer: 2000,
                         })
                     })
