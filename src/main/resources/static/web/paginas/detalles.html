@@ -187,12 +187,11 @@
                       <i class = "fas fa-star"></i>
                       <i class = "fas fa-star"></i>
                       <i class = "fas fa-star-half-alt"></i>
-                     <!-- <span>4.7(21)</span>-->
                     </div>
           
                     <div class = "product-price">
                       
-                      <p class = "new-price">Precio: <span>{{producto.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD'})}}</span></p>
+                      <p class = "new-price">Precio: <span>{{Number(producto.precio).toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}</span></p>
                       <p class = "new-price">Categoria: <span>{{producto.categorias}}</span></p>
                       <template v-if="producto.stock>0">
                         <p class = "new-price">Disponibles: <span>{{producto.stock}}</span></p> 
@@ -267,7 +266,8 @@
                         <p class="fs-5 text-center mt-5 mb-5">No has añadido nada al carrito 😥</p>
                     </template>
                     <div>
-                        <p class="mb-0 fs-5 fw-bold">Total = {{totalCompra.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}</p>
+                        <p class="mb-0 fs-5 fw-bold">Total = {{totalCompra.toLocaleString("en-US", { style:
+                          'currency', currency: 'USD' })}}</p>
                     </div>
                 </div>                   
                 <button class="btn btnProductos rounded" @click="crearOrden">Añadir a la orden</button>

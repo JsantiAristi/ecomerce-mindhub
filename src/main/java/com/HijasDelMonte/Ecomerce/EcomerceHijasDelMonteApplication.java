@@ -108,25 +108,25 @@ public class EcomerceHijasDelMonteApplication {
 
 			Productos anthurium_rosa = new Productos(
 					"Anthurium Rosa", TipoProducto.INTERIOR,
-					".",
+					"Dado que procede de zonas selváticas, el anthurium demanda buena luminosidad. Se mantiene en interior interiores precisamente por su necesidad de una temperatura cálida y sin oscilaciones.",
 					"../../assets/arthuriumRosa.jpg", 3, 5000, true, Categorias.PLANTAS );
 			productosRepositorio.save(anthurium_rosa);
 
 			Productos lirio_paz = new Productos(
 					"Lirio de Paz", TipoProducto.INTERIOR,
-					".",
+					"Para interiores o lugares con sombra. Uno de los significados más especiales del lirio de paz es la curación y la creación del equilibrio psíquico adecuado para que la vida de quien la posee sea más pacífica y armoniosa.",
 					"../../assets/lirioPaz.jpg", 4, 3000, true, Categorias.PLANTAS );
 			productosRepositorio.save(lirio_paz);
 
 			Productos buganvilla = new Productos(
 					"Buganvilla", TipoProducto.EXTERIOR,
-					".",
+					"Es una planta trepadora rústica que no necesita de muchos cuidados, para que la buganvilla crezca sana, frondosa y con mucho color colócala en un sitio en el que reciba tanto sol como sea posible.  ",
 					"../../assets/buganvilla.jpg", 15, 5000, true, Categorias.PLANTAS );
 			productosRepositorio.save(buganvilla);
 
 			Productos clivia = new Productos(
 					"Clivia", TipoProducto.INTERIOR,
-					".",
+					"No es muy exigente en cuanto a la luz y puede crecer y mantenerse con vida en los rincones menos luminosos.El exceso de sol, sin embargo, puede dañar las hojas verdes, creándoles quemaduras y amarillamientos.",
 					"../../assets/clivia.jpg", 9, 2000, true, Categorias.PLANTAS );
 			productosRepositorio.save(clivia);
 

@@ -4,7 +4,7 @@ createApp({
     data() {
         return {
             // Inicializamos las variables
-            producto: [],
+            producto: "",
             isCuentaInactivo: true,
             isCarritoInactivo: true,
             carrito: [],
@@ -19,35 +19,30 @@ createApp({
         }
     },
     created() {
-        this.cargarDatos()
-        this.cargarDatosPlantas()
-        this. cargarCliente()
+        this.cargarDatos();
+        this.cargarCliente();
+        this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
+        this.favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+        
     },
     //LOADER
   mounted() {
     window.onload = function() {
       var loader = document.getElementById('loader');
       loader.style.display = 'none'; // Ocultar el loader una vez que la página haya cargado completamente
-    }
+    }    
   },
     methods: {
         cargarDatos() {
             axios.get('/api/productos/'+this.id)
                 .then(respuesta => {
                     this.producto = respuesta.data;
-                    this.producto.contador = 1;;
+                    this.producto.contador = 1;
                 })
                 .catch(error => console.log(error))
-            this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-            this.totalCompra = JSON.parse(localStorage.getItem("totalCompra")) || 0;
+               
         },
-        cargarDatosPlantas() {
-            axios.get('/api/productos')
-              .then(respuesta => {
-                this.plantas = respuesta.data.filter(producto => producto.activo && producto.stock > 0);
-              })
-              .catch(error => console.log(error))
-          },
           cargarCliente() {
             axios.get('/api/clientes/actual')
               .then(respuesta => {
@@ -138,6 +133,9 @@ createApp({
                         icon: 'success',
                         title: 'Eliminar producto',
                         text: 'Se ha eliminado el producto de su carrito!',
+                        background:' rgb(238 243 236)',
+                        confirmButtonColor: " #324545",
+                        iconColor:"#324545",
                         
                       })                
                 }
@@ -147,40 +145,36 @@ createApp({
             localStorage.setItem("carrito", JSON.stringify(this.carrito));
             localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
         },
-        crearOrden(){
-            if(this.cliente.length==0){
-                window.location.href="/web/paginas/loginpage.html"
-            }
-            console.log(this.cliente.length)
-            axios.post("/api/cliente/orden",`idCliente=${1}`)
-            .then(response => {
-                for( producto of this.carrito ){
-                    axios.post("/api/cliente/carrito",
+        crearOrden() {
+            axios.post("/api/cliente/orden", `idCliente=${1}`)
+              .then(response => {
+                for (producto of this.carrito) {
+                  axios.post("/api/cliente/carrito",
                     {
-                        "id": producto.id,
-                        "idCliente": 1,
-                        "unidadesSeleccionadas": producto.contador,
+                      "id": producto.id,
+                      "idCliente": 1,
+                      "unidadesSeleccionadas": producto.contador,
                     })
                     .then(respuesta => {
-                        this.carrito = [];
-                        this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
-                        localStorage.setItem("carrito", JSON.stringify(this.carrito));
-                        localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
-                        window.location.href="/web/paginas/pedidos.html"
+                      this.carrito = [];
+                      this.totalCompra = this.carrito.reduce((acumulador, prod) => acumulador += (prod.precio * prod.contador), 0)
+                      localStorage.setItem("carrito", JSON.stringify(this.carrito));
+                      localStorage.setItem("totalCompra", JSON.stringify(this.totalCompra))
+                      window.location.href = "/web/paginas/pedidos.html"
                     })
                     .catch(error => {
-                        Swal.fire({
-                          icon: 'error',
-                          text: error.response.data,
-                          background:' rgb(238 243 236)',
-                          confirmButtonColor: " #324545",
-                          iconColor:"#324545",                  
-                        })
+                      Swal.fire({
+                        icon: 'error',
+                        text: error.response.data,
+                        background:' rgb(238 243 236)',
+                        confirmButtonColor: " #324545",
+                        iconColor:"#324545",                  
                       })
-                }               
-            })
-            .catch(error => console.log(error))
-        },
+                    })
+                }
+              })
+              .catch(error => console.log(error))
+          },
         logout() {
             Swal.fire({
                 title: 'Esta seguro de cerrar sesión?',
@@ -207,5 +201,9 @@ createApp({
                 }
               })
           },
+        /*  formatoValores(){
+            this.producto.precio=this.producto.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD'})
+           
+          }*/
     }
 }).mount("#app")
