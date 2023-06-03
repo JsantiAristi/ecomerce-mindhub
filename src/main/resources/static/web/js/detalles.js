@@ -35,9 +35,7 @@ createApp({
             axios.get('/api/productos/'+this.id)
                 .then(respuesta => {
                     this.producto = respuesta.data;
-                    console.log(this.producto)
-                    this.producto.contador = 1;
-                    console.log(this.producto);
+                    this.producto.contador = 1;;
                 })
                 .catch(error => console.log(error))
             this.carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -47,7 +45,6 @@ createApp({
             axios.get('/api/productos')
               .then(respuesta => {
                 this.plantas = respuesta.data.filter(producto => producto.activo && producto.stock > 0);
-                console.log(this.plantas);
               })
               .catch(error => console.log(error))
           },
@@ -55,11 +52,9 @@ createApp({
             axios.get('/api/clientes/actual')
               .then(respuesta => {
                 this.cliente = respuesta.data;
-                console.log(this.cliente);
               })
               .catch(error => {
                 this.cliente = []
-                console.log(this.cliente);
                 console.log(error)
               })
           }, 
@@ -90,8 +85,6 @@ createApp({
                     iconColor:"#324545",
                     
                   })
-                  
-                console.log("Usted ya añadio ese producto al carrito de compras")
             }else{
                 this.carrito.push(this.producto);
                 this.totalCompra = this.carrito.reduce((acumulador, prod)=> acumulador += (prod.precio * prod.contador), 0)
@@ -105,8 +98,7 @@ createApp({
                     confirmButtonColor: "#324545",
                     iconColor:"#324545",
                     
-                  })
-                console.log("si lo esta añadiendo")   
+                  }) 
             }
                                        
         },

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap');
+
 /* LOADER */
 .loader-container {
   display: flex;
@@ -36,7 +38,9 @@
 }
 
 header {
-    background-color: #464d41;
+  background-color: #464d41;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
 }
 
 /*Nav*/
@@ -71,6 +75,18 @@ nav {
 
 .dropdown-menu li {
     --bs-dropdown-link-hover-bg: #464d41;
+}
+
+.navGranPantalla img{
+  width: 1.5rem;
+}
+
+.navGranPantalla a{
+  text-decoration: none;
+}
+
+.navGranPantalla a:hover{
+  color: #094b08 !important;
 }
 
 /* Main */

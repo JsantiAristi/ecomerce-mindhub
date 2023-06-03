@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap');
+
 /* LOADER */
 .loader-container {
   display: flex;
@@ -37,7 +39,9 @@
 }
 
 header {
-    background-color: #464d41;
+  background-color: #464d41;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
 }
 
 /*Nav*/
@@ -94,6 +98,18 @@ main{
 .titulosIndex span{
     width: 35rem;
     color: #99A98F;
+}
+
+.navGranPantalla img{
+  width: 1.5rem;
+}
+
+.navGranPantalla a{
+  text-decoration: none;
+}
+
+.navGranPantalla a:hover{
+  color: #094b08 !important;
 }
 
 /* ------------------------------------------------main-inicio--------------------------------------- */

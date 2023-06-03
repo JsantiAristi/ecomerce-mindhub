@@ -21,14 +21,14 @@ createApp({
         this.cargarCliente()
     },
     //LOADER
-  mounted() {
-    window.onload = function() {
-      var loader = document.getElementById('loader');
-      loader.style.display = 'none'; // Ocultar el loader una vez que la página haya cargado completamente
-    }
-  },
+    mounted() {
+        window.onload = function () {
+            var loader = document.getElementById('loader');
+            loader.style.display = 'none'; // Ocultar el loader una vez que la página haya cargado completamente
+        }
+    },
     methods: {
-        createNumberCard(){
+        createNumberCard() {
             this.cardNumber = this.number1 + "-" + this.number2 + "-" + this.number3 + "-" + this.number4;
         },
         cargarDatos() {
@@ -41,17 +41,17 @@ createApp({
         },
         cargarCliente() {
             axios.get('/api/clientes/actual')
-              .then(respuesta => {
-                this.cliente = respuesta.data;
-                console.log(this.cliente);
-              })
-              .catch(error => {
-                this.cliente = []
-              })
-          },
-        payCard(){
+                .then(respuesta => {
+                    this.cliente = respuesta.data;
+                    console.log(this.cliente);
+                })
+                .catch(error => {
+                    this.cliente = []
+                })
+        },
+        payCard() {
             Swal.fire({
-                title: '¿Está seguro de pagar con esta tarjeta?' + this.cardNumber,
+                title: '¿Está seguro de pagar con esta tarjeta? ' + this.cardNumber,
                 inputAttributes: {
                     autocapitalize: 'off'
                 },
@@ -61,31 +61,31 @@ createApp({
                 preConfirm: () => {
                     console.log(this.ordenes[0].precioTotal);
                     return axios.post('/api/cliente/comprobante',
-                    {
-                        "type": this.typeCard,
-                        "color": this.colorCard,
-                        "number": this.cardNumber,
-                        "cvv": this.cvv,
-                        "email" : this.cliente.email,
-                        "amount" : this.ordenes[0].precioTotal
+                        {
+                            "type": this.typeCard,
+                            "color": this.colorCard,
+                            "number": this.cardNumber,
+                            "cvv": this.cvv,
+                            "email": this.cliente.email,
+                            "amount": this.ordenes[0].precioTotal
 
-                    })
-                    .then(response => {  
-                        Swal.fire({
-                            icon: 'success',
-                            text: 'Pago realizado',
-                            showConfirmButton: false,
-                            timer: 3000,
-                        }).then( () => window.location.href="/web/paginas/pedidos.html")
-                    })
-                    .catch(error => {
-                        Swal.fire({
-                            icon: 'error',
-                            text: error.response.data,
-                            confirmButtonColor: "#7c601893",
                         })
-                        console.log(error);
-                    })    
+                        .then(response => {
+                            Swal.fire({
+                                icon: 'success',
+                                text: 'Pago realizado',
+                                showConfirmButton: false,
+                                timer: 3000,
+                            }).then(() => window.location.href = "/web/paginas/pedidos.html")
+                        })
+                        .catch(error => {
+                            Swal.fire({
+                                icon: 'error',
+                                text: error.response.data,
+                                confirmButtonColor: "#7c601893",
+                            })
+                            console.log(error);
+                        })
                 },
                 allowOutsideClick: () => !Swal.isLoading()
             })
