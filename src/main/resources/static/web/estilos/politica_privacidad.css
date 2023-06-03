@@ -99,13 +99,22 @@ main{
 /* ------------------------------------------------main-inicio--------------------------------------- */
 .accordion{
     width: 25%;
+    background-image: url(../../assets/BANNER.jpeg);
+    background-size: cover;
+
+  
+    
 }
 .padre-inf{
     display: flex;
     justify-content: space-evenly;
 }
-.contenedor-texto, .accordion-button, .accordion-collapse{
+.contenedor-texto {
     background-color: #e6e4e44f !important;
+}
+.accordion-collapse, .accordion-button{
+  background-color: #324545a8 !important;
+  color: white !important;
 }
 #app .temple1:not(:first-of-type) {
     display: none;
