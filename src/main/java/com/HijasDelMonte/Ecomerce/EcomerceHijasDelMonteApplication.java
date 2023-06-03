@@ -63,24 +63,28 @@ public class EcomerceHijasDelMonteApplication {
 					2,1400,true,Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_matera);
 
-			Productos curso1= new Productos("Curso De Plantas Aromáticas",TipoProducto.PRESENCIAL,
-					"Clases teoricas y practicas, Lunes de 18 a 20 hs.","../../assets/curso_plantas_aromaticas.jpg",
-					10,7700,true,Categorias.TALLERES);
+			Productos curso1= new Productos("Taller Kokedamas",TipoProducto.PRESENCIAL,
+					"Clase teorica de como hacer una Kokedama, 15 horas","../../assets/curso1.jpeg",
+					10,2000,true,Categorias.TALLERES);
 			productosRepositorio.save(curso1);
 
-			Productos curso2= new Productos("Curso De Plantas Medicinales",TipoProducto.VIRTUAL,
-					"Clases teoricas y practicas, Lunes,Martes,Viernes de 15 a 18 hs.",
-					"../../assets/curso_plantas_medicinales.png",
-
-					8,8000,true,Categorias.TALLERES);
-
+			Productos curso2= new Productos("Cuadros Vivos",TipoProducto.PRESENCIAL,
+					"Taller de jardines verticales artesanales, 3 horas.",
+					"../../assets/curso2.jpeg",
+					8,2000,true,Categorias.TALLERES);
 			productosRepositorio.save(curso2);
 
-			Productos curso3= new Productos("Curso De Árboles",TipoProducto.PRESENCIAL,
-					"Clases practicas, Todos los dias de la semana de 12 a 20 hs.",
-					"../../assets/Curso-de-plantas-e-árbores.png",
-					4,12000,true,Categorias.TALLERES);
+			Productos curso3= new Productos("Cultivo de Plantas",TipoProducto.VIRTUAL,
+					"Clases teoricas sobre el cultivo, 2 encuentros, de 15 a 17 hs (Google Meet)",
+					"../../assets/curso3.jpg",
+					11,8000,true,Categorias.TALLERES);
 			productosRepositorio.save(curso3);
+
+			Productos curso4= new Productos("Cultivo de Plantas Ornamentales",TipoProducto.VIRTUAL,
+					"Sabado 17 Julio, 3 horas (Google Meet)",
+					"../../assets/curso4.jpg",
+					15,2000,true,Categorias.TALLERES);
+			productosRepositorio.save(curso4);
 
 			Productos maceta_artesanal = new Productos("Maceta Artesanal", TipoProducto.MACETAS,
 					"Maceta artesanal con material reciclado.",
