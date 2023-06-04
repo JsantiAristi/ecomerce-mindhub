@@ -25,7 +25,25 @@
   <div id="app">
     <!-- LOADER -->
     <div id="loader" class="loader-container">
-      <div class="loader"></div>
+      <div class="loader">
+        <div class="loader-inner">
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+        </div>
+      </div>
     </div>
     <header>
       <p class="text-center text-white mb-0" style="letter-spacing: 2.5px;">
@@ -60,78 +78,78 @@
             <span class="pe-1 ps-1 bg-success rounded text-white">{{carrito.length}}</span>
           </li>
         </div>
-          <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end ps-2" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active text-white fs-5" aria-current="page" href="#">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active text-white fs-5" aria-current="page" href="#productos">Productos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active text-white fs-5" aria-current="page" href="#mapa">Visitanos</a>
-              </li>
-              <li class="nav-item dropdown d-md-none">
-                <a class="nav-link dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Categorias
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center fs-5 text-white"
-                      href="./web/paginas/plantas.html?categoria=plantas"><img src="./assets/planta.png" alt="plantas"
-                        class="me-2" />
-                      Plantas</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center fs-5 text-white"
-                      href="./web/paginas/plantas.html?categoria=accesorios"><img src="./assets/accesorios.png"
-                        alt="accesorios" class="me-2" />
-                      Accesorios</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item d-flex align-items-center fs-5 text-white"
-                      href="./web/paginas/plantas.html?categoria=talleres"><img src="./assets/aprender-en-linea.png"
-                        alt="talleres" class="me-2" />
-                      Talleres</a>
-                  </li>
-                </ul>
-              </li>
-              <template v-if="cliente.length == 0">
-                <div class="d-flex">
-                  <li class="nav-item d-flex align-items-center me-3">
-                    <a href="./web/paginas/loginpage.html" class="btn btnProductos">Iniciar sesión</a>
-                  </li>
-                </div>
-              </template>
-              <template v-else>
-                <div class="d-flex gap-2">
-                  <li class="nav-item me-3">
-                    <a class="nav-link active" aria-current="page" href="#"><span class="pe-3">|</span><img
-                        src="./assets/usuario.png" alt="" @click="aparecerCuenta" /></a>
-                  </li>
-                </div>
-              </template>
-            </ul>
-          </div>
-          <div class="d-none d-lg-block">
-            <li class="nav-item d-flex me-2 ">
-              <a class="nav-link active" aria-current="page" href="#"><img src="./assets/carrito-de-compras.png"
-                  width="30" alt="" @click="aparecerCarrito" /></a>
-              <span class="pe-1 ps-1 bg-success rounded text-white">{{carrito.length}}</span>
+        <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end ps-2" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-white fs-5" aria-current="page" href="#">Inicio</a>
             </li>
-          </div>          
+            <li class="nav-item">
+              <a class="nav-link active text-white fs-5" aria-current="page" href="#productos">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white fs-5" aria-current="page" href="#mapa">Visitanos</a>
+            </li>
+            <li class="nav-item dropdown d-md-none mb-2">
+              <a class="nav-link dropdown-toggle fs-5" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Categorias
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item d-flex align-items-center fs-5 text-white"
+                    href="./web/paginas/plantas.html?categoria=plantas"><img src="./assets/planta.png" alt="plantas"
+                      class="me-2" />
+                    Plantas</a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center fs-5 text-white"
+                    href="./web/paginas/plantas.html?categoria=accesorios"><img src="./assets/accesorios.png"
+                      alt="accesorios" class="me-2" />
+                    Accesorios</a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center fs-5 text-white"
+                    href="./web/paginas/plantas.html?categoria=talleres"><img src="./assets/aprender-en-linea.png"
+                      alt="talleres" class="me-2" />
+                    Talleres</a>
+                </li>
+              </ul>
+            </li>
+            <template v-if="cliente.length == 0">
+              <div class="d-flex">
+                <li class="nav-item d-flex align-items-center me-3">
+                  <a href="./web/paginas/loginpage.html" class="btn btnProductos">Iniciar sesión</a>
+                </li>
+              </div>
+            </template>
+            <template v-else>
+              <div class="d-flex gap-2">
+                <li class="nav-item me-3">
+                  <a class="nav-link active" aria-current="page" href="#"><span class="pe-3">|</span><img
+                      src="./assets/usuario.png" alt="" @click="aparecerCuenta" /></a>
+                </li>
+              </div>
+            </template>
+          </ul>
         </div>
+        <div class="d-none d-lg-block">
+          <li class="nav-item d-flex me-2 ">
+            <a class="nav-link active" aria-current="page" href="#"><img src="./assets/carrito-de-compras.png"
+                width="30" alt="" @click="aparecerCarrito" /></a>
+            <span class="pe-1 ps-1 bg-success rounded text-white">{{carrito.length}}</span>
+          </li>
+        </div>
+      </div>
     </nav>
     <main>
       <!-- seccion inicio -->
       <section class="img-inicio">
-        <img class="img-fluid img" src="./assets/00000..png" alt="imagen inicio" />
+        <img class="img-fluid img" src="./assets/00000..jpg" alt="imagen inicio" />
       </section>
       <!-- CATEGORIAS -->
       <section id="productos">
@@ -141,20 +159,20 @@
           <b></b>
         </h2>
         <div class="container mt-2 mb-5 divContenedorProductos">
-            <div class="row ms-0" data-aos="fade-right">
-              <img class="col-12 col-md-6 imagenProductos ps-0 pe-0" src="./assets/plantas.jpg" alt="plantas" />
-              <div
-                class="d-flex flex-column align-items-start justify-content-center col-12 col-md-6 ps-0 pe-0 mb-3 mb-md-0 pt-3">
-                <h2 class="ps-3">PLANTAS</h2>
-                <p class="ps-3">
-                  Contamos con plantas tanto de interior como de exterior para
-                  llevar naturaleza a todos los espacios de tu hogar.
-                </p>
-                <a href="./web/paginas/plantas.html?categoria=plantas"
-                  class="d-flex align-items-center btn btnProductos text-white ms-3 fs-5"><img src="./assets/planta.png"
-                    alt="plantas" class="pe-2" />Ir a Plantas</a>
-              </div>
-            </div>         
+          <div class="row ms-0" data-aos="fade-right">
+            <img class="col-12 col-md-6 imagenProductos ps-0 pe-0" src="./assets/plantas.jpg" alt="plantas" />
+            <div
+              class="d-flex flex-column align-items-start justify-content-center col-12 col-md-6 ps-0 pe-0 mb-3 mb-md-0 pt-3">
+              <h2 class="ps-3">PLANTAS</h2>
+              <p class="ps-3">
+                Contamos con plantas tanto de interior como de exterior para
+                llevar naturaleza a todos los espacios de tu hogar.
+              </p>
+              <a href="./web/paginas/plantas.html?categoria=plantas"
+                class="d-flex align-items-center btn btnProductos text-white ms-3 fs-5"><img src="./assets/planta.png"
+                  alt="plantas" class="pe-2" />Ir a Plantas</a>
+            </div>
+          </div>
           <div class="row ms-0" data-aos="fade-right">
             <img class="col-12 col-md-6 imagenProductos ps-0 pe-0 d-block d-md-none" src="./assets/cursos.jpeg"
               alt="talleres" />
@@ -188,7 +206,7 @@
         </div>
       </section>
       <!-- Aside cuentas -->
-      <aside :class="{ inactive: isCuentaInactivo }" class="border rounded p-2 asideCuentas" id="aside">
+      <aside :class="{ inactive: isCuentaInactivo }" class="border rounded p-2 asideCuentas" id="asideCuenta">
         <div class="d-flex flex-column">
           <a href="./web/paginas/perfil.html" class="fs-5 p-1"><i class="bi bi-person me-1"></i>Mi cuenta</a>
           <a href="./web/paginas/pedidos.html" class="fs-5 p-1"><i class="bi bi-bag me-1"></i>Mis pedidos</a>
@@ -319,22 +337,22 @@
           todo cobra relevancia en este gran ecosistema del que somos parte.
         </div>
         <div>
-          <i>El monte es conexion y observacion</i> que posibilita ser y
+          <i>El monte es conexión y observación</i> que posibilita ser y
           crecer junto a ellas.
         </div>
         <div>
           Hijas sigue creciendo gracias a esa semillita que fue sembrada hace
-          ya 8 años y que nunca dejé de regar, con la conviccion de que
-          encontre mi camino... con al satisfaccion de poder sumar, una y otra
+          ya 8 años y que nunca dejé de regar, con la convicción de que
+          encontré mi camino... con al satisfacción de poder sumar, una y otra
           vez, mas y mas naturaleza a la ciudad. Hoy somos un gran equipo de
           personas que proyectamos, diseñamos y ejecutamos los diversos
-          proyectos. Pero tambien, todas sesas personas que aportan de si para
+          proyectos. Pero también, todas sesas personas que aportan de si para
           que lo que ofrecemos perdure y siga creciendo...
         </div>
         <div>
           Nos motivan las ganas de sumar vida a los espacios cotidianos y de
           ayudar a las personas a encontrar aquellos ejemplares que tiñan de
-          verde su día a día, de manera consciente y a partir de un vinculo
+          verde su día a día, de manera consciente y a partir de un vínculo
           que les permita aprender y crecer junto a ellas.
         </div>
         <div>

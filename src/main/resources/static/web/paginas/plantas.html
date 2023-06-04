@@ -27,10 +27,29 @@
 
 <body>
     <div id="app">
-      <!-- LOADER -->
+    <!-- LOADER -->
     <div id="loader" class="loader-container">
-      <div class="loader"></div>
+      <div class="loader">
+        <div class="loader-inner">
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+        </div>
+      </div>
     </div>
+    {{filtro_plantas}}
         <header>
           <p class="text-center text-white mb-0" style="letter-spacing: 2.5px;">
             Naturaleza en tus espacios   
@@ -95,7 +114,7 @@
                       >Inicio</a
                     >
                   </li>
-                  <li class="nav-item dropdown d-md-none">
+                  <li class="nav-item dropdown d-md-none mb-2">
                     <a
                       class="nav-link dropdown-toggle fs-5"
                       href="#"
@@ -222,7 +241,7 @@
                         <div class="d-flex justify-content-end align-items-center filtros_productos pb-1">
                             <p class="pe-3 fs-6 mb-0">{{cantidad_plantas}} productos</p>
                             <select class="form-select form-select-sm fw-bold me-3" aria-label=".form-select-sm example"
-                                v-model="filtros_arreglo" @Click="filtro_plantas">
+                                v-model="filtros_arreglo">
                                 <option value="">Filtros por precio</option>
                                 <option value="1">Mayor precio</option>
                                 <option value="2">Menor precio</option>
@@ -291,7 +310,7 @@
                 <p class="fs-5 p-1 mb-0" data-bs-toggle="modal" data-bs-target="#fav"><i class="bi bi-balloon-heart"></i>Mis
                   favoritos</p>
                 <template v-if="cliente.email == 'juan@gmail.com'">
-                  <a href="./manager/paginas/editar_plantas.html" class="fs-5 p-1">💻 Administrador</a>
+                  <a href="../../manager/paginas/obtener_clientes.html" class="fs-5 p-1">💻 Administrador</a>
                 </template>
                 <p class="text-center fs-5 text-danger mb-0" @click="logout">Cerrar sesión</p>
               </div>

@@ -72,17 +72,7 @@ createApp({
                 return (this.filtro_tipo(planta))
             })
         },
-        filtro_plantas() {
-            if (this.filtros_arreglo == 2) {
-                this.plantas_filtradas.sort((planta1, planta2) => {
-                    return (planta1.precio - planta2.precio);
-                })
-            } else if (this.filtros_arreglo == 1) {
-                this.plantas_filtradas.sort((planta1, planta2) => {
-                    return (planta2.precio - planta1.precio);
-                })
-            }
-        },
+        
         aparecerCuenta() {
             if (this.isCarritoInactivo) {
                 this.isCuentaInactivo = !this.isCuentaInactivo;
@@ -232,5 +222,18 @@ createApp({
           handleFav(){
             localStorage.setItem("favoritos", JSON.stringify(this.favoritos))
           },
-    }
+    },
+    computed: {
+        filtro_plantas() {
+            if (this.filtros_arreglo == 2) {
+                this.plantas_filtradas.sort((planta1, planta2) => {
+                    return (planta1.precio - planta2.precio);
+                })
+            } else if (this.filtros_arreglo == 1) {
+                this.plantas_filtradas.sort((planta1, planta2) => {
+                    return (planta2.precio - planta1.precio);
+                })
+            }
+        },
+    },
 }).mount("#app")

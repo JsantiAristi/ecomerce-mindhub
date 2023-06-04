@@ -47,8 +47,8 @@ public class EcomerceHijasDelMonteApplication {
 					"../../assets/maceta1.jpeg",
 					5, 20000, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_aluminio);
-			Productos maceta_ceramica = new Productos("Maceta ceramica",
-					TipoProducto.MACETAS, "Maceta amarilla de ceramica, pequeña",
+			Productos maceta_ceramica = new Productos("Maceta Cerámica",
+					TipoProducto.MACETAS, "Maceta amarilla de cerámica, pequeña",
 					"../../assets/maceta2.jpeg",
 					10, 5000, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_ceramica);
@@ -64,7 +64,7 @@ public class EcomerceHijasDelMonteApplication {
 			productosRepositorio.save(maceta_matera);
 
 			Productos curso1= new Productos("Taller Kokedamas",TipoProducto.PRESENCIAL,
-					"Clase teorica de como hacer una Kokedama, 15 horas","../../assets/curso1.jpeg",
+					"Clase teórica de como hacer una Kokedama, 15 horas","../../assets/curso1.jpeg",
 					10,2000,true,Categorias.TALLERES);
 			productosRepositorio.save(curso1);
 
@@ -75,13 +75,13 @@ public class EcomerceHijasDelMonteApplication {
 			productosRepositorio.save(curso2);
 
 			Productos curso3= new Productos("Cultivo de Plantas",TipoProducto.VIRTUAL,
-					"Clases teoricas sobre el cultivo, 2 encuentros, de 15 a 17 hs (Google Meet)",
+					"Clases teóricas sobre el cultivo, 2 encuentros, de 15 a 17 hs (Google Meet)",
 					"../../assets/curso3.jpg",
 					11,8000,true,Categorias.TALLERES);
 			productosRepositorio.save(curso3);
 
 			Productos curso4= new Productos("Cultivo de Plantas Ornamentales",TipoProducto.VIRTUAL,
-					"Sabado 17 Julio, 3 horas (Google Meet)",
+					"Sábado 17 Julio, 3 horas (Google Meet)",
 					"../../assets/curso4.jpg",
 					15,2000,true,Categorias.TALLERES);
 			productosRepositorio.save(curso4);
@@ -92,19 +92,19 @@ public class EcomerceHijasDelMonteApplication {
 					5, 2000, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_artesanal);
 
-			Productos maceta_cabeza = new Productos("Maceta de cabeza", TipoProducto.MACETAS,
+			Productos maceta_cabeza = new Productos("Maceta de Cabeza", TipoProducto.MACETAS,
 					"Maceta de cabeza para exterior.",
 					"../../assets/macetaCabeza.jpg",
 					11, 3000, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_cabeza);
 
-			Productos maceta_cabeza_resina = new Productos("Maceta con cabeza de niña", TipoProducto.MACETAS,
+			Productos maceta_cabeza_resina = new Productos("Maceta con Cabeza de Niña", TipoProducto.MACETAS,
 					"Maceta de resina con cabeza de niña.",
 					"../../assets/macetaDeResinaConCabeza.jpg",
 					8, 2000, true, Categorias.ACCESORIOS);
 			productosRepositorio.save(maceta_cabeza_resina);
 
-			Productos maceta_mediana = new Productos("Maceta mediana para interior ", TipoProducto.MACETAS,
+			Productos maceta_mediana = new Productos("Maceta Mediana para Interior ", TipoProducto.MACETAS,
 					"Maceta para interior.",
 					"../../assets/materaMediana.jpg",
 					5, 2000, true, Categorias.ACCESORIOS);
@@ -112,7 +112,7 @@ public class EcomerceHijasDelMonteApplication {
 
 			Productos anthurium_rosa = new Productos(
 					"Anthurium Rosa", TipoProducto.INTERIOR,
-					"Dado que procede de zonas selváticas, el anthurium demanda buena luminosidad. Se mantiene en interior interiores precisamente por su necesidad de una temperatura cálida y sin oscilaciones.",
+					"Dado que procede de zonas selváticas, el anthurium demanda buena luminosidad. Se mantiene en interiores precisamente por su necesidad de una temperatura cálida y sin oscilaciones.",
 					"../../assets/arthuriumRosa.jpg", 3, 5000, true, Categorias.PLANTAS );
 			productosRepositorio.save(anthurium_rosa);
 
@@ -134,7 +134,7 @@ public class EcomerceHijasDelMonteApplication {
 					"../../assets/clivia.jpg", 9, 2000, true, Categorias.PLANTAS );
 			productosRepositorio.save(clivia);
 
-			Productos planta_monstera = new Productos("Monstera mediana",
+			Productos planta_monstera = new Productos("Monstera Mediana",
 					TipoProducto.INTERIOR,
 					"Planta trepadora, excelente para interiores muy iluminados. Necesita de mucha humedad ambiental y poco riego. No incluye maceta, la imagen es ilustrativa.",
 					"../../assets/monstera.jpeg" ,
