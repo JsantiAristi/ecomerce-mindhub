@@ -77,10 +77,10 @@ public class ClientesControlador {
         if (clientesServicios.findByEmail(email) != null){
             return new ResponseEntity<>("Ese email ya está en uso", HttpStatus.FORBIDDEN);
         }
-        if (!apellido.matches("^[a-z A-Z]*$")){
+        if (!apellido.matches("^[a-z A-ZñÑ]*$")){
             return new ResponseEntity<>("Apellido inválido, solo se permiten letras.", HttpStatus.FORBIDDEN);
         }
-        if (!nombre.matches("^[a-z A-Z]*$")){
+        if (!nombre.matches("^[a-z A-ZñÑ]*$")){
             return new ResponseEntity<>("Nombre inválido, solo se permiten letras.", HttpStatus.FORBIDDEN);
         }
         if ( email.isBlank() || !email.contains("@") ) {
