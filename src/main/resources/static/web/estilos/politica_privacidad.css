@@ -243,11 +243,15 @@ main{
 
 .asideCuentas a:hover {
     color: #094b08;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .asideCuentas p{
     cursor: pointer;
+}
+
+.asideCuentas p:hover{
+  text-decoration: underline;
 }
 
 .asideCuentas img{

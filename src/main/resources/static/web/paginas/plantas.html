@@ -55,13 +55,13 @@
             Naturaleza en tus espacios   
           </p>
           </header>
-          <nav class="navbar navbar-expand-lg sticky-top">
+          <nav class="navbar navbar-expand-lg sticky-top" data-aos="zoom-out">
             <div class="container-fluid">
               <div class="d-flex align-items-center ps-5">
                 <a href="../../index.html"
                   ><img src="../../assets/sin_fondo.png" alt="logo" class="logo"
                 /></a>
-                <div class="navGranPantalla d-none d-lg-block">
+                <div class="navGranPantalla d-none d-md-block">
                   <div class="d-flex gap-4">
                     <a class="d-flex align-items-center fs-5 text-white"
                       href="./plantas.html?categoria=plantas"><img src="../../assets/planta.png" alt="plantas"
@@ -231,7 +231,7 @@
                                 @change="filtros" v-model="tipo_planta">
                                 <option value="" class="">Tipo</option>
                                 <template v-for="tipo of tipo_plantas">
-                                    <option :value="tipo" class="">{{tipo.toLowerCase()}}</option>
+                                    <option :value="tipo" class="">{{tipo.charAt(0) + tipo.slice(1).toLowerCase()}}</option>
                                 </template>
                             </select>
                         </div>
@@ -307,12 +307,12 @@
             <!-- Aside cuentas -->
             <aside :class="{ inactive: isCuentaInactivo }" class="border rounded p-2 asideCuentas" id="aside">
               <div class="d-flex flex-column">
-                <a href="./perfil.html" class="fs-5 p-1"><i class="bi bi-person me-1"></i>Mi cuenta</a>
-                <a href="./pedidos.html" class="fs-5 p-1"><i class="bi bi-bag me-1"></i>Mis pedidos</a>
-                <p class="fs-5 p-1 mb-0" data-bs-toggle="modal" data-bs-target="#fav"><i class="bi bi-balloon-heart"></i>Mis
+                <a href="./perfil.html" class="fs-4 p-1"><i class="bi bi-person me-1"></i>Mi cuenta</a>
+                <a href="./pedidos.html" class="fs-4 p-1"><i class="bi bi-bag me-1"></i>Mis pedidos</a>
+                <p class="fs-4 p-1 mb-0 favoritos" data-bs-toggle="modal" data-bs-target="#fav"><i class="bi bi-balloon-heart"></i>Mis
                   favoritos</p>
                 <template v-if="cliente.email == 'juan@gmail.com'">
-                  <a href="../../manager/paginas/obtener_clientes.html" class="fs-5 p-1">💻 Administrador</a>
+                  <a href="../../manager/paginas/obtener_clientes.html" class="fs-4 p-1">💻 Administrador</a>
                 </template>
                 <p class="text-center fs-5 text-danger mb-0" @click="logout">Cerrar sesión</p>
               </div>
@@ -364,7 +364,7 @@
                 </div>
             </aside>
         </main>
-        <footer class="pie-pagina">
+        <footer class="pie-pagina" data-aos="fade-up">
           <div class="grupo-1">
             <div class="box">
               <figure>
@@ -465,7 +465,7 @@
             </div>
           </div>
           <div class="grupo-2">
-            <small>&copy; 2015 <b>Hijas del Monte</b> - Todos los Derechos Reservados.</small>
+            <small>&copy; <b>Hijas del Monte</b> - Todos los Derechos Reservados.</small>
           </div>
         </footer>
         <!-- Modal -->

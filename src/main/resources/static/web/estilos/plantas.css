@@ -167,8 +167,11 @@ nav {
 }
 
 /* Main */
+body{
+  background-color: #fff8de91 !important;
+}
+
 main {
-  background-color: #f9f5eb;
   min-height: 95vh;
   position: relative;
 }
@@ -376,11 +379,20 @@ svg {
 
 .asideCuentas a:hover {
   color: #094b08;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .asideCuentas p {
   cursor: pointer;
+}
+
+.asideCuentas p:hover {
+  text-decoration: underline;
+}
+
+.asideCuentas .favoritos:hover{
+  color: #094b08;
+  text-decoration: underline;
 }
 
 .asideCuentas img {
