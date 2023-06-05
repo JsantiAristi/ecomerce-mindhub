@@ -166,8 +166,8 @@
                             <tr>
                               <th scope="col">Cantidad</th>
                               <th scope="col">Nombre</th>
-                              <th scope="col">precio Total</th>
-                              <th scope="col">Eliminar</th>
+                              <th scope="col" class="text-end">precio Total</th>
+                              <th scope="col" class="text-center">Eliminar</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -177,9 +177,9 @@
                                   src="../../assets/mas.png" alt="" class="sumaBoton2 ps-2"
                                   @click="sumarProducto(productoSeleccionado.id)"></td>
                               <td>{{productoSeleccionado.nombre}}</td>
-                              <td>{{productoSeleccionado.precioTotal.toLocaleString("en-US", { style: 'currency',
+                              <td class="text-end">{{productoSeleccionado.precioTotal.toLocaleString("en-US", { style: 'currency',
                                 currency: 'USD'})}}</td>
-                              <td><img src="../../assets/eliminar.png" class="botonBasura"
+                              <td class="text-center"><img src="../../assets/eliminar.png" class="botonBasura"
                                   @click="borrarProducto(productoSeleccionado.id)"></td>
                             </tr>
                           </tbody>
@@ -221,14 +221,14 @@
                             <tr>
                               <th scope="col">Cantidad</th>
                               <th scope="col">Nombre</th>
-                              <th scope="col">precio Total</th>
+                              <th scope="col" class="text-end">precio Total</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr v-for="productoSeleccionado of orden.productosSeleccionadosSet">
                               <td>{{productoSeleccionado.cantidad}}</td>
                               <td>{{productoSeleccionado.nombre}}</td>
-                              <td>{{productoSeleccionado.precioTotal.toLocaleString("en-US", { style: 'currency',
+                              <td class="text-end">{{productoSeleccionado.precioTotal.toLocaleString("en-US", { style: 'currency',
                                 currency: 'USD'})}}</td>
                             </tr>
                           </tbody>

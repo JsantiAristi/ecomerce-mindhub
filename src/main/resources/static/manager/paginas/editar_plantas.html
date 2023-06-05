@@ -83,7 +83,7 @@
                           </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white fs-5" aria-current="page" href="./agregar_plantas.html">| Agregar Plantas</a>
+                            <a class="nav-link text-white fs-5" aria-current="page" href="./agregar_plantas.html">| Agregar Productos</a>
                         </li>
                     </ul>
                 </div>
@@ -103,8 +103,8 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripción del producto</th>
                             <th scope="col">Tipo</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Cantidad</th>
+                            <th scope="col" class="text-end">Precio</th>
+                            <th scope="col" class="text-end">Cantidad</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -117,10 +117,10 @@
                                         class="edit_product ms-1" @click="changeData(planta.id,planta.descripcion)">
                                 </td>
                                 <td>{{planta.tipoProducto}}</td>
-                                <td>{{planta.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}
+                                <td class="text-end">{{planta.precio.toLocaleString("en-US", { style: 'currency', currency: 'USD' })}}
                                     <img src="../../assets/editar.png" alt="edit" class="edit_product ms-1"
                                         @click="changeData(product.id,product.price)"></td>
-                                <td>{{planta.stock}} <img src="../../assets/editar.png" alt="edit"
+                                <td class="text-end">{{planta.stock}} <img src="../../assets/editar.png" alt="edit"
                                         class="edit_product ms-1" @click="changeData(planta.id,planta.stock)"></td>
                             </tr>
                         </template>
