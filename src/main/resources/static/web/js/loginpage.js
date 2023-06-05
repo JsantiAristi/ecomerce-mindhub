@@ -138,7 +138,7 @@ $(function () {
     $(".frame").toggleClass("frame-long");
     $(".signup-inactive").toggleClass("signup-active");
     $(".signin-active").toggleClass("signin-inactive");
-    $(".forgot").toggleClass("forgot-left");
-    $(this).removeClass("idle").addClass("active");
+    // $(".forgot").toggleClass("forgot-left");
+    // $(this).removeClass("idle").addClass("active");
   });
 });

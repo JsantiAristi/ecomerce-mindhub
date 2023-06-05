@@ -57,7 +57,7 @@ createApp({
                 },
                 showCancelButton: true,
                 confirmButtonText: 'Confirmar',
-                confirmButtonColor: "#7c601893",
+                confirmButtonColor: " #324545",
                 preConfirm: () => {
                     console.log(this.ordenes[0].precioTotal);
                     return axios.post('/api/cliente/comprobante',
@@ -75,6 +75,7 @@ createApp({
                                 icon: 'success',
                                 text: 'Pago realizado',
                                 showConfirmButton: false,
+                                iconColor: "#324545",
                                 timer: 3000,
                             }).then(() => window.location.href = "/web/paginas/pedidos.html")
                         })
