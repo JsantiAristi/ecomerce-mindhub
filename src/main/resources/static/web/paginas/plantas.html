@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hijas del monte | Plantas</title>
+    <title>Hijas del monte | Productos</title>
     <!-- Titulos animados -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -267,10 +267,12 @@
                                     <div class="card-footer">
                                         <span class="text-title">{{planta.precio.toLocaleString("en-US", { style:
                                             'currency', currency: 'USD' })}}</span>
+                                          <template v-if="cliente.length !== 0">
                                             <label class="containerInput" :for="'card-'+planta.nombre">
                                               <input type="checkbox" :id="'card-'+planta.nombre" :value="planta" v-model="favoritos" @change="handleFav">
                                               <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>                    
                                             </label>
+                                          </template>
                                     </div>
                                     <template v-if="planta.stock > 0">
                                         <div class="d-flex justify-content-center">
@@ -474,7 +476,7 @@
           <template v-if="favoritos.length > 0" v-for="producto of favoritos">  
             <div class="card mb-2">
               <div class="card-img d-flex justify-content-center">
-                <a :href="'./web/paginas/detalles.html?id='+ producto.id"><img :src="producto.foto" alt="productoPrueba"
+                <a :href="'./detalles.html?id='+ producto.id"><img :src="producto.foto" alt="productoPrueba"
                     style="height: 15rem" /></a>
               </div>
               <div class="card-info">

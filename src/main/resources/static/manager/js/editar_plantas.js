@@ -43,7 +43,8 @@ createApp({
                 title: 'Modifica el contenido',
                 input: 'text',
                 showCancelButton: true,
-                confirmButtonText: 'Edit',
+                confirmButtonText: 'Editar',
+                confirmButtonColor: " #324545",
                 showLoaderOnConfirm: true,
                 preConfirm: (edit) => {
                     if( this.nombre === tipo ){
@@ -72,6 +73,7 @@ createApp({
                 icon: 'success',
                 text: 'Cambiaste correctamente el producto ' + this.nombre,
                 showConfirmButton: false,
+                iconColor: "#324545",
                 timer: 2000
                 }).then(() => window.location.href="/manager/paginas/editar_plantas.html")
             })

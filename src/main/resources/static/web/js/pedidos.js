@@ -171,7 +171,7 @@ createApp({
         },
         borrarProducto(id){
             Swal.fire({
-                title: 'Esta seguro de cerrar sesión?',
+                title: 'Esta seguro de que quieres eliminar este producto?',
                 text: "Confirmar",
                 icon: 'warning',
                 showCancelButton: true,
@@ -190,6 +190,7 @@ createApp({
                             text: 'Se elimino correctamente',
                             showConfirmButton: false,
                             timer: 2000,
+                            iconColor: "#324545",
                         }).then(() => window.location.href = "/web/paginas/pedidos.html")
                     })
                     .catch(error => {
