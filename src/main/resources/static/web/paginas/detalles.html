@@ -33,7 +33,7 @@
             Naturaleza en tus espacios   
        </p>
         </header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg" data-aos="zoom-out">
           <div class="container-fluid">
             <div class="d-flex align-items-center ps-5">
               <a href="../../index.html"
@@ -234,10 +234,10 @@
         <!-- Aside cuentas -->
         <aside :class="{ inactive: isCuentaInactivo }" class="border rounded p-2 asideCuentas" id="aside">
             <div class="d-flex flex-column">
-                <a href="../../web/paginas/perfil.html" class="fs-5 p-1"><i class="bi bi-person me-1"></i>Mi cuenta</a>
-                <a href="../../web/paginas/pedidos.html" class="fs-5 p-1"><i class="bi bi-bag me-1"></i>Mis pedidos</a>
+                <a href="../../web/paginas/perfil.html" class="fs-4 p-1"><i class="bi bi-person me-1"></i>Mi cuenta</a>
+                <a href="../../web/paginas/pedidos.html" class="fs-4 p-1"><i class="bi bi-bag me-1"></i>Mis pedidos</a>
                 <template v-if="cliente.email == 'juan@gmail.com'">
-                    <a href="../../manager/paginas/editar_plantas.html" class="fs-5 p-1">💻 Administrador</a>
+                    <a href="../../manager/paginas/editar_plantas.html" class="fs-4 p-1">💻 Administrador</a>
                 </template>                    
                 <p class="text-center fs-5 text-danger mb-0" @click="logout"><i class="bi bi-x-lg"></i>Cerrar sesión</p>
             </div>
@@ -361,7 +361,7 @@
             </div>
           </div>
           <div class="grupo-2">
-            <small>&copy; 2015 <b>Hijas del Monte</b> - Todos los Derechos Reservados.</small>
+            <small>&copy; <b>Hijas del Monte</b> - Todos los Derechos Reservados.</small>
           </div>
         </footer>
     </div>

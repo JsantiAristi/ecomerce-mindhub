@@ -170,13 +170,16 @@ nav {
 }
 
 /* Main */
-main {
+body {
     background-image: url(../../assets/fondoHistoria.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     min-height: 95vh;
-    position: relative;
+}
+
+main{
+  position: relative;
 }
 
 /*Botones*/
@@ -299,11 +302,15 @@ li{
 
 .asideCuentas a:hover {
     color: #094b08;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .asideCuentas p{
     cursor: pointer;
+}
+
+.asideCuentas p:hover{
+  text-decoration: underline;
 }
 
 .asideCuentas img{

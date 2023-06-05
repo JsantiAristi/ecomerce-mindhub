@@ -15,6 +15,8 @@
   <link rel="shortcut icon" href="../../assets/LOGO_HIJAS_DEL_MONTE_-_Negativo-01.png" type="image/x-icon">
   <!-- Boxicons -->
   <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="../estilos/pedidos.css" />
 </head>
 
@@ -47,11 +49,11 @@
         Naturaleza en tus espacios
       </p>
     </header>
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top" data-aos="zoom-out">
       <div class="container-fluid">
         <div class="d-flex align-items-center ps-5">
           <a href="../../index.html"><img src="../../assets/sin_fondo.png" alt="logo" class="logo" /></a>
-          <div class="navGranPantalla d-none d-lg-block">
+          <div class="navGranPantalla d-none d-md-block">
             <div class="d-flex gap-4">
               <a class="d-flex align-items-center fs-5 text-white"
                 href="./plantas.html?categoria=plantas"><img src="../../assets/planta.png" alt="plantas"
@@ -145,7 +147,7 @@
         <!-- End Opciones -->
         <div class="divGeneralOrdenes">
           <div>
-            <h3 class="mb-0 text-white mt-5">Ordenes en Proceso</h3>
+            <h3 class="mb-0 text-white mt-5">Órdenes en Proceso</h3>
             <template v-if="ordenesProceso.length > 0">
               <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
@@ -193,14 +195,14 @@
             </template>
             <template v-else>
               <div class="d-flex align-items-center contenedorPedidos p-3">
-                <h6>¡Usted todavia no tiene pedidos!</h6>
+                <h6>¡No tienes pedidos!</h6>
               </div>
             </template>
           </div>
 
           <!-- Ordenes pagadas -->
           <div class="ordenesPagos">
-            <h3 class="mb-0 text-white mt-5">Ordenes Pagadas</h3>
+            <h3 class="mb-0 text-white mt-5">Órdenes Pagadas</h3>
             <template v-if="ordenesPagadas.length > 0" v-for="orden of ordenesPagadas">
               <div class="accordion mb-3 mt-1" :id="'orden-'+orden.id">
                 <div class="accordion-item">
@@ -241,7 +243,7 @@
             </template>
             <template v-else>
               <div class="d-flex align-items-center contenedorPedidos p-3">
-                <h6>No tienes ordenes compradas</h6>
+                <h6>No tienes órdenes compradas</h6>
               </div>
             </template>
           </div>
@@ -250,13 +252,13 @@
       <!-- Aside cuentas -->
       <aside :class="{ inactive: isCuentaInactivo }" class="border rounded p-2 asideCuentas" id="aside">
         <div class="d-flex flex-column">
-          <a href="./perfil.html" class="fs-5 p-1"><i class="bi bi-person me-1"></i>Mi cuenta</a>
-          <a href="./pedidos.html" class="fs-5 p-1"><i class="bi bi-bag me-1"></i>Mis pedidos</a>
+          <a href="./perfil.html" class="fs-4 p-1"><i class="bi bi-person me-1"></i>Mi cuenta</a>
+          <a href="./pedidos.html" class="fs-4 p-1"><i class="bi bi-bag me-1"></i>Mis pedidos</a>
           <p class="text-center fs-5 text-danger mb-0" @click="logout">Cerrar sesión</p>
         </div>
       </aside>
     </main>
-    <footer class="pie-pagina">
+    <footer class="pie-pagina" data-aos="fade-up">
       <div class="grupo-1">
         <div class="box">
           <figure>
@@ -344,7 +346,7 @@
         </div>
       </div>
       <div class="grupo-2">
-        <small>&copy; 2015 <b>Hijas del Monte</b> - Todos los Derechos Reservados.</small>
+        <small>&copy; <b>Hijas del Monte</b> - Todos los Derechos Reservados.</small>
       </div>
     </footer>
   </div>
@@ -355,6 +357,10 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://kit.fontawesome.com/cde9bb5165.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   <script src="../js/pedidos.js"></script>
 </body>
 

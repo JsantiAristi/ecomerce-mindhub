@@ -95,7 +95,7 @@ createApp({
                 Swal.fire({
                     icon: 'success',
                     title: 'Producto añadido',
-                    text: 'Se ha agregado a su carrito de comptras',
+                    text: 'Se ha agregado a su carrito de compras',
                     background: ' rgb(238 243 236)',
                     confirmButtonColor: " #324545",
                     iconColor: "#324545",
@@ -108,7 +108,7 @@ createApp({
             } else {
                 Swal.fire({
                     icon: 'info',
-                    title: 'Usted ya añadio este producto al carrito de compras',
+                    title: 'Usted ya añadió este producto al carrito de compras',
                     text: 'Para añadir más unidades diríjase al carrito de compras!',
                     background: ' rgb(238 243 236)',
                     confirmButtonColor: " #324545",

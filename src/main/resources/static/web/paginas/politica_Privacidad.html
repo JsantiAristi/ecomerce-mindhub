@@ -19,7 +19,8 @@
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <!-- icono -->
     <link rel="shortcut icon" href="../../assets/LOGO_HIJAS_DEL_MONTE_-_Negativo-01.png" type="image/x-icon">
-
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- css -->
     <link rel="stylesheet" href="../estilos/politica_privacidad.css">
 </head>
@@ -53,11 +54,11 @@
                 Naturaleza en tus espacios   
             </p>
         </header>
-        <nav class="navbar navbar-expand-lg sticky-top">
+        <nav class="navbar navbar-expand-lg sticky-top" data-aos="zoom-out">
             <div class="container-fluid">
                 <div class="d-flex align-items-center ps-5">
                     <a href="../../index.html"><img src="../../assets/sin_fondo.png" alt="logo" class="logo"></a>
-                    <div class="navGranPantalla d-none d-lg-block">
+                    <div class="navGranPantalla d-none d-md-block">
                         <div class="d-flex gap-4">
                           <a class="d-flex align-items-center fs-5 text-white"
                             href="./plantas.html?categoria=plantas"><img src="../../assets/planta.png" alt="plantas"
@@ -445,10 +446,10 @@
             <!-- Aside cuentas -->
             <aside :class="{ inactive: isCuentaInactivo }" class="border rounded p-2 asideCuentas" id="aside">
                 <div class="d-flex flex-column">
-                  <a href="./perfil.html" class="fs-5 p-1"><i class="bi bi-person me-1"></i>Mi cuenta</a>
-                  <a href="./pedidos.html" class="fs-5 p-1"><i class="bi bi-bag me-1"></i>Mis pedidos</a>
+                  <a href="./perfil.html" class="fs-4 p-1"><i class="bi bi-person me-1"></i>Mi cuenta</a>
+                  <a href="./pedidos.html" class="fs-4 p-1"><i class="bi bi-bag me-1"></i>Mis pedidos</a>
                     <template v-if="cliente.email == 'juan@gmail.com'">
-                        <a href="../../manager/paginas/editar_plantas.html" class="fs-5 p-1">💻 Administrador</a>
+                        <a href="../../manager/paginas/editar_plantas.html" class="fs-4 p-1">💻 Administrador</a>
                     </template>
                     <p class="text-center fs-5 text-danger mb-0" @click="logout">Cerrar sesión</p>
                 </div>
@@ -502,7 +503,7 @@
 
         </main>
 
-        <footer class="pie-pagina">
+        <footer class="pie-pagina" data-aos="fade-up">
             <div class="grupo-1">
               <div class="box">
                 <figure>
@@ -603,7 +604,7 @@
               </div>
             </div>
             <div class="grupo-2">
-                <small>&copy; 2015 <b>Hijas del Monte</b> - Todos los Derechos Reservados.</small>
+                <small>&copy; <b>Hijas del Monte</b> - Todos los Derechos Reservados.</small>
             </div>
           </footer>
     </div>
@@ -617,6 +618,10 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://kit.fontawesome.com/cde9bb5165.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script src="../js/politica_privacidad.js"></script>
 </body>
 
