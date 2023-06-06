@@ -25,9 +25,27 @@
 <body>
     <div id="app">
       <!-- LOADER -->
-    <div id="loader" class="loader-container">
-      <div class="loader"></div>
-    </div>
+      <div id="loader" class="loader-container">
+        <div class="loader">
+          <div class="loader-inner">
+            <div class="loader-line-wrap">
+              <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+              <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+              <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+              <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+              <div class="loader-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
         <header>
           <p class="text-center text-white mb-0" style="letter-spacing: 2.5px;">
             Naturaleza en tus espacios   
@@ -269,8 +287,18 @@
                         <p class="mb-0 fs-5 fw-bold">Total = {{totalCompra.toLocaleString("en-US", { style:
                           'currency', currency: 'USD' })}}</p>
                     </div>
-                </div>                   
-                <button class="btn btnProductos rounded" @click="crearOrden">Añadir a la orden</button>
+                </div>  
+                <template v-if="cliente.length == 0">
+                  <a href="./loginpage.html">
+                <button class="btn btnProductos rounded">
+                  Añadir a la orden 
+                </button></a>
+              </template>
+              <template v-else>
+                <button class="btn btnProductos rounded" @click="crearOrden">
+                  Añadir a la orden
+              </button>
+            </template>                 
             </div>
         </aside> 
         </main>
