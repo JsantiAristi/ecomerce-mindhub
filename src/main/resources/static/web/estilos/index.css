@@ -624,6 +624,16 @@ svg {
   font-size: 15px;
 }
 
+/*Video index*/
+#inicio{
+  width: 100%;
+}
+
+#inicio video{
+  width: 100%;
+  object-fit: contain;
+}
+
 /*Scroll bar*/
 body::-webkit-scrollbar {
   width: 10px;
