@@ -405,7 +405,7 @@ svg {
   right: 0;
   top: 0;
   width: 30rem;
-  min-height: 8%;
+  min-height: 2%;
   z-index: 10;
   background-color: #e8edec;
 }
