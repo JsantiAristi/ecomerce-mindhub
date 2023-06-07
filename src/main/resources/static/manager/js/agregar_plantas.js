@@ -68,6 +68,14 @@ createApp({
                 text: error.response.data   
                 })
             })
-        }
+        },
+        abrirWidget() {
+			const widget = window.cloudinary.createUploadWidget({cloud_name: 'dtis6pqyq', upload_preset: 'upload-test'}, (error, response) => {
+				if (!error && response && response.event === 'success') {
+                    this.foto = response.info.secure_url;
+				}
+			});
+			widget.open();
+		},
     }
 }).mount('#app')
